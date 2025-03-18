@@ -40,6 +40,9 @@ function App() {
           Learn React
         </a>
         <p>
+          Crissa Owens
+        </p>
+        <p>
           Asher Mills
         </p>
       </header>
