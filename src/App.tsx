@@ -26,6 +26,9 @@ function App() {
   }
   return (
     <div className="App">
+
+
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -51,6 +54,7 @@ function App() {
         <p>
           Kevin Pinkett
         </p>
+
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
