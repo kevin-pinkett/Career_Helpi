@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import { Header } from './components/Header';
+import { HomePage } from './components/HomePage';
+import { BasicQuestionsPage } from './components/BasicQ';
+import { FAQPage } from './components/FAQ';
+import { DetailQuestionsPage } from './components/DetailedQ';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -13,6 +18,7 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [page, setPage] = useState<string>('homePage');
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -24,8 +30,22 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function changePage(newPage: string) {
+    setPage(newPage);
+  }
+
   return (
     <div className="App">
+      <div> 
+        <Header page={page} setPage={setPage} />
+      <div/>
+      
+      {page === 'homePage' && (<div><HomePage /></div>)}
+      {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
+      {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}
+      {page === 'faqPage' && (<div><FAQPage /></div>)}
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -51,6 +71,7 @@ function App() {
         <p>
           Kevin Pinkett
         </p>
+
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
@@ -58,6 +79,8 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+      
+    </div>
     </div>
   );
 }
