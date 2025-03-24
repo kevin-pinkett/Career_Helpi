@@ -31,9 +31,7 @@ function App() {
     setKey(event.target.value);
   }
 
-  function changePage(newPage: string) {
-    setPage(newPage);
-  }
+ 
 
   return (
     <div className="App">
