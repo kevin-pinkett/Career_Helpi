@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 
-function Header() {
+export function Header() {
 
     const [page, setPage] = useState<string>("homePage"); 
 
