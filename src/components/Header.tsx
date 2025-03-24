@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
+interface HeaderProps {
+  page: string;
+  setPage: (page: string) => void;
+}
 
-export function Header() {
 
-    const [page, setPage] = useState<string>("homePage"); 
+export function Header({page, setPage}: HeaderProps) {
 
     const homeState = () => {
         setPage("homePage");

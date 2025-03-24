@@ -14,6 +14,7 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [page, setPage] = useState<string>('home');
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -25,10 +26,15 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function changePage(newPage: string) {
+    setPage(newPage);
+  }
+
   return (
     <div className="App">
       <div className='Header'>
-        <Header />
+        <Header page={page} setPage={changePage} />
       </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
