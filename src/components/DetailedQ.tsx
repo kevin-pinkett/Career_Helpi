@@ -1,7 +1,5 @@
 import { DetailedQuestions } from "../detailed-questions/questions"
 
-
-
 export function DetailQuestionsPage() {
 
     return (
