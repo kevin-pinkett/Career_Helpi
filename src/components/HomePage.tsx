@@ -1,6 +1,11 @@
-import './HomePage.css';
-export function HomePage() {
+import { BasicQuestionsOption } from "./BasicQOption";
+import {Row} from "react-bootstrap"
 
+interface HomePageProp {
+    setPage: (page: string) => void;
+}
+
+export function HomePage({setPage}: HomePageProp) {
     return (
     <div className="Home-page">
     
@@ -8,7 +13,11 @@ export function HomePage() {
 
     <div className='Box-Container'>
         <div id="basic-questions-box" className="Page-Box">
-            <div className="subtitle">Basic Questions</div>
+            <div className="subtitle">Basic Questions
+            <Row>
+                <BasicQuestionsOption page={"basicQuestion"} setPage={setPage} />
+            </Row>
+            </div>
         </div>
         <div id="detailed-questions-box" className="Page-Box">
             <div className="subtitle">Detailed Questions</div>
@@ -19,6 +28,7 @@ export function HomePage() {
         
     </div>
 
+    
     </div>
 )
 }

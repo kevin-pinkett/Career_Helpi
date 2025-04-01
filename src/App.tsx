@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { Header } from './components/Header';
@@ -38,7 +37,7 @@ function App() {
         <Header page={page} setPage={setPage}/>
       <div/>
       
-      {page === 'homePage' && (<div><HomePage /></div>)}
+      {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
       {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
       {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}
       {page === 'faqPage' && (<div><FAQPage /></div>)}

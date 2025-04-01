@@ -31,5 +31,6 @@ export function Header({page, setPage}: HeaderProps) {
       <Button className="Header-Button" onClick={faqState}>FAQ</Button>
 
     </div>
+ 
 )
 }
