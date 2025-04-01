@@ -17,14 +17,14 @@ export function HomePage({setPage}: HomePageProp) {
     <div className='Box-Container'>
         <div id="basic-questions-box" className="Page-Box">
             <div className="subtitle">
-                Basic Questions
+                Basic Quiz
                 <Row>
                     <BasicQuestionsOption page={"basicQuestion"} setPage={setPage} />
                 </Row>
             </div>
         </div>
         <div id="detailed-questions-box" className="Page-Box">
-            <div className="subtitle">Detailed Questions
+            <div className="subtitle">Detailed Quiz
                 <Row>
                     <DetailedQuestionsOption page={"detailedQuestion"} setPage={setPage} />
                 </Row>

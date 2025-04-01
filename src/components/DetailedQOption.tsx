@@ -19,7 +19,7 @@ export function DetailedQuestionsOption({page, setPage}: DetailedQuestionProps) 
           maxWidth: "300px",
         }}
       >
-        <h4>Detailed Questions</h4>
+        <h4>Detailed Quiz</h4>
         <p>Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.</p>
         <Button className="DetailedQuestions-Button" onClick={() => setPage("detailedPage")}>
           Start Quiz
