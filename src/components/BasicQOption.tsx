@@ -14,9 +14,8 @@ export function BasicQuestionsOption({page, setPage}: BasicQuestionProps) {
           maxWidth: "300px",
         }}
       >
-        <p>Quick and easy career guidance! Answer a few straightforward questions to receive personalized insights without the deep dive.
-          
-        </p>
+        <h4>Basic Quiz</h4>
+        <p>Quick and easy career guidance! Answer a few straightforward questions to receive personalized insights without the deep dive.</p>
         <Button className="BasicQuestions-Button" onClick={() => setPage("basicPage")}>
           Start Quiz
         </Button>
