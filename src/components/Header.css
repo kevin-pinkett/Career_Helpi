@@ -1,7 +1,17 @@
+.Header{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100vw;
+    background-color: #2568fb;
+}
+
 .Header-Button {
     background-color: #2568fb;
-    color: white; /* White text */
+    color: rgb(255, 255, 255); /* White text */
     width: 25%;
+
 }
 
 .Header-Button:hover {
