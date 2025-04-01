@@ -33,10 +33,10 @@ function App() {
 
   return (
     <div className="App">
+      <div id="header-title">The Career Helpi</div>
       <div> 
         <Header page={page} setPage={setPage}/>
       <div/>
-      
       {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
       {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
       {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}

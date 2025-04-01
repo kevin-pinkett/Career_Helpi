@@ -1,10 +1,15 @@
-.App {
-  
-}
-
 h1 {
   justify-self: center;
   padding: 15px;
+}
+
+#header-title {
+  text-align: center;
+  font-size: 40px;
+  padding: 15px;
+  color: white;
+  background-color: #2568fb;
+  width: 100%;
 }
 
 .footer-hover-area {
