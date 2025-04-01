@@ -37,5 +37,6 @@ export function HomePage({setPage}: HomePageProp) {
             </div>
         </div>
     </div>
+    </div>
 )
 }
