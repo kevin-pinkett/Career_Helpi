@@ -9,13 +9,8 @@ export function DetailedQuestionsOption({page, setPage}: DetailedQuestionProps) 
     return (    <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}>
       <div
         style={{
-          border: "1px solid #ccc",
-          padding: "15px",
-          borderRadius: "8px",
-          boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
-          backgroundColor: "white",
           textAlign: "center",
-          fontSize: "16px",
+          fontSize: "20px",
           maxWidth: "300px",
         }}
       >

@@ -29,18 +29,13 @@ export function HomePage({setPage}: HomePageProp) {
                     <DetailedQuestionsOption page={"detailedQuestion"} setPage={setPage} />
                 </Row>
             </div>
-        </div>
-        <div id="faq-box" className="Page-Box">
-            <div className="subtitle">FAQ Questions
+            <div id="faq-box" className="Page-Box">
+                <div className="subtitle" style={{fontSize: "25px", fontWeight: "5px"}}>FAQ</div>
                 <Row>
                     <FAQOption page={"faqPage"} setPage={setPage} />
                 </Row>
             </div>
         </div>
-        
-    </div>
-
-    
     </div>
 )
 }
