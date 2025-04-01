@@ -7,21 +7,20 @@
     background-color: #2568fb;
 }
 
-.Header-ButtonUnselected {
+.Header-Button {
     background-color: #2568fb;
     color: rgb(255, 255, 255);
     width: 25%;
 
 }
 
-.Header-ButtonUnselected:hover {
+.Header-Button:hover {
     background-color: #1043b1;
 }
 
-.Header-ButtonSelected {
+.Header-Button:disabled {
     background-color: #1043b1;
     color: rgb(255, 255, 255);
     width: 25%;
-
 }
 
