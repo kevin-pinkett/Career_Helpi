@@ -1,0 +1,17 @@
+
+
+.Box-Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.Page-Box{
+    border: solid black;
+    padding: 10px;
+    padding-bottom: 25px;
+    width: 30%;
+    height: 25%;
+}
+
