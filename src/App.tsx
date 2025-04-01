@@ -7,7 +7,6 @@ import { HomePage } from './components/HomePage';
 import { BasicQuestionsPage } from './components/BasicQ';
 import { FAQPage } from './components/FAQ';
 import { DetailQuestionsPage } from './components/DetailedQ';
-import { Footer } from './Footer';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -20,7 +19,7 @@ if (prevKey !== null) {
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [page, setPage] = useState<string>('homePage');
-  const [footerVisible, setFooterVisible] = useState<boolean>(false); //controls if footer is displayed
+  
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -79,21 +78,13 @@ function App() {
       */}
     </div>
     
-    <div className='footer-hover-area' onMouseEnter={() => setFooterVisible(true)}></div>
-    <footer style={{
-      opacity: footerVisible ? 0 : 1,
-      visibility: footerVisible ? "visible" : "hidden",
-      transition: "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out"
-    }}
-      onMouseLeave={() => setFooterVisible(false)}>
-      Hello
+    <footer>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
-    
     </footer>
       
     </div>
