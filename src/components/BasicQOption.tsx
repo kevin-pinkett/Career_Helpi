@@ -10,7 +10,7 @@ export function BasicQuestionsOption({page, setPage}: BasicQuestionProps) {
         setPage("basicPage");
       };
 
-    return (<div>
+    return (<div style={{}}>
         <Button className="BasicQuestions-Button" onClick={basicButtonState}>Basic Questions</Button>
     </div>
 )

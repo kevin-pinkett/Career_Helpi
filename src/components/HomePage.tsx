@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
 import { BasicQuestionsOption } from "./BasicQOption";
 
-export function HomePage() {
+interface HomePageProp {
+    setPage: (page: string) => void;
+}
+
+export function HomePage({setPage}: HomePageProp) {
     return (
     <div className="HomePage">
     <h1>Home Page</h1>
-    {/* <div><BasicQuestionsOption page={"basicQuestion"} setPage={setPage} /></div> */}
+    <BasicQuestionsOption page={"basicQuestion"} setPage={setPage} />
     </div>
 )
 }
