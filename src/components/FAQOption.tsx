@@ -15,7 +15,7 @@ export function FAQOption({page, setPage}: FAQProps) {
         }}
       >
         <p>Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey.</p>
-        <Button className="FAQ-Button" onClick={() => setPage("faqPage")}>
+        <Button id="FAQ-Button" className="Button" onClick={() => setPage("faqPage")}>
           Go to FAQ
         </Button>
       </div>

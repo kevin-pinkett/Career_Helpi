@@ -1,6 +1,20 @@
+.App{
+  background-color: #fcc9bd;
+}
+
 h1 {
   justify-self: center;
+  font-weight: bolder;
   padding: 15px;
+}
+
+.Button {
+  background-color: #FE604D;
+  border-color: #FE604D;
+}
+.Button:hover {
+  background-color: #d34f40;
+  border-color: #d34f40;
 }
 
 #header-title {
@@ -8,7 +22,8 @@ h1 {
   font-size: 40px;
   padding: 15px;
   color: white;
-  background-color: #2568fb;
+  font-weight: bolder;
+  background-color: #FE604D;
   width: 100%;
 }
 

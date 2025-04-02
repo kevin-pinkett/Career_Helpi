@@ -15,7 +15,7 @@ export function BasicQuestionsOption({page, setPage}: BasicQuestionProps) {
         }}
       >
         <p>Quick and easy career guidance! Answer a few straightforward questions to receive personalized insights without the deep dive.</p>
-        <Button className="BasicQuestions-Button" onClick={() => setPage("basicPage")}>
+        <Button id="BasicQuestions-Button" className="Button" onClick={() => setPage("basicPage")}>
           Start Quiz
         </Button>
       </div>

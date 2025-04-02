@@ -1,3 +1,15 @@
+html, body {
+    background-color: #fcc9bd;
+    height: 100%;
+}
+
+.Home-Page{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
 
 .Box-Container{
     display: flex;
