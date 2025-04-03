@@ -3,6 +3,7 @@ import { DetailedQuestionsOption } from "./DetailedQOption";
 import { FAQOption } from "./FAQOption";
 import {Row} from "react-bootstrap"
 import "./HomePage.css";
+import "../App.css";
 
 interface HomePageProp {
     setPage: (page: string) => void;
@@ -11,13 +12,7 @@ interface HomePageProp {
 export function HomePage({setPage}: HomePageProp) {
     return (
     <div className="Home-page">
-        <img src="/assets/Helpi Mascot.png" alt="mascot" style={{
-            display: "flex",
-            justifySelf: "center",
-            height: "25%",
-            width: "25%",
-            padding: "20px"
-            }}></img>
+        
         <div className='Box-Container'>
             <div id="basic-questions-box" className="Page-Box">
             <div className="subtitle" style={{fontSize: "25px", fontWeight: "5px"}}>Basic Quiz</div>

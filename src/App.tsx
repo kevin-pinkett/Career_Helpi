@@ -38,10 +38,20 @@ function App() {
 
   return (
     <div className="App">
-      <div id="header-title">The Career Helpi</div>
-      <div> 
-        <Header page={page} setPage={setPage}/>
-      <div/>
+
+      <div className="Header-Wrapper">
+        <img src="/assets/Helpi Mascot.png" alt="mascot" style={{
+            display: "flex",
+            justifySelf: "center",
+            height: "15%",
+            width: "15%",
+            padding: "20px"
+            }}></img>
+        <div id="header-title">The Career Helpi</div>
+      </div>
+
+      <Header page={page} setPage={setPage}/>
+      
 
       <div className="Page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
@@ -62,7 +72,6 @@ function App() {
       </div>
 
       </div>
-    </div>
   );
 }
 

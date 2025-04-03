@@ -5,32 +5,13 @@
   max-height: 100vh;
 }
 
-h1 {
-  justify-self: center;
-  font-weight: bolder;
-  padding: 15px;
-}
-
-.Button {
+.Header-Wrapper {
+  display: flex;
   background-color: #FE604D;
-  border-color: #FE604D;
-}
-.Button:hover {
-  background-color: #d34f40;
-  border-color: #d34f40;
-}
-
-.Submit-Button {
-  background-color: #FE604D;
-  border-color: #FE604D;
-}
-.Submit-Button:hover{
-  background-color: #d34f40;
-  border-color: #d34f40;
+  align-items: center;
 }
 
 #header-title {
-  text-align: center;
   font-size: 40px;
   padding: 15px;
   color: white;
