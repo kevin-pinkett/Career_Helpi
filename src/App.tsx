@@ -31,7 +31,8 @@ function App() {
   }
 
   function expand_footer(){
-    setTimeout(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth'}), 100);
+    console.log("Footer Expanded!");
+    setTimeout(() => window.scrollTo(0,1000), 1000);
   }
   
 
@@ -49,6 +50,7 @@ function App() {
         {page === 'faqPage' && (<div><FAQPage /></div>)}
       </div>
 
+      <div className='footer-wrapper'>
       <footer id="footer" onMouseEnter={expand_footer}>
         <Form>
           <Form.Label>API Key:</Form.Label>
@@ -57,7 +59,8 @@ function App() {
           <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
         </Form>
       </footer>
-        
+      </div>
+
       </div>
     </div>
   );

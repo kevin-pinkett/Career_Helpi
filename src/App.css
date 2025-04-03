@@ -1,5 +1,8 @@
 .App{
   background-color: #fcc9bd;
+
+  overflow: auto;
+  max-height: 100vh;
 }
 
 h1 {
@@ -13,6 +16,15 @@ h1 {
   border-color: #FE604D;
 }
 .Button:hover {
+  background-color: #d34f40;
+  border-color: #d34f40;
+}
+
+.Submit-Button {
+  background-color: #FE604D;
+  border-color: #FE604D;
+}
+.Submit-Button:hover{
   background-color: #d34f40;
   border-color: #d34f40;
 }
@@ -38,58 +50,13 @@ footer {
   width: 100%;
   bottom: 0;
   left: 0;
-  height: 10px;
   padding: 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
-  overflow: hidden;
 
   color: white;
   font-weight: bold;
-  background-color: #2568fb;
-
-  opacity: 1;
-  transition: height .5s ease-in-out;
-}
-footer:hover {
-  height: 150px;
-}
-/* Predefined Rules */
-
-/*
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color:#FE604D;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/
