@@ -40,7 +40,7 @@ function App() {
     <div className="App">
 
       <div className="Header-Wrapper">
-        <img src="/assets/Helpi Mascot.png" alt="mascot" style={{
+        <img src="assets/Helpi Mascot.png" alt="mascot" style={{
             display: "flex",
             justifySelf: "center",
             height: "15%",
