@@ -15,7 +15,7 @@ export function DetailedQuestionsOption({page, setPage}: DetailedQuestionProps) 
         }}
       >
         <p>Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.</p>
-        <Button className="DetailedQuestions-Button" onClick={() => setPage("detailedPage")}>
+        <Button id="DetailedQuestions-Button" className="Button" onClick={() => setPage("detailedPage")}>
           Start Quiz
         </Button>
       </div>

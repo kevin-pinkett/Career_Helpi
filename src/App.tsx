@@ -29,64 +29,49 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function expand_footer(){
+    console.log("Footer Expanded!");
+    setTimeout(() => window.scrollTo(0,1000), 1000);
+  }
   
 
   return (
     <div className="App">
-      <div id="header-title">The Career Helpi</div>
-      <div> 
-        <Header page={page} setPage={setPage}/>
-      <div/>
-      {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
-      {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
-      {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}
-      {page === 'faqPage' && (<div><FAQPage /></div>)}
 
-    {/* App.tsx Starter Code */}
-    <div>
-      { 
-      /*
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>
-          Crissa Owens
-        </p>
-        <p>
-          Asher Mills
-        </p>
-        <p>
-          Nolan Vasil
-        </p>
-        <p>
-          Kevin Pinkett
-        </p>
+      <div className="Header-Wrapper">
+        <img src="/assets/Helpi Mascot.png" alt="mascot" style={{
+            display: "flex",
+            justifySelf: "center",
+            height: "15%",
+            width: "15%",
+            padding: "20px"
+            }}></img>
+        <div id="header-title">The Career Helpi</div>
+      </div>
 
-      </header>
-      */}
-    </div>
-    
-    <footer>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-    </footer>
+      <Header page={page} setPage={setPage}/>
       
-    </div>
-    </div>
+
+      <div className="Page">
+        {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
+        {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
+        {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}
+        {page === 'faqPage' && (<div><FAQPage /></div>)}
+      </div>
+
+      <div className='footer-wrapper'>
+      <footer id="footer" onMouseEnter={expand_footer}>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        </Form>
+      </footer>
+      </div>
+
+      </div>
   );
 }
 

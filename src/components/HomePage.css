@@ -1,3 +1,10 @@
+.Home-Page{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
 
 .Box-Container{
     display: flex;
@@ -9,7 +16,6 @@
 }
 
 .Page-Box{
-    border: solid black;
     padding: 10px;
     padding-bottom: 25px;
     width: 30%;

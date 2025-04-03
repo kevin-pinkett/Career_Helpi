@@ -3,23 +3,28 @@
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    width: 100vw;
-    background-color: #2568fb;
+    width: 100%;
+    background-color: #FE604D;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .Header-Button {
-    background-color: #2568fb;
+    background-color: #FE604D;
+    border-color: #FE604D;
     color: rgb(255, 255, 255);
     width: 25%;
 
 }
 
 .Header-Button:hover {
-    background-color: #1043b1;
+    background-color: #d34f40;
+    border-color: #d34f40;
 }
 
 .Header-Button:disabled {
-    background-color: #1043b1;
+    background-color: #d34f40;
+    border-color: #d34f40;
     color: rgb(255, 255, 255);
     width: 25%;
 }
