@@ -1,19 +1,30 @@
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 
-function ResultsCard() {
+
+
+
+interface ResultsCardProps {
+    title: string;
+    description: string;
+}
+
+function ResultsCard({ title, description }: ResultsCardProps) {
+
+
     return(
-        <Card style={{ width: '18rem' }}>
+        <div className="Results-Card">
+
+        <Card>
             <Card.Body>
-                <Card.Title>Results</Card.Title>
+                <Card.Title>{title}</Card.Title>
                 <Card.Text>
-                    Your results will be displayed here.
+                    {description}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Go home</Button>
             </Card.Body>
         </Card>
-
-
+        </div>
     )
-
 }
+export default ResultsCard;

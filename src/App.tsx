@@ -53,6 +53,7 @@ function App() {
       <Header page={page} setPage={setPage}/>
       
 
+
       <div className="Page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
         {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
