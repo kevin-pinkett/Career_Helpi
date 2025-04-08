@@ -30,12 +30,6 @@ function App() {
     setKey(event.target.value);
   }
 
-  function expand_footer(){
-    console.log("Footer Expanded!");
-    setTimeout(() => window.scrollTo(0,1000), 1000);
-  }
-  
-
   return (
     <div className="App">
 
@@ -51,7 +45,6 @@ function App() {
       </div>
 
       <Header page={page} setPage={setPage}/>
-      
 
       <div className="Page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
@@ -61,7 +54,7 @@ function App() {
       </div>
 
       <div className='footer-wrapper'>
-      <footer id="footer" onMouseEnter={expand_footer}>
+      <footer id="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
