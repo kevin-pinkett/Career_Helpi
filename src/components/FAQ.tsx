@@ -2,6 +2,8 @@
 
 
 
+
+
 export function FAQPage() {
 
     return (
