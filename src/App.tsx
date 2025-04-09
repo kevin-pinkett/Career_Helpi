@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
-import { Header } from './components/Header';
-import { HomePage } from './components/HomePage';
-import { BasicQuestionsPage } from './components/BasicQ';
-import { FAQPage } from './components/FAQ';
-import { DetailQuestionsPage } from './components/DetailedQ';
+import { Header } from './components/header/Header';
+import { HomePage } from './components/home-page/HomePage';
+import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
+import { FAQPage } from './components/faq/FAQ';
+import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
