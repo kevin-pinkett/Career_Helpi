@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
 import basicData from "../../data/basic-questions.json"
+import "./BasicQuestions.css"
 
 export function BasicQuestions(): React.JSX.Element {
   const [basic_answers, setBasicAnswers] = useState<number[]>([]);
@@ -32,53 +33,48 @@ export function BasicQuestions(): React.JSX.Element {
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
-        <Form.Label>Questions:</Form.Label>
+        <Form.Label className="subtitle">Questions:</Form.Label>
+        
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: "20px",
           }}>
-          {QUESTIONS.map((question, q_index) => (
-            <span
-              key={q_index}
+
+          {QUESTIONS.map((question: Basic_Question) => (
+            
+            <span className="Question-Box"
+              key={question.id}
               style={{
-                border: "1px solid #ccc",
-                padding: "15px",
-                borderRadius: "8px",
-                boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
-                backgroundColor: "white",
-              }}
-            >
-              <Form.Label
-                style={{
-                  display: "block",
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                }}
-              >
-                {question}
+                visibility: question.id === 1 ? "visible" : "hidden",
+              }}>
+                
+              <Form.Label className="subtitle">
+                {question.body}
               </Form.Label>
+
               <div
                 style={{ display: "flex", flexDirection: "column", gap: "5px" }}
               >
-                {RESPONSES.map((response, r_index) => (
+                {
+                  question.options.map((option: string, r_index: number) => (
                   <Form.Check
                     style={{ flex: 1 }}
                     key={r_index}
                     type="radio"
-                    name={`answers-${q_index}`}
-                    label={response}
+                    name={`answers-${question.id}`}
+                    label={option}
                     value={r_index}
-                    checked={basic_answers[q_index] === r_index}
+                    checked={basic_answers[question.id] === r_index}
                     onChange={(e) => {
                       const newAnswers = [...basic_answers];
-                      newAnswers[q_index] = parseInt(e.target.value);
+                      newAnswers[question.id] = parseInt(e.target.value);
                       setBasicAnswers(newAnswers);
                     }}
                   />
-                ))}
+                  ))
+                }
               </div>
             </span>
           ))}
