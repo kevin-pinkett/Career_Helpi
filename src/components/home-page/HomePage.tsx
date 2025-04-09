@@ -1,9 +1,8 @@
-import { BasicQuestionsOption } from "./BasicQOption";
-import { DetailedQuestionsOption } from "./DetailedQOption";
-import { FAQOption } from "./FAQOption";
+import { BasicQuestionsOption } from "../basic-questions/BasicQOption";
+import { DetailedQuestionsOption } from "../detailed-questions/DetailedQOption";
+import { FAQOption } from "../faq/FAQOption";
 import {Row} from "react-bootstrap"
 import "./HomePage.css";
-import "../App.css";
 
 interface HomePageProp {
     setPage: (page: string) => void;

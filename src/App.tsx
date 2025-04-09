@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
-import { Header } from './components/Header';
-import { HomePage } from './components/HomePage';
-import { BasicQuestionsPage } from './components/BasicQ';
-import { FAQPage } from './components/FAQ';
-import { DetailQuestionsPage } from './components/DetailedQ';
+import { Header } from './components/header/Header';
+import { HomePage } from './components/home-page/HomePage';
+import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
+import { FAQPage } from './components/faq/FAQ';
+import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -30,12 +30,6 @@ function App() {
     setKey(event.target.value);
   }
 
-  function expand_footer(){
-    console.log("Footer Expanded!");
-    setTimeout(() => window.scrollTo(0,1000), 1000);
-  }
-  
-
   return (
     <div className="App">
 
@@ -51,7 +45,6 @@ function App() {
       </div>
 
       <Header page={page} setPage={setPage}/>
-      
 
 
       <div className="Page">
@@ -62,7 +55,7 @@ function App() {
       </div>
 
       <div className='footer-wrapper'>
-      <footer id="footer" onMouseEnter={expand_footer}>
+      <footer id="footer">
         <Form>
           <Form.Label>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
