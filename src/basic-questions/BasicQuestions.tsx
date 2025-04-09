@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
+import {ProgressBar} from "../progress-bar/progress-bar";
 
 export function BasicQuestions(): React.JSX.Element {
   const QUESTIONS = [
@@ -19,7 +20,20 @@ export function BasicQuestions(): React.JSX.Element {
     "Agree",
     "Strongly Agree",
   ];
-  const [basic_answers, setBasicAnswers] = useState<number[]>([]);
+  const [basic_answers, setBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
+      const [progress, setProgress] = useState<number>(0);
+      useEffect(() => {
+          if (progress < 100) {
+              const answeredQuestions = basic_answers.filter(answer => answer !== -1).length; 
+              const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
+              setProgress(newProgress);
+          }
+      }, [basic_answers, QUESTIONS.length, progress]);
+      const handleAnswerChange = (q_index: number, r_index: number) => {
+          const newAnswers = [...basic_answers];
+          newAnswers[q_index] = r_index;
+          setBasicAnswers(newAnswers);
+      }
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
@@ -64,11 +78,9 @@ export function BasicQuestions(): React.JSX.Element {
                     label={response}
                     value={r_index}
                     checked={basic_answers[q_index] === r_index}
-                    onChange={(e) => {
-                      const newAnswers = [...basic_answers];
-                      newAnswers[q_index] = parseInt(e.target.value);
-                      setBasicAnswers(newAnswers);
-                    }}
+                    onChange={() => 
+                      handleAnswerChange(q_index, r_index)
+                    }
                   />
                 ))}
               </div>
@@ -76,6 +88,7 @@ export function BasicQuestions(): React.JSX.Element {
           ))}
         </div>
       </Form.Group>
+      <ProgressBar progress = {progress} setProgress = {setProgress}></ProgressBar>   
     </div>
   );
 }
