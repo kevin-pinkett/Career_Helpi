@@ -1,0 +1,99 @@
+{
+    "QUESTION_1": {
+      "id": 1,
+      "body": "I prefer to work in a team.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    
+    "QUESTION_2": {
+      "id": 2,
+      "body": "I enjoy working with numbers/data.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+
+    "QUESTION_3": {
+      "id": 3,
+      "body": "I am comfortable with technology.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+
+    "QUESTION_4": {
+      "id": 4,
+      "body": "I prefer working outdoors.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+
+    "QUESTION_5": {
+      "id": 5,
+      "body": "I am a strong leader.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+
+    "QUESTION_6": {
+      "id": 6,
+      "body": "I prefer to work in a dynamic environment.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+
+    "QUESTION_7": {
+      "id": 7,
+      "body": "I like to travel often.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+
+    "QUESTION_8": {
+      "id": 8,
+      "body": "Q8",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    }
+    
+}
+  

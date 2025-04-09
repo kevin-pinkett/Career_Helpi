@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import { Basic_Question } from "../../interfaces/basic-question";
+import basicData from "../../data/basic-questions.json"
 
 export function BasicQuestions(): React.JSX.Element {
+  const [basic_answers, setBasicAnswers] = useState<number[]>([]);
+
+  /** Imports basic question from JSON file and stores them in a array
+   *  Format followings basic question interface
+   */
+  const QUESTIONS: Basic_Question[] = Object.values(basicData)
+  /*
   const QUESTIONS = [
     "I prefer to work in a team.",
     "I enjoy working with numbers/data.",
@@ -19,7 +28,7 @@ export function BasicQuestions(): React.JSX.Element {
     "Agree",
     "Strongly Agree",
   ];
-  const [basic_answers, setBasicAnswers] = useState<number[]>([]);
+  */
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
@@ -29,8 +38,7 @@ export function BasicQuestions(): React.JSX.Element {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: "20px",
-          }}
-        >
+          }}>
           {QUESTIONS.map((question, q_index) => (
             <span
               key={q_index}
