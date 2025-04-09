@@ -9,8 +9,7 @@ export function BasicQuestions(): React.JSX.Element {
     "I prefer working outdoors.",
     "I am a strong leader.",
     "I prefer to work in a dynamic environment.",
-    "I like to travel often.",
-    "Q8"
+    "I like to travel often."
   ];
   const RESPONSES = [
     "Strongly Disagree",
@@ -76,6 +75,7 @@ export function BasicQuestions(): React.JSX.Element {
           ))}
         </div>
       </Form.Group>
+      <Button onClick={}>Submit</Button>
     </div>
   );
 }

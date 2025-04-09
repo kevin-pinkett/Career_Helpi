@@ -1,7 +1,10 @@
 import { BasicQuestions } from "../basic-questions/BasicQuestions"
 
-export function BasicQuestionsPage() {
+interface BasicQuestionsPageProp {
+    setPage: (page: string) => void;
+}
 
+export function BasicQuestionsPage({setPage}: BasicQuestionsPageProp) {
     return (
     <div className="Basic-Questions">
     <h1>Basic Quiz</h1>

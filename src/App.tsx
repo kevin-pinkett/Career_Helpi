@@ -56,8 +56,8 @@ function App() {
 
       <div className="Page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
-        {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
-        {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}
+        {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage}/></div>)}
+        {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
       </div>
 

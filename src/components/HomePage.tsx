@@ -17,19 +17,19 @@ export function HomePage({setPage}: HomePageProp) {
             <div id="basic-questions-box" className="Page-Box">
             <div className="subtitle" style={{fontSize: "25px", fontWeight: "5px"}}>Basic Quiz</div>
                 <Row>
-                    <BasicQuestionsOption page={"basicQuestion"} setPage={setPage} />
+                    <BasicQuestionsOption setPage={setPage} />
                 </Row>
             </div>
             <div id="detailed-questions-box" className="Page-Box">
                 <div className="subtitle" style={{fontSize: "25px", fontWeight: "5px"}}>Detailed Quiz</div>
                 <Row>
-                    <DetailedQuestionsOption page={"detailedQuestion"} setPage={setPage} />
+                    <DetailedQuestionsOption setPage={setPage} />
                 </Row>
             </div>
             <div id="faq-box" className="Page-Box">
                 <div className="subtitle" style={{fontSize: "25px", fontWeight: "5px"}}>FAQ</div>
                 <Row>
-                    <FAQOption page={"faqPage"} setPage={setPage} />
+                    <FAQOption setPage={setPage} />
                 </Row>
             </div>
         </div>
