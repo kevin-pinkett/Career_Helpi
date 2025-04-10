@@ -6,6 +6,7 @@ import { HomePage } from './components/home-page/HomePage';
 import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
 import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
+import { ResultsPage } from './components/results/Results'; // Ensure the file exists at this path
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
