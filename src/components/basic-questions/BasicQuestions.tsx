@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
+
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
 
 export function BasicQuestions(): React.JSX.Element {
   const [basicAnswers, setBasicAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
-
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
@@ -43,7 +43,6 @@ export function BasicQuestions(): React.JSX.Element {
                       label={option}
                       value={r_index}
                       checked={basicAnswers[question.id] === r_index}
-                      
                       onChange={(e) => {
                         const newAnswers = [...basicAnswers];
                         newAnswers[question.id] = parseInt(e.target.value);
