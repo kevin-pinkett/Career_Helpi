@@ -14,8 +14,11 @@ export function BasicQuestions(): React.JSX.Element {
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
 
+  const num_questions = QUESTIONS.length
+
   function advanceQuestion() {
-    const newId = currentQuestionId + 1;
+    let newId: number;
+    newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
     setCurrentQuestionId(newId);
     setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Basic_Question) => {
       return question.id === newId
@@ -23,7 +26,8 @@ export function BasicQuestions(): React.JSX.Element {
   }
 
   function regressQuestion() {
-    const newId = currentQuestionId - 1;
+    let newId: number;
+    newId = (currentQuestionId === 1 ? QUESTIONS[0].id : currentQuestionId - 1);
     setCurrentQuestionId(newId);
     setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Basic_Question) => {
       return question.id === newId
@@ -58,44 +62,6 @@ export function BasicQuestions(): React.JSX.Element {
               />
               ))}
             </div>
-            
-            {
-            /*
-            QUESTIONS.map((question: Basic_Question) => (
-              <div className="Question-Box"
-                key={question.id}
-                style={{
-                  visibility: question.id === currentQuestion ? "visible" : "hidden",
-                }}>
-                  
-                <Form.Label className="subtitle">
-                  {question.body}
-                </Form.Label>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-                  {
-                    question.options.map((option: string, r_index: number) => (
-                    <Form.Check
-                      style={{ flex: 1 }}
-                      key={r_index}
-                      type="radio"
-                      name={`answers-${question.id}`}
-                      label={option}
-                      value={r_index}
-                      checked={basicAnswers[question.id] === r_index}
-                      
-                      onChange={(e) => {
-                        const newAnswers = [...basicAnswers];
-                        newAnswers[question.id] = parseInt(e.target.value);
-                        setBasicAnswers(newAnswers);
-                      }}
-                    />
-                    ))}
-                </div>
-              </div>
-            ))
-            */
-            }
             
           </div>
           <div className="Nav-Buttons">
