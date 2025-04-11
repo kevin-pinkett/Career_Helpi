@@ -65,8 +65,8 @@ export function BasicQuestions(): React.JSX.Element {
             
           </div>
           <div className="Nav-Buttons">
-            <Button style={{ width: "50%" }} onClick={regressQuestion}>Previous</Button>
-            <Button style={{ width: "50%" }} onClick={advanceQuestion}>Next</Button>
+            <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
+            <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
           </div>
         </div>
       </Form.Group>
