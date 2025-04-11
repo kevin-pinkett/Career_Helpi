@@ -28,8 +28,16 @@ h1 {
 .btn {
   background-color: #FE604D;
   border-color: #FE604D;
+  outline: none;
 }
 .btn:hover {
   background-color: #d34f40;
   border-color: #d34f40;
+  outline: none;
+
+}
+.btn:focus{
+  background-color: #d34f40;
+  border-color: #d34f40;
+  outline: 2px solid #d34f40;
 }
