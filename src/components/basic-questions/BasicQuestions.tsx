@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
+import { ProgressBar } from "../progress-bar/progress-bar";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
@@ -11,11 +12,11 @@ export function BasicQuestions(): React.JSX.Element {
    */
   const QUESTIONS: Basic_Question[] = Object.values(basicData)
   
-  const [basicAnswers, setBasicAnswers] = useState<number[]>([]);
+  const [basicAnswers, setBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
-
-  const num_questions = QUESTIONS.length
+  const [progress, setProgress] = useState<number>(0);
+  const num_questions = QUESTIONS.length;
 
   function advanceQuestion() {
     let newId: number;
@@ -33,6 +34,19 @@ export function BasicQuestions(): React.JSX.Element {
     setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Basic_Question) => {
       return question.id === newId
     })])
+  }
+
+  useEffect(() => {
+    if (progress < 100) {
+      const answeredQuestions = basicAnswers.filter(answer => answer !== -1).length; 
+      const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
+      setProgress(newProgress);
+      }
+      }, [basicAnswers, QUESTIONS.length, progress]);
+  const handleAnswerChange = (q_index: number, r_index: number) => {
+          const newAnswers = [...basicAnswers];
+          newAnswers[q_index] = r_index;
+          setBasicAnswers(newAnswers);
   }
   
   return (
@@ -54,11 +68,12 @@ export function BasicQuestions(): React.JSX.Element {
                 label={option}
                 value={r_index}
                 checked={basicAnswers[currentQuestion.id] === r_index}
-                
                 onChange={(e) => {
-                  const newAnswers = [...basicAnswers];
+                  /*const newAnswers = [...basicAnswers];
                   newAnswers[currentQuestion.id] = parseInt(e.target.value);
                   setBasicAnswers(newAnswers);
+                  */
+                  handleAnswerChange(currentQuestion.id, r_index)
                 }}
               />
               ))}
@@ -71,6 +86,7 @@ export function BasicQuestions(): React.JSX.Element {
           </div>
         </div>
       </Form.Group>
+      <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
     </div>
     
   );
