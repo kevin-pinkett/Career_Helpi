@@ -1,0 +1,79 @@
+{
+    "QUESTION_1": {
+      "id": 1,
+      "body": "I value consistency and sustainability over potential and growth",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_2": {
+      "id": 2,
+      "body": "I don't mind putting in extra hours if it means more chances for promotion and upwards mobility in the workplace",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_3": {
+      "id": 3,
+      "body": "Work-life balance is of utmost importance to me and I desire flexibility with my job",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_4": {
+      "id": 4,
+      "body": "Ethics does not matter to me in regards to what company I work for as long as I am compensated well",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_5": {
+      "id": 5,
+      "body": "I prefer working within groups, socializing and creating bonds with the people I collaborate with",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_6": {
+      "id": 6,
+      "body": "I value smaller workplaces with more interconnected groups and sectors",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_7": {
+      "id": 7,
+      "body": "I think of my future career as a way to realize my best self, rather than an avenue to make money",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    }
+  }  
