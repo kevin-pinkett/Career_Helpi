@@ -1,4 +1,4 @@
-import { DetailedQuestions } from "./questions"
+import { DetailedQuestions } from "./DetailedQuestions"
 
 export function DetailQuestionsPage() {
 

@@ -1,28 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Basic_Question } from "../../interfaces/basic-question";
+import { Detailed_Question } from "../../interfaces/detailed-question"
 import { ProgressBar } from "../progress-bar/progress-bar";
+import detailedData from "../../data/detailed-questions.json"
+import "./DetailedQuestions.css"
 
-import basicData from "../../data/basic-questions.json"
-import "./BasicQuestions.css"
-
-export function BasicQuestions(): React.JSX.Element {
-  /** Imports basic question from JSON file and stores them in a array
+export function DetailedQuestions(): React.JSX.Element {
+    /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Basic_Question[] = Object.values(basicData)
-  
-  const [basicAnswers, setBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
-  const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
+  const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
+
+  const [detailedAnswers, setDetailedAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
+  const [currentQuestion, setCurrentQuestion] = useState<Detailed_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
   const num_questions = QUESTIONS.length;
+
+  useEffect(() => {
+          if (progress < 100) {
+              const answeredQuestions = detailedAnswers.filter(answer => answer !== -1).length; 
+              const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
+              setProgress(newProgress);
+          }
+      }, [detailedAnswers, QUESTIONS.length, progress]);
+      const handleAnswerChange = (q_index: number, r_index: number) => {
+          const newAnswers = [...detailedAnswers];
+          newAnswers[q_index] = r_index;
+          setDetailedAnswers(newAnswers);
+      }
 
   function advanceQuestion() {
     let newId: number;
     newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
     setCurrentQuestionId(newId);
-    setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Basic_Question) => {
+    setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Detailed_Question) => {
       return question.id === newId
     })])
   }
@@ -31,28 +43,15 @@ export function BasicQuestions(): React.JSX.Element {
     let newId: number;
     newId = (currentQuestionId === 1 ? QUESTIONS[0].id : currentQuestionId - 1);
     setCurrentQuestionId(newId);
-    setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Basic_Question) => {
+    setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Detailed_Question) => {
       return question.id === newId
     })])
-  }
-
-  useEffect(() => {
-    if (progress < 100) {
-      const answeredQuestions = basicAnswers.filter(answer => answer !== -1).length; 
-      const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
-      setProgress(newProgress);
-      }
-      }, [basicAnswers, QUESTIONS.length, progress]);
-  const handleAnswerChange = (q_index: number, r_index: number) => {
-          const newAnswers = [...basicAnswers];
-          newAnswers[q_index] = r_index;
-          setBasicAnswers(newAnswers);
   }
   
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
-      <Form.Group controlId="basicQuestions">
-        <Form.Label className="subtitle"></Form.Label>
+      <Form.Group controlId="detailedQuestions">
+        <Form.Label className="subtitle">Questions:</Form.Label>
         
         <div className="Question-Page">
 
@@ -67,13 +66,14 @@ export function BasicQuestions(): React.JSX.Element {
                 name={`answers-${currentQuestion.id}`}
                 label={option}
                 value={r_index}
-                checked={basicAnswers[currentQuestion.id] === r_index}
+                checked={detailedAnswers[currentQuestion.id] === r_index}
                 onChange={(e) => {
-                  /*const newAnswers = [...basicAnswers];
+                  /*
+                  const newAnswers = [...detailedAnswers];
                   newAnswers[currentQuestion.id] = parseInt(e.target.value);
-                  setBasicAnswers(newAnswers);
+                  setDetailedAnswers(newAnswers);
                   */
-                  handleAnswerChange(currentQuestion.id, r_index)
+                  handleAnswerChange(currentQuestion.id, r_index);
                 }}
               />
               ))}
