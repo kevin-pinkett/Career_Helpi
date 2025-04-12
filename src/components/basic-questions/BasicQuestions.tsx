@@ -37,7 +37,7 @@ export function BasicQuestions(): React.JSX.Element {
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
-        <Form.Label className="subtitle">Questions:</Form.Label>
+        <Form.Label className="subtitle"></Form.Label>
         
         <div className="Question-Page">
 
