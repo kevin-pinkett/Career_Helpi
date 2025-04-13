@@ -6,6 +6,7 @@ import { HomePage } from './components/home-page/HomePage';
 import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
 import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
+import ResultsPage from './components/results/Results';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -49,23 +50,24 @@ function App() {
 
       <div className="Page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
-        {page === 'basicPage' && (<div><BasicQuestionsPage /></div>)}
-        {page === 'detailedPage' && (<div><DetailQuestionsPage /></div>)}
+        {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage}/></div>)}
+        {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
+        {page === 'resultsPage' && (<div><ResultsPage /></div>)}
       </div>
 
       <div className='footer-wrapper'>
-      <footer id="footer">
-        <Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-        </Form>
-      </footer>
+        <footer id="footer">
+          <Form>
+            <Form.Label>API Key:</Form.Label>
+            <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+            <br></br>
+            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+          </Form>
+        </footer>
       </div>
 
-      </div>
+    </div>
   );
 }
 

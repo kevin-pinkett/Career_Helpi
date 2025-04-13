@@ -1,11 +1,10 @@
 import { Button } from "react-bootstrap";
 
 interface FAQProps {
-    page: string;
     setPage: (page: string) => void;
   }
 
-export function FAQOption({page, setPage}: FAQProps) {
+export function FAQOption({setPage}: FAQProps) {
     return (    <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}>
       <div
         style={{
