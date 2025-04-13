@@ -4,17 +4,19 @@ import { Basic_Question } from "../../interfaces/basic-question";
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
 
-export function BasicQuestions(): React.JSX.Element {
+interface Basic_Question_Props{
+  openPopup:() => void;
+  setPage: (page: string) => void;
+}
+
+export function BasicQuestions({openPopup, setPage}:Basic_Question_Props): React.JSX.Element {
   const [basicAnswers, setBasicAnswers] = useState<number[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
 
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Basic_Question[] = Object.values(basicData)
-  function handleSubmit():void{
-
-  }
+  const QUESTIONS: Basic_Question[] = Object.values(basicData);
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
@@ -59,7 +61,7 @@ export function BasicQuestions(): React.JSX.Element {
           </div>
           <Button onClick={() => setCurrentQuestion(currentQuestion + 1)}>Next</Button>
           <Button onClick={() => setCurrentQuestion(currentQuestion - 1)}>Previous</Button>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button onClick={openPopup}>Submit</Button>
         </div>
       </Form.Group>
     </div>
