@@ -5,7 +5,13 @@ import { ProgressBar } from "../progress-bar/progress-bar";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
 
-export function DetailedQuestions(): React.JSX.Element {
+interface Detailed_Question_Props{
+  openPopup:() => void;
+  setPage: (page: string) => void;
+}
+
+
+export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props): React.JSX.Element {
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
@@ -84,6 +90,7 @@ export function DetailedQuestions(): React.JSX.Element {
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
           </div>
+          <Button onClick={openPopup}>Submit</Button>
         </div>
       </Form.Group>
       <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>

@@ -1,0 +1,43 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* dark translucent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Popup content box */
+  .popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: fadeInScale 0.3s ease-out;
+  }
+  
+  .popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+  
+  /* Animation */
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }

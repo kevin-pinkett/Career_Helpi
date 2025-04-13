@@ -1,4 +1,4 @@
-import { CompletedQuiz } from "../CompleteQuiz";
+import { CompletedQuiz } from "../popup/CompleteQuiz";
 import { BasicQuestions } from "./BasicQuestions"
 import {useState} from "react"
 

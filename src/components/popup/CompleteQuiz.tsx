@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import "./CompletedQuiz.css"
 
 interface CompletedQuizProps{
     //questions: [string];
@@ -17,10 +18,14 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
         // some way to get questions/type/answers to results/API need a function for this
     }
 
-    return <span> {isPopupOpen && <div style={{backgroundColor: "white"}}>
-        You have answered all questions!
-        <Button onClick = {() => closePopup(false)}> Continue Working </Button>
-        <Button onClick = {Submit}> Submit </Button>
+    return <div> {isPopupOpen && <div className="popup">
+            <div className="popup-content">
+                <h3>You have answered all questions!</h3>
+                <div className="popup-buttons">
+                    <Button onClick={() => closePopup(false)}>Continue Working</Button>
+                    <Button onClick={Submit}>Submit</Button>
+                </div>
+            </div>
         </div>}
-    </span>
+    </div>
 }
