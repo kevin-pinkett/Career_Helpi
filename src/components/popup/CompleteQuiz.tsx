@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import "./CompletedQuiz.css"
+import "./CompleteQuiz.css"
 
 interface CompletedQuizProps{
     //questions: [string];
