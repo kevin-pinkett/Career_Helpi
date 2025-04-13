@@ -1,4 +1,4 @@
-import { DetailedQuestions } from "./questions"
+import { DetailedQuestions } from "./DetailedQuestions"
 
 interface DetailedQuestionsPageProp {
     setPage: (page: string) => void;
