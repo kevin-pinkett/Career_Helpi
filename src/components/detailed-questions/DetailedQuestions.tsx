@@ -65,7 +65,7 @@ export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props)
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="detailedQuestions">
-        <Form.Label className="subtitle">Questions:</Form.Label>
+        <Form.Label className="subtitle"></Form.Label>
         
         <div className="Question-Page">
 
@@ -97,8 +97,8 @@ export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props)
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+            <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
-          <Button disabled={progress !== 100} onClick={openPopup}>Submit</Button>
         </div>
       </Form.Group>
       <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>

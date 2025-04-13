@@ -49,7 +49,7 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
       setProgress(newProgress);
       }
       }, [basicAnswers, QUESTIONS.length, progress]);
-      
+
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
@@ -97,8 +97,8 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+            <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
-          <Button disabled={progress !== 100} onClick={openPopup}>Submit</Button>
         </div>
       </Form.Group>
       <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>

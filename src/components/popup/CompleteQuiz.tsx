@@ -14,7 +14,7 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
 
     function Submit(): void {
         closePopup(false);
-        setPage("Results-Page");
+        setPage("resultsPage");
         // some way to get questions/type/answers to results/API need a function for this
     }
 
