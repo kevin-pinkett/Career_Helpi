@@ -21,6 +21,7 @@ export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props)
   const [currentQuestion, setCurrentQuestion] = useState<Detailed_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
+  const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
   useEffect(() => {
@@ -30,12 +31,19 @@ export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props)
               setProgress(newProgress);
           }
       }, [detailedAnswers, QUESTIONS.length, progress]);
-      const handleAnswerChange = (q_index: number, r_index: number) => {
-          const newAnswers = [...detailedAnswers];
-          newAnswers[q_index] = r_index;
-          setDetailedAnswers(newAnswers);
-      }
+  const handleAnswerChange = (q_index: number, r_index: number) => {
+    const newAnswers = [...detailedAnswers];
+    newAnswers[q_index] = r_index;
+    setDetailedAnswers(newAnswers);
+  }
 
+  useEffect(() => {
+    if (progress === 100 && !popupTriggered) {
+      openPopup();
+      setPopupTriggered(true);
+    }
+  }, [progress, popupTriggered, openPopup]);
+    
   function advanceQuestion() {
     let newId: number;
     newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
@@ -90,7 +98,7 @@ export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props)
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
           </div>
-          <Button onClick={openPopup}>Submit</Button>
+          <Button disabled={progress !== 100} onClick={openPopup}>Submit</Button>
         </div>
       </Form.Group>
       <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>

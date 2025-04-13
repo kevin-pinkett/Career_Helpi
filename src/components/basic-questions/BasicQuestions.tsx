@@ -21,6 +21,7 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
+  const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
   function advanceQuestion() {
@@ -48,12 +49,20 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
       setProgress(newProgress);
       }
       }, [basicAnswers, QUESTIONS.length, progress]);
+      
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
           setBasicAnswers(newAnswers);
   }
-  
+
+  useEffect(() => {
+    if (progress === 100 && !popupTriggered) {
+      openPopup();
+      setPopupTriggered(true);
+    }
+  }, [progress, popupTriggered, openPopup]);
+
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
@@ -89,11 +98,10 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
           </div>
-          <Button onClick={openPopup}>Submit</Button>
+          <Button disabled={progress !== 100} onClick={openPopup}>Submit</Button>
         </div>
       </Form.Group>
       <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
     </div>
-    
   );
 }
