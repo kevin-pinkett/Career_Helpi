@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
 
-      <div className="Header-Wrapper">
+      <div className="Header-Wrapper" data-testid="header">
         <img src="assets/Helpi Mascot.png" alt="mascot" style={{
             display: "flex",
             justifySelf: "center",
@@ -48,7 +48,7 @@ function App() {
       <Header page={page} setPage={setPage}/>
 
 
-      <div className="Page">
+      <div className="Page" data-testid="page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
         {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage}/></div>)}
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage}/></div>)}
@@ -56,7 +56,7 @@ function App() {
         {page === 'resultsPage' && (<div><ResultsPage /></div>)}
       </div>
 
-      <div className='footer-wrapper'>
+      <div className='footer-wrapper' data-testid="footer">
         <footer id="footer">
           <Form>
             <Form.Label>API Key:</Form.Label>
