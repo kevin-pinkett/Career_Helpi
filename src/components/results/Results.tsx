@@ -1,6 +1,8 @@
+import { get } from "http";
 import ResultsCard from "./ResultCard";
 
 import { useEffect, useState } from "react";
+import { getGPTResponse } from "../../GPTIntegration";
 // import { getGPTResponse } from "../../GPTIntegration";
 
 
@@ -15,6 +17,7 @@ type Result = {
 interface ResultsPageProps{
     answers: number[];
     questions: string[];
+    key: string;
 }
 
 function parsePrompt(answers: number[], questions: string[]): string {
@@ -24,7 +27,7 @@ function parsePrompt(answers: number[], questions: string[]): string {
 
 }
 
-export function ResultsPage({ answers, questions }: ResultsPageProps) {
+export function ResultsPage({ answers, questions, key }: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
         {
             title: "Plumber",
@@ -50,9 +53,17 @@ export function ResultsPage({ answers, questions }: ResultsPageProps) {
     ]);
 
     useEffect(() => {
-        console.log(parsePrompt(answers, questions));
-        
-      }, [answers, questions]);
+        const fetchResults = async () => {
+            try {
+                const aiResponse = await getGPTResponse(parsePrompt(answers, questions), key);
+                setResults(aiResponse);
+            } catch (error) {
+                console.error("Ai Error:", error);
+            }
+        };
+    
+        fetchResults(); // Call the async function
+    }, [answers, key, questions]);
 
 
 
