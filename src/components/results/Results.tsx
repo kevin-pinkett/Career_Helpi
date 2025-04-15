@@ -41,9 +41,21 @@ export function ResultsPage() {
     <div className="Results-Page">
     <h1>Results</h1>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '2%' }}>
+        {results.map((result, index) => (
+            <div key={index} style={{width: '30%' }}>
+                <ResultsCard
+                    title={result.title}
+                    description={result.description}
+                    traits={result.traits}
+                    jobRoles={result.jobRoles}
+                    skills={result.skills}
+                />
+            </div>
+        ))}
     </div>
     </div>
-)
+    )
+
 }
 
 export default ResultsPage;
