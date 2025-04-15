@@ -1,8 +1,12 @@
 import OpenAI from "openai";
 
 
-export async function getGPTResponse(prompt: string, key:string) {
-    const openai = new OpenAI({apiKey: key});
+export async function getGPTResponse(prompt: string) {
+    const apiKey = localStorage.getItem("MYKEY");
+    if (!apiKey) {
+        throw new Error("Missing api key");
+    }
+    const openai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
     try {
     const response = await openai.chat.completions.create({
         model: "gpt-4o",

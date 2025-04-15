@@ -17,7 +17,7 @@ type Result = {
 interface ResultsPageProps{
     answers: number[];
     questions: string[];
-    key: string;
+
 }
 
 function parsePrompt(answers: number[], questions: string[]): string {
@@ -27,7 +27,7 @@ function parsePrompt(answers: number[], questions: string[]): string {
 
 }
 
-export function ResultsPage({ answers, questions, key }: ResultsPageProps) {
+export function ResultsPage({ answers, questions}: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
         {
             title: "Plumber",
@@ -55,7 +55,7 @@ export function ResultsPage({ answers, questions, key }: ResultsPageProps) {
     useEffect(() => {
         const fetchResults = async () => {
             try {
-                const aiResponse = await getGPTResponse(parsePrompt(answers, questions), key);
+                const aiResponse = await getGPTResponse(parsePrompt(answers, questions));
                 setResults(aiResponse);
             } catch (error) {
                 console.error("Ai Error:", error);
@@ -63,7 +63,7 @@ export function ResultsPage({ answers, questions, key }: ResultsPageProps) {
         };
     
         fetchResults(); // Call the async function
-    }, [answers, key, questions]);
+    }, [answers, questions]);
 
 
 

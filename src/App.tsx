@@ -58,7 +58,7 @@ function App() {
         {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
-        {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} key={key}/></div>)}
+        {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
       </div>
 
       <div className='footer-wrapper'>
