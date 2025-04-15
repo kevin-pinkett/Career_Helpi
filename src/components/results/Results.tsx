@@ -3,7 +3,6 @@ import ResultsCard from "./ResultCard";
 
 import { useEffect, useState } from "react";
 import { getGPTResponse } from "../../GPTIntegration";
-// import { getGPTResponse } from "../../GPTIntegration";
 
 
 type Result = {

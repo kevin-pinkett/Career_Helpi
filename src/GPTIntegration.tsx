@@ -13,7 +13,7 @@ export async function getGPTResponse(prompt: string) {
     const response = await openai.chat.completions.create({
         model: "gpt-4o",
         messages: [{ role: "user", content: `Here is the list of questions and answers 
-            that the user answered in a career quiz ${prompt}. Please respond with three 
+            that the user answered in a career quiz ${prompt}. Notice that a 0 = strongly disagree, 1 = disagree, 2 = neutral, 3 = agree, 4 = strongly agree. Please respond with three 
             viable career options in the form of a JSON array. Make sure the response is only JSON array and no other text. The format is below.
             
     [
