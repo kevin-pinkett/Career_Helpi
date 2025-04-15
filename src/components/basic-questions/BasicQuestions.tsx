@@ -13,16 +13,18 @@ interface Basic_Question_Props{
   setQuestions: (questions: string[]) => void; // To lift back to App.tsx for use in results
 }
 
+const QUESTIONS: Basic_Question[] = Object.values(basicData)
+
 export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Basic_Question[] = Object.values(basicData)
+  
   
   useEffect(() => {
     const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
     setQuestions(questionBodies);
-  }, [QUESTIONS, setQuestions]);
+  }, [setQuestions]);
 
 
 
@@ -57,7 +59,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
-      }, [basicAnswers, QUESTIONS.length, progress]);
+      }, [basicAnswers, progress]);
 
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
