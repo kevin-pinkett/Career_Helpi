@@ -8,11 +8,11 @@ import "./DetailedQuestions.css"
 interface Detailed_Question_Props{
   openPopup:() => void;
   setPage: (page: string) => void;
-  setDetailedAnswers: (answers: number[]) => void;
+  setAnswers: (answers: number[]) => void;
 }
 
 
-export function DetailedQuestions({openPopup, setPage, setDetailedAnswers}: Detailed_Question_Props): React.JSX.Element {
+export function DetailedQuestions({openPopup, setPage, setAnswers}: Detailed_Question_Props): React.JSX.Element {
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
@@ -35,7 +35,7 @@ export function DetailedQuestions({openPopup, setPage, setDetailedAnswers}: Deta
   const handleAnswerChange = (q_index: number, r_index: number) => {
     const newAnswers = [...detailedAnswers];
     newAnswers[q_index] = r_index;
-    setDetailedAnswers(newAnswers);
+    setAnswers(newAnswers);
     localSetDetailedAnswers(newAnswers);
   }
 

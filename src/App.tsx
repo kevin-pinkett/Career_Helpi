@@ -6,7 +6,7 @@ import { HomePage } from './components/home-page/HomePage';
 import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
 import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
-import ResultsPage from './components/results/Results';
+import { ResultsPage } from './components/results/Results';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -17,6 +17,7 @@ if (prevKey !== null) {
 }
 
 function App() {
+  const [answers, setAnswers] = useState<number[]>([]); //for the answers to the questions
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [page, setPage] = useState<string>('homePage');
   // const [answers, setAnswers] = useState<string[]>([]); //for the answers to the questions
@@ -53,10 +54,10 @@ function App() {
 
       <div className="Page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
-        {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage}/></div>)}
-        {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage}/></div>)}
+        {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers}/></div>)}
+        {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
-        {page === 'resultsPage' && (<div><ResultsPage /></div>)}
+        {page === 'resultsPage' && (<div><ResultsPage answers={answers}/></div>)}
       </div>
 
       <div className='footer-wrapper'>

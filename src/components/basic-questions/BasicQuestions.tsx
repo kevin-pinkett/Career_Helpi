@@ -9,10 +9,10 @@ import "./BasicQuestions.css"
 interface Basic_Question_Props{
   openPopup:() => void;
   setPage: (page: string) => void;
-  setBasicAnswers: (answers: number[]) => void;
+  setAnswers: (answers: number[]) => void;
 }
 
-export function BasicQuestions({openPopup, setPage, setBasicAnswers}: Basic_Question_Props): React.JSX.Element {
+export function BasicQuestions({openPopup, setPage, setAnswers}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
@@ -54,7 +54,7 @@ export function BasicQuestions({openPopup, setPage, setBasicAnswers}: Basic_Ques
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
-          setBasicAnswers(newAnswers);
+          setAnswers(newAnswers);
           localSetBasicAnswers(newAnswers);
   }
 

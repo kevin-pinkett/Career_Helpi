@@ -4,17 +4,18 @@ import { CompletedQuiz } from "../popup/CompleteQuiz";
 
 interface DetailedQuestionsPageProp {
     setPage: (page: string) => void;
+    answers: number[];
+    setAnswers: (answers: number[]) => void;
 }
 
-export function DetailQuestionsPage({setPage}: DetailedQuestionsPageProp) {
+export function DetailQuestionsPage({setPage, answers, setAnswers}: DetailedQuestionsPageProp) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [detailedAnswers, setDetailedAnswers] = useState<number[]>([]);
 
     return (
     <div className="DetailQuestions">
     <h1>Detailed Questions</h1>
-    <DetailedQuestions openPopup={() => setIsPopupOpen(true)} setPage={setPage} setDetailedAnswers={setDetailedAnswers}></DetailedQuestions>
-    <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage} answers={detailedAnswers}></CompletedQuiz>
+    <DetailedQuestions openPopup={() => setIsPopupOpen(true)} setPage={setPage} setAnswers={setAnswers}></DetailedQuestions>
+    <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage}></CompletedQuiz>
     </div>
 )
 }

@@ -7,15 +7,13 @@ interface CompletedQuizProps{
     isPopupOpen: boolean;
     closePopup:(isPopupOpen: boolean) => void;
     setPage: (page: string) => void;
-    answers: number[];
 }
 
-export function CompletedQuiz({isPopupOpen, closePopup, setPage, answers}: CompletedQuizProps){
+export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizProps){
 
     function Submit(): void {
         closePopup(false);
         setPage("resultsPage");
-        console.log(answers)
         // some way to get questions/type/answers to results/API need a function for this
 
     }
