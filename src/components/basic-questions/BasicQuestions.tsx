@@ -8,16 +8,24 @@ import "./BasicQuestions.css"
 
 interface Basic_Question_Props{
   openPopup:() => void;
-  setPage: (page: string) => void;
-  setAnswers: (answers: number[]) => void;
+  setPage: (page: string) => void; // To lift back to App.tsx for use in results
+  setAnswers: (answers: number[]) => void; // To lift back to App.tsx for use in results
+  setQuestions: (questions: string[]) => void; // To lift back to App.tsx for use in results
 }
 
-export function BasicQuestions({openPopup, setPage, setAnswers}: Basic_Question_Props): React.JSX.Element {
+export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
   const QUESTIONS: Basic_Question[] = Object.values(basicData)
   
+  useEffect(() => {
+    const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
+    setQuestions(questionBodies);
+  }, [QUESTIONS, setQuestions]);
+
+
+
   const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);

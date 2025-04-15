@@ -1,7 +1,7 @@
 import ResultsCard from "./ResultCard";
 
 import { useEffect, useState } from "react";
-import { getGPTResponse } from "../../GPTIntegration";
+// import { getGPTResponse } from "../../GPTIntegration";
 
 
 type Result = {
@@ -16,6 +16,9 @@ interface ResultsPageProps{
     answers: number[];
 }
 
+function parseAnswers(answers: number[]) { 
+
+}
 
 export function ResultsPage({ answers }: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
@@ -43,13 +46,7 @@ export function ResultsPage({ answers }: ResultsPageProps) {
     ]);
 
     useEffect(() => {
-        getGPTResponse(answers.toString()).then((response) => {
-            if (response && Array.isArray(response)) {
-                setResults(response);
-            } else {
-                console.error("Invalid response from getGPTResponse:", response);
-            }
-        })
+        parseAnswers(answers);
       }, []);
 
 
