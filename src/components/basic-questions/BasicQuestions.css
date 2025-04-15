@@ -39,3 +39,16 @@
     background-color: #FE604D;
 
 }
+
+.Submit-Button {
+    width: 25%;
+    color: white;
+    background-color: #FE604D;
+    border: none;
+}
+
+.Submit-Button:disabled {
+    background-color: #d34f40;
+    border-color: #d34f40;
+    color: white;
+}
