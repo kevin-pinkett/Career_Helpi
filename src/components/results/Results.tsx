@@ -1,17 +1,89 @@
 import ResultsCard from "./ResultCard";
 
-export function ResultsPage() {
+import { useEffect, useState } from "react";
+import { getGPTResponse } from "../../GPTIntegration";
+
+
+type Result = {
+    title: string;
+    description: string;
+    traits: string[];
+    jobRoles: string[];
+    skills: string[];
+}
+
+interface ResultsPageProps{
+    answers: number[];
+    questions: string[];
+
+}
+
+function parsePrompt(answers: number[], questions: string[]): string {
+    return questions
+        .map((question, index) => `Q: ${question}\nA: ${answers[index+1]}\n\n`)
+        .join("");
+
+}
+
+export function ResultsPage({ answers, questions}: ResultsPageProps) {
+    const [results, setResults] = useState<Result[]>([
+        {
+            title: "",
+            description: "",
+            traits: [""],
+            jobRoles: [""],
+            skills: [""]
+        },
+        {
+            title: "",
+            description: "",
+            traits: [""],
+            jobRoles: [""],
+            skills: [""]
+        },
+        {
+            title: "",
+            description: "",
+            traits: [""],
+            jobRoles: [""],
+            skills: [""]
+        }
+    ]);
+
+    useEffect(() => {
+        const fetchResults = async () => {
+            try {
+                const aiResponse = await getGPTResponse(parsePrompt(answers, questions));
+                setResults(aiResponse);
+            } catch (error) {
+                console.error("Ai Error:", error);
+            }
+        };
+    
+        fetchResults(); // Call the async function
+    }, [answers, questions]);
+
+
 
     return (
     <div className="Results-Page">
     <h1>Results</h1>
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '2%' }}>
-    <div style={{ width: '30%' }}><ResultsCard title="Plumber" description="fix plumbing" traits={["test", "test", "test"]} jobRoles={["test", "test", "test"]} skills={["test", "test", "test"]} /></div>
-    <div style={{ width: '30%' }}><ResultsCard title="AStronaut" description="space" traits={["test", "test", "test"]} jobRoles={["test", "test", "test"]} skills={["test", "test", "test"]} /></div>
-    <div style={{ width: '30%' }}><ResultsCard title="doctor" description="health" traits={["test", "test", "test"]} jobRoles={["test", "test", "test"]} skills={["test", "test", "test"]} /></div>
+        {results.map((result, index) => (
+            <div key={index} style={{width: '30%' }}>
+                <ResultsCard
+                    title={result.title}
+                    description={result.description}
+                    traits={result.traits}
+                    jobRoles={result.jobRoles}
+                    skills={result.skills}
+                />
+            </div>
+        ))}
     </div>
     </div>
-)
+    )
+
 }
 
 export default ResultsPage;

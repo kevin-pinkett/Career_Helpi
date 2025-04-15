@@ -15,6 +15,7 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
         closePopup(false);
         setPage("resultsPage");
         // some way to get questions/type/answers to results/API need a function for this
+
     }
 
     return <div> {isPopupOpen && <div className="popup">
