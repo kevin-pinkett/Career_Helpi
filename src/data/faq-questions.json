@@ -1,0 +1,51 @@
+{ 
+    "QUESTION_1": {
+      "id": 1,
+      "question": "How long do the career assessments take?",
+      "answer": "Our assessments are aimed to be a short and sweet method of determining your ideal career. We know the struggle of balancing classes and finding the time for extraneous things like this can be difficult. That's why we strive to make our assessments quick and easy for students"
+    },
+    
+    "QUESTION_2": {
+      "id": 2,
+      "question": "I enjoy working with numbers/data.",
+      "answer": "answer 2"
+    },
+
+    "QUESTION_3": {
+      "id": 3,
+      "question": "I am comfortable with technology.",
+      "answer": "answer 3"
+    },
+
+    "QUESTION_4": {
+      "id": 4,
+      "question": "I prefer working outdoors.",
+      "answer": "answer 4"
+    },
+
+    "QUESTION_5": {
+      "id": 5,
+      "question": "I am a strong leader.",
+      "answer": "answer 5"
+    },
+
+    "QUESTION_6": {
+      "id": 6,
+      "question": "I prefer to work in a dynamic environment.",
+      "answer": "answer 6"
+    },
+
+    "QUESTION_7": {
+      "id": 7,
+      "question": "I like to travel often.",
+      "answer": "answer 7"
+    },
+
+    "QUESTION_8": {
+      "id": 8,
+      "question": "Q8",
+      "answer": "answer 8"
+    }
+    
+}
+  
