@@ -2,9 +2,11 @@ import OpenAI from "openai";
 
 
 export async function getGPTResponse(prompt: string) {
-    const apiKey = localStorage.getItem("MYKEY");
+
+
+    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""'); 
     if (!apiKey) {
-        throw new Error("Missing api key");
+        throw new Error("Missing API key");
     }
     const openai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
     try {
@@ -12,7 +14,7 @@ export async function getGPTResponse(prompt: string) {
         model: "gpt-4o",
         messages: [{ role: "user", content: `Here is the list of questions and answers 
             that the user answered in a career quiz ${prompt}. Please respond with three 
-            viable career options in the form of a JSON array, in this format.
+            viable career options in the form of a JSON array. Make sure the response is only JSON array and no other text. The format is below.
             
     [
         {
@@ -26,10 +28,14 @@ export async function getGPTResponse(prompt: string) {
 }],
     });
     const responseString = response.choices[0].message.content;
-    if (responseString === null) {
-        throw new Error("null response from ChatGPT");
+    console.log("Raw AI Response:", responseString);
+
+    if (!responseString) {
+        throw new Error("response is null");
     }
-    return JSON.parse(responseString);
+    const cleanedResponse = responseString.replace(/```json|```/g, "").trim();
+
+    return JSON.parse(cleanedResponse);
     
     } catch (error) {
         console.error("ai error:", error);
