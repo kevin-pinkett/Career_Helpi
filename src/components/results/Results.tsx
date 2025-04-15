@@ -14,13 +14,17 @@ type Result = {
 
 interface ResultsPageProps{
     answers: number[];
+    questions: string[];
 }
 
-function parseAnswers(answers: number[]) { 
+function parsePrompt(answers: number[], questions: string[]): string {
+    return questions
+        .map((question, index) => `Q: ${question}\nA: ${answers[index+1]}\n\n`)
+        .join("");
 
 }
 
-export function ResultsPage({ answers }: ResultsPageProps) {
+export function ResultsPage({ answers, questions }: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
         {
             title: "Plumber",
@@ -46,8 +50,9 @@ export function ResultsPage({ answers }: ResultsPageProps) {
     ]);
 
     useEffect(() => {
-        parseAnswers(answers);
-      }, []);
+        console.log(parsePrompt(answers, questions));
+        
+      }, [answers, questions]);
 
 
 
