@@ -9,15 +9,16 @@ import "./BasicQuestions.css"
 interface Basic_Question_Props{
   openPopup:() => void;
   setPage: (page: string) => void;
+  setBasicAnswers: (answers: number[]) => void;
 }
 
-export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): React.JSX.Element {
+export function BasicQuestions({openPopup, setPage, setBasicAnswers}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
   const QUESTIONS: Basic_Question[] = Object.values(basicData)
   
-  const [basicAnswers, setBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
+  const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
@@ -54,6 +55,7 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
           setBasicAnswers(newAnswers);
+          localSetBasicAnswers(newAnswers);
   }
 
   useEffect(() => {
