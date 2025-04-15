@@ -28,25 +28,25 @@ function parsePrompt(answers: number[], questions: string[]): string {
 export function ResultsPage({ answers, questions}: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
         {
-            title: "Plumber",
-            description: "fix plumbing",
-            traits: ["test"],
-            jobRoles: ["test"],
-            skills: ["test"]
+            title: "",
+            description: "",
+            traits: [""],
+            jobRoles: [""],
+            skills: [""]
         },
         {
-            title: "Astronaut",
-            description: "space",
-            traits: ["test"],
-            jobRoles: ["test"],
-            skills: ["test"]
+            title: "",
+            description: "",
+            traits: [""],
+            jobRoles: [""],
+            skills: [""]
         },
         {
-            title: "Doctor",
-            description: "health",
-            traits: ["test"],
-            jobRoles: ["test"],
-            skills: ["test"]
+            title: "",
+            description: "",
+            traits: [""],
+            jobRoles: [""],
+            skills: [""]
         }
     ]);
 
