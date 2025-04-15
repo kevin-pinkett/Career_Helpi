@@ -8,22 +8,9 @@ interface FAQQuestionProps{
 
 export function FAQQuestion({question, answer}: FAQQuestionProps){
     const [open, setOpen] = useState<boolean>(false);
-    const [color, setColor] = useState<string>("FE604D");
-    
-    function dropDown(): void {
-        setOpen(!open);
-        if (open) {
-            setColor("d34f40");
-        } else {
-            setColor("FE604D");
-        }
-    }
 
     return <div>
-        <Button style={{
-            backgroundColor: `${color}`
-        }}
-        className="question" onClick = {dropDown}>{question}</Button>
+        <Button className="question" onClick = {() => {setOpen(!open)}}>{question}</Button>
         <Collapse in={open}>
             <div>
                 <Card body className="answer">
