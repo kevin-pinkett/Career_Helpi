@@ -16,23 +16,23 @@ export function ResultsPage() {
         {
             title: "Plumber",
             description: "fix plumbing",
-            traits: ["reliable", "hands-on", "detail-oriented"],
-            jobRoles: ["Pipefitter", "Maintenance Technician", "Journeyman Plumber"],
-            skills: ["Welding", "Blueprint Reading", "Soldering"]
+            traits: ["test"],
+            jobRoles: ["test"],
+            skills: ["test"]
         },
         {
             title: "Astronaut",
             description: "space",
-            traits: ["brave", "intelligent", "fit"],
-            jobRoles: ["Mission Specialist", "Commander", "Flight Engineer"],
-            skills: ["Engineering", "Piloting", "Problem Solving"]
+            traits: ["test"],
+            jobRoles: ["test"],
+            skills: ["test"]
         },
         {
             title: "Doctor",
             description: "health",
-            traits: ["empathetic", "analytical", "resilient"],
-            jobRoles: ["Surgeon", "Pediatrician", "General Practitioner"],
-            skills: ["Diagnosis", "Surgery", "Patient Care"]
+            traits: ["test"],
+            jobRoles: ["test"],
+            skills: ["test"]
         }
     ]);
 
