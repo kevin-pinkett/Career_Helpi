@@ -6,7 +6,12 @@ import { ProgressBar } from "../progress-bar/progress-bar";
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
 
-export function BasicQuestions(): React.JSX.Element {
+interface Basic_Question_Props{
+  openPopup:() => void;
+  setPage: (page: string) => void;
+}
+
+export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
@@ -16,6 +21,7 @@ export function BasicQuestions(): React.JSX.Element {
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
+  const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
   function advanceQuestion() {
@@ -43,12 +49,20 @@ export function BasicQuestions(): React.JSX.Element {
       setProgress(newProgress);
       }
       }, [basicAnswers, QUESTIONS.length, progress]);
+
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
           setBasicAnswers(newAnswers);
   }
-  
+
+  useEffect(() => {
+    if (progress === 100 && !popupTriggered) {
+      openPopup();
+      setPopupTriggered(true);
+    }
+  }, [progress, popupTriggered, openPopup]);
+
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="basicQuestions">
@@ -83,11 +97,11 @@ export function BasicQuestions(): React.JSX.Element {
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+            <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
         </div>
       </Form.Group>
       <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
     </div>
-    
   );
 }

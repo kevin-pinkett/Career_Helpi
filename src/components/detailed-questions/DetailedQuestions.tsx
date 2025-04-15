@@ -5,7 +5,13 @@ import { ProgressBar } from "../progress-bar/progress-bar";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
 
-export function DetailedQuestions(): React.JSX.Element {
+interface Detailed_Question_Props{
+  openPopup:() => void;
+  setPage: (page: string) => void;
+}
+
+
+export function DetailedQuestions({openPopup, setPage}: Detailed_Question_Props): React.JSX.Element {
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
@@ -15,6 +21,7 @@ export function DetailedQuestions(): React.JSX.Element {
   const [currentQuestion, setCurrentQuestion] = useState<Detailed_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
+  const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
   useEffect(() => {
@@ -24,12 +31,19 @@ export function DetailedQuestions(): React.JSX.Element {
               setProgress(newProgress);
           }
       }, [detailedAnswers, QUESTIONS.length, progress]);
-      const handleAnswerChange = (q_index: number, r_index: number) => {
-          const newAnswers = [...detailedAnswers];
-          newAnswers[q_index] = r_index;
-          setDetailedAnswers(newAnswers);
-      }
+  const handleAnswerChange = (q_index: number, r_index: number) => {
+    const newAnswers = [...detailedAnswers];
+    newAnswers[q_index] = r_index;
+    setDetailedAnswers(newAnswers);
+  }
 
+  useEffect(() => {
+    if (progress === 100 && !popupTriggered) {
+      openPopup();
+      setPopupTriggered(true);
+    }
+  }, [progress, popupTriggered, openPopup]);
+    
   function advanceQuestion() {
     let newId: number;
     newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
@@ -51,7 +65,7 @@ export function DetailedQuestions(): React.JSX.Element {
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="detailedQuestions">
-        <Form.Label className="subtitle">Questions:</Form.Label>
+        <Form.Label className="subtitle"></Form.Label>
         
         <div className="Question-Page">
 
@@ -83,6 +97,7 @@ export function DetailedQuestions(): React.JSX.Element {
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+            <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
         </div>
       </Form.Group>
