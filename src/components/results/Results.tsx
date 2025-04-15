@@ -1,4 +1,3 @@
-import { get } from "http";
 import ResultsCard from "./ResultCard";
 
 import { useEffect, useState } from "react";
