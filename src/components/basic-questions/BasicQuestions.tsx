@@ -83,10 +83,6 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
                 value={r_index}
                 checked={basicAnswers[currentQuestion.id] === r_index}
                 onChange={(e) => {
-                  /*const newAnswers = [...basicAnswers];
-                  newAnswers[currentQuestion.id] = parseInt(e.target.value);
-                  setBasicAnswers(newAnswers);
-                  */
                   handleAnswerChange(currentQuestion.id, r_index)
                 }}
               />
