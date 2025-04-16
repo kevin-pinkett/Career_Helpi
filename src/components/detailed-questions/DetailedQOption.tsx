@@ -4,6 +4,17 @@ interface DetailedQuestionProps {
     setPage: (page: string) => void;
   }
 
+/**
+ * A React functional component that renders an option for detailed questions.
+ * This component provides a brief description of the detailed questions feature
+ * and includes a button to navigate to the detailed questions page.
+ *
+ * @param {DetailedQuestionProps} props - The props object containing:
+ *   - `setPage`: A function to update the current page state.
+ *
+ * @returns {JSX.Element} A styled div containing a description and a button
+ * to start the detailed questions quiz.
+ */
 export function DetailedQuestionsOption({setPage}: DetailedQuestionProps) {
     return (
     <div 
