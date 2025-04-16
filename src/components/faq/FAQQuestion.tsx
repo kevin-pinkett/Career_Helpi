@@ -12,8 +12,8 @@ export function FAQQuestion({question, answer}: FAQQuestionProps){
     return <div>
         <Button className="question" onClick = {() => {setOpen(!open)}}>{question}</Button>
         <Collapse in={open}>
-            <div>
-                <Card body className="answer">
+            <div style={{ visibility: open ? "visible" : "hidden"}}>
+                <Card body className="answer" data-testid="collapsed-answer">
                     {answer}
                 </Card>
             </div>
