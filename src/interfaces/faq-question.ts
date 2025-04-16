@@ -4,6 +4,6 @@ export interface FAQ_Question {
     id: number;
     //The question being asked
     question: string;
-    //The possible answers to the question
+    //The answer to the question
     answer: string;
 }
