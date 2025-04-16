@@ -53,7 +53,7 @@ function App() {
       <Header page={page} setPage={setPage}/>
 
 
-      <div className="Page">
+      <div className="Page" data-testid="page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
         {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
@@ -61,7 +61,7 @@ function App() {
         {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
       </div>
 
-      <div className='footer-wrapper'>
+      <div className='footer-wrapper' data-testid="footer">
         <footer id="footer">
           <Form>
             <Form.Label>API Key:</Form.Label>

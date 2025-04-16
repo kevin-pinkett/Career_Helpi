@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
-import { ProgressBar } from "../progress-bar/progress-bar";
+import { ProgressBar } from "../progress-bar/progressBar";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
@@ -95,10 +95,6 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
                 value={r_index}
                 checked={basicAnswers[currentQuestion.id] === r_index}
                 onChange={(e) => {
-                  /*const newAnswers = [...basicAnswers];
-                  newAnswers[currentQuestion.id] = parseInt(e.target.value);
-                  setBasicAnswers(newAnswers);
-                  */
                   handleAnswerChange(currentQuestion.id, r_index)
                 }}
               />

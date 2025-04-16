@@ -1,5 +1,5 @@
 import React from 'react';
-import './progress-bar.css';
+import './progressBar.css';
 interface ProgressBarProps {
     progress: number;
     setProgress: (progress: number) => void;
@@ -19,7 +19,10 @@ export function ProgressBar({progress, setProgress}: ProgressBarProps) {
     return(
         <div className="container">
             <div className="progress-bar">
-                <div className="progress-bar-fill" style={{ width : `${progress}%`, backgroundColor : getColor()}}></div>
+                <div data-testid="bar-fill" 
+                     className="progress-bar-fill" 
+                     style={{ width : `${progress}%`, backgroundColor : getColor()}}>
+                </div>
             </div>
             <div className="progress-label">{progress.toFixed(2)}%</div>
             

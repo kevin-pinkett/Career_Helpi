@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Detailed_Question } from "../../interfaces/detailed-question"
-import { ProgressBar } from "../progress-bar/progress-bar";
+import { ProgressBar } from "../progress-bar/progressBar";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
 
