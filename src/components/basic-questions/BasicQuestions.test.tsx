@@ -10,12 +10,22 @@ jest.mock("../../data/basic-questions.json", () => [
 describe("BasicQuestions Component", () => {
     const mockOpenPopup = jest.fn();
     const mockSetPage = jest.fn();
+    const mockSetAnswers = jest.fn();
+    const mockSetQuestions = jest.fn();
+
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
     test("Renders the first question and its options", () => {
-        render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
 
         expect(screen.getByText("Question 1?")).toBeInTheDocument();
         expect(screen.getByLabelText("Option 1")).toBeInTheDocument();
@@ -23,7 +33,14 @@ describe("BasicQuestions Component", () => {
     });
 
     test("Advances to the next question when 'Next' button is clicked", () => {
-        render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
 
         fireEvent.click(screen.getByText("Next"));
 
@@ -33,7 +50,14 @@ describe("BasicQuestions Component", () => {
     });
 
     test("Regresses to the previous question when 'Previous' button is clicked", () => {
-        render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
 
         fireEvent.click(screen.getByText("Next"));
         fireEvent.click(screen.getByText("Previous"));
@@ -42,15 +66,29 @@ describe("BasicQuestions Component", () => {
     });
 
     test("Updates progress when an answer is selected", () => {
-        render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
 
         fireEvent.click(screen.getByLabelText("Option 1"));
 
-        expect(screen.getByText("50.00%")).toBeInTheDocument();
+        expect(mockSetAnswers).toHaveBeenCalledWith([0, -1]);
     });
 
     test("Triggers popup when all questions are answered", () => {
-        render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
 
         fireEvent.click(screen.getByLabelText("Option 1"));
         fireEvent.click(screen.getByText("Next"));
@@ -60,7 +98,14 @@ describe("BasicQuestions Component", () => {
     });
 
     test("Disables 'Submit' button until all questions are answered", () => {
-        render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
 
         const submitButton = screen.getByText("Submit");
         expect(submitButton).toBeDisabled();
@@ -70,5 +115,18 @@ describe("BasicQuestions Component", () => {
         fireEvent.click(screen.getByLabelText("Option A"));
 
         expect(submitButton).not.toBeDisabled();
+    });
+
+    test("Calls setQuestions with the correct question bodies on mount", () => {
+        render(
+            <BasicQuestions
+                openPopup={mockOpenPopup}
+                setPage={mockSetPage}
+                setAnswers={mockSetAnswers}
+                setQuestions={mockSetQuestions}
+            />
+        );
+
+        expect(mockSetQuestions).toHaveBeenCalledWith(["Question 1?", "Question 2?"]);
     });
 });
