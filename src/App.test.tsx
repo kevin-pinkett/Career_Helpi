@@ -5,7 +5,7 @@ import App from './App';
 describe('App Component tests', () => {
   test('Header exists.', () => {
     render(<App />);
-    const headerElement = screen.getByTestId('header');
+    const headerElement = screen.getByText(/The Career Helpi/);
     expect(headerElement).toBeInTheDocument();
   });
 

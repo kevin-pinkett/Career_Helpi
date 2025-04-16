@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
 
-      <div className="Header-Wrapper" data-testid="header">
+      <div className="Header-Wrapper">
         <img src="assets/Helpi Mascot.png" alt="mascot" style={{
             display: "flex",
             justifySelf: "center",
