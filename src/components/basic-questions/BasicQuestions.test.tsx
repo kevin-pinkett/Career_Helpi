@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BasicQuestions } from "./BasicQuestions";
-import { Basic_Question } from "../../interfaces/basic-question";
 
 jest.mock("../../data/basic-questions.json", () => [
     { id: 0, body: "Question 1?", options: ["Option 1", "Option 2"] },
