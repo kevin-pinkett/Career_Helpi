@@ -23,7 +23,7 @@ describe("BasicQuestions Component", () => {
         expect(screen.getByLabelText("Option 2")).toBeInTheDocument();
     });
 
-    test("advances to the next question when 'Next' button is clicked", () => {
+    test("Advances to the next question when 'Next' button is clicked", () => {
         render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
 
         fireEvent.click(screen.getByText("Next"));
@@ -33,7 +33,7 @@ describe("BasicQuestions Component", () => {
         expect(screen.getByLabelText("Option B")).toBeInTheDocument();
     });
 
-    test("regresses to the previous question when 'Previous' button is clicked", () => {
+    test("Regresses to the previous question when 'Previous' button is clicked", () => {
         render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
 
         fireEvent.click(screen.getByText("Next"));
@@ -42,7 +42,7 @@ describe("BasicQuestions Component", () => {
         expect(screen.getByText("Question 1?")).toBeInTheDocument();
     });
 
-    test("updates progress when an answer is selected", () => {
+    test("Updates progress when an answer is selected", () => {
         render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
 
         fireEvent.click(screen.getByLabelText("Option 1"));
@@ -50,7 +50,7 @@ describe("BasicQuestions Component", () => {
         expect(screen.getByText("50.00%")).toBeInTheDocument();
     });
 
-    test("triggers popup when all questions are answered", () => {
+    test("Triggers popup when all questions are answered", () => {
         render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
 
         fireEvent.click(screen.getByLabelText("Option 1"));
@@ -60,7 +60,7 @@ describe("BasicQuestions Component", () => {
         expect(mockOpenPopup).toHaveBeenCalled();
     });
 
-    test("disables 'Submit' button until all questions are answered", () => {
+    test("Disables 'Submit' button until all questions are answered", () => {
         render(<BasicQuestions openPopup={mockOpenPopup} setPage={mockSetPage} />);
 
         const submitButton = screen.getByText("Submit");
