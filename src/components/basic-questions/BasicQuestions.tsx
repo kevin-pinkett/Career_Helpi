@@ -15,6 +15,41 @@ interface Basic_Question_Props{
 
 const QUESTIONS: Basic_Question[] = Object.values(basicData)
 
+/**
+ * Component for rendering a series of basic questions and handling user responses.
+ * 
+ * @param {Basic_Question_Props} props - The properties passed to the component.
+ * @param {Function} props.openPopup - Function to trigger a popup when all questions are answered.
+ * @param {Function} props.setPage - Function to set the current page (not used in this component).
+ * @param {Function} props.setAnswers - Function to update the answers array in the parent component.
+ * @param {Function} props.setQuestions - Function to set the list of question bodies in the parent component.
+ * 
+ * @returns {React.JSX.Element} The rendered BasicQuestions component.
+ * 
+ * @description
+ * This component:
+ * - Loads a list of basic questions from a JSON file and initializes their state.
+ * - Tracks the user's progress through the questions and updates a progress bar.
+ * - Allows navigation between questions using "Previous" and "Next" buttons.
+ * - Handles user responses to questions and updates the answers state.
+ * - Triggers a popup when all questions are answered.
+ * 
+ * @remarks
+ * - The `QUESTIONS` array is expected to be an imported constant containing the list of questions.
+ * - Each question should conform to the `Basic_Question` interface, which includes an `id`, `body`, and `options`.
+ * - The progress is calculated as the percentage of questions answered.
+ * - The "Submit" button is enabled only when all questions are answered.
+ * 
+ * @example
+ * ```tsx
+ * <BasicQuestions
+ *   openPopup={handleOpenPopup}
+ *   setPage={setPage}
+ *   setAnswers={setAnswers}
+ *   setQuestions={setQuestions}
+ * />
+ * ```
+ */
 export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
