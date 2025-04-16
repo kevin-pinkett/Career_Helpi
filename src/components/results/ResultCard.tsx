@@ -13,6 +13,19 @@ interface ResultsCardProps {
 
 }
 
+/**
+ * A functional React component that displays a card with details about results, 
+ * including a title, description, traits, potential job roles, and skills.
+ *
+ * @component
+ * @param {ResultsCardProps} props - The props for the ResultsCard component.
+ * @param {string} props.title - The title of the result card.
+ * @param {string} props.description - A brief description of the result.
+ * @param {string[]} props.traits - A list of traits associated with the result.
+ * @param {string[]} props.jobRoles - A list of potential job roles related to the result.
+ * @param {string[]} props.skills - A list of skills relevant to the result.
+ * @returns {JSX.Element} A styled card component displaying the provided information.
+ */
 function ResultsCard({ title, description, traits, jobRoles, skills}: ResultsCardProps) {
 
 

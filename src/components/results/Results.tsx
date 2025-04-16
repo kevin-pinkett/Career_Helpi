@@ -25,6 +25,28 @@ function parsePrompt(answers: number[], questions: string[]): string {
 
 }
 
+/**
+ * Component representing the Results Page.
+ * 
+ * This component fetches and displays results based on the provided answers and questions.
+ * It uses GPT to generate results dynamically and renders them as a collection of `ResultsCard` components.
+ * 
+ * @param {ResultsPageProps} props - The props for the ResultsPage component.
+ * @param {string[]} props.answers - The user's answers used to generate results.
+ * @param {string[]} props.questions - The questions corresponding to the user's answers.
+ * 
+ * @returns {JSX.Element} The rendered Results Page component.
+ * 
+ * @remarks
+ * - The `results` state is initialized with placeholder data and updated with GPT-generated results.
+ * - The `useEffect` hook triggers the fetching of results whenever `answers` or `questions` change.
+ * - Each result is displayed in a `ResultsCard` component, styled with a responsive layout.
+ * 
+ * @example
+ * ```tsx
+ * <ResultsPage answers={["Answer1", "Answer2"]} questions={["Question1", "Question2"]} />
+ * ```
+ */
 export function ResultsPage({ answers, questions}: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
         {
