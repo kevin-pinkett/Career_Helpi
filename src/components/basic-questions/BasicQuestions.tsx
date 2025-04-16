@@ -8,16 +8,27 @@ import "./BasicQuestions.css"
 
 interface Basic_Question_Props{
   openPopup:() => void;
-  setPage: (page: string) => void;
+  setPage: (page: string) => void; // To lift back to App.tsx for use in results
+  setAnswers: (answers: number[]) => void; // To lift back to App.tsx for use in results
+  setQuestions: (questions: string[]) => void; // To lift back to App.tsx for use in results
 }
 
-export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): React.JSX.Element {
+const QUESTIONS: Basic_Question[] = Object.values(basicData)
+
+export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Basic_Question[] = Object.values(basicData)
   
-  const [basicAnswers, setBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
+  
+  useEffect(() => {
+    const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
+    setQuestions(questionBodies);
+  }, [setQuestions]);
+
+
+
+  const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
@@ -48,12 +59,13 @@ export function BasicQuestions({openPopup, setPage}: Basic_Question_Props): Reac
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
-      }, [basicAnswers, QUESTIONS.length, progress]);
+      }, [basicAnswers, progress]);
 
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
-          setBasicAnswers(newAnswers);
+          setAnswers(newAnswers);
+          localSetBasicAnswers(newAnswers);
   }
 
   useEffect(() => {
