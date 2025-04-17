@@ -32,7 +32,7 @@ function ResultsCard({ title, description, traits, jobRoles, skills}: ResultsCar
     return(
         <div className="Results-Card">
 
-        <Card>
+        <Card style={{borderRadius: "8px"}}>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>{description}</Card.Text>
