@@ -5,7 +5,7 @@ interface BasicQuestionProps {
   }
 
 /**
- * A React functional component that renders an option for basic career guidance questions.
+ * Component that renders an option to go to basic career guidance questions.
  * This component displays a brief description and a button to navigate to the basic questions page.
  *
  * @param {BasicQuestionProps} props - The props object containing the `setPage` function.

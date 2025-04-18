@@ -5,9 +5,8 @@ interface DetailedQuestionProps {
   }
 
 /**
- * A React functional component that renders an option for detailed questions.
- * This component provides a brief description of the detailed questions feature
- * and includes a button to navigate to the detailed questions page.
+  * Component that renders an option to go to detailed career guidance questions.
+ * This component displays a brief description and a button to navigate to the detailed questions page.
  *
  * @param {DetailedQuestionProps} props - The props object containing:
  *   - `setPage`: A function to update the current page state.

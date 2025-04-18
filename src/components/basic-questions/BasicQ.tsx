@@ -10,11 +10,9 @@ interface BasicQuestionsPageProp {
 }
 
 /**
- * Renders the Basic Questions Page component, which includes a basic quiz and a popup
- * for completing the quiz. This component manages the state for the popup visibility
- * and passes necessary props to child components.
+ * Renders the Basic Questions Page component, including the basic quiz and a completion popup
  *
- * @param {BasicQuestionsPageProp} props - The props for the BasicQuestionsPage component.
+ * @param {BasicQuestionsPageProp} props - BasicQuestionsPage component props.
  * @param {Function} props.setPage - Function to update the current page.
  * @param {Function} props.setAnswers - Function to update the answers for the quiz.
  * @param {Function} props.setQuestions - Function to update the questions for the quiz.
