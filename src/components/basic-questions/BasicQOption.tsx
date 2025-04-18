@@ -4,6 +4,15 @@ interface BasicQuestionProps {
     setPage: (page: string) => void;
   }
 
+/**
+ * A React functional component that renders an option for basic career guidance questions.
+ * This component displays a brief description and a button to navigate to the basic questions page.
+ *
+ * @param {BasicQuestionProps} props - The props object containing the `setPage` function.
+ * @param {(page: string) => void} props.setPage - A function to update the current page state.
+ *
+ * @returns {JSX.Element} A styled div containing a description and a button to start the quiz.
+ */
 export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
     return (
     <div

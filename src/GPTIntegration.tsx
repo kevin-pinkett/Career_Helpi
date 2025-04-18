@@ -1,6 +1,26 @@
 import OpenAI from "openai";
 
 
+/**
+ * Sends a prompt to the GPT model and retrieves a structured JSON response with career suggestions.
+ *
+ * @param {string} prompt - The input string containing the user's career quiz answers and instructions for GPT.
+ * @returns {Promise<Array<{ 
+ *   title: string; 
+ *   description: string; 
+ *   traits: string[]; 
+ *   jobRoles: string[]; 
+ *   skills: string[]; 
+ * }>>} A promise that resolves to an array of career options, each containing a title, description, traits, job roles, and skills.
+ *
+ * @throws {Error} Throws an error if the API key is missing, the response is null, or if there is an issue with the GPT API call.
+ *
+ * @example
+ * const prompt = "User's quiz answers...";
+ * getGPTResponse(prompt)
+ *   .then(careers => console.log(careers))
+ *   .catch(error => console.error(error));
+ */
 export async function getGPTResponse(prompt: string) {
 
 
