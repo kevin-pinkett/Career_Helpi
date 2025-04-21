@@ -8,7 +8,7 @@ import "./DetailedQuestions.css"
 interface Detailed_Question_Props{
   openPopup:() => void;
   setPage: (page: string) => void;
-  setAnswers: (answers: number[]) => void;
+  setAnswers: (answers: string[]) => void;
   setQuestions: (questions: string[]) => void;
 }
 
@@ -19,7 +19,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
    */
   const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
 
-  const [detailedAnswers, localSetDetailedAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
+  const [detailedAnswers, setDetailedAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
   const [response, setResponse] = useState<string>("");
   const [currentQuestion, setCurrentQuestion] = useState<Detailed_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
@@ -46,8 +46,15 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
     const newAnswers = [...detailedAnswers];
       newAnswers[q_index] = response;
       setAnswers(newAnswers);
-    localSetDetailedAnswers(newAnswers);
+      setDetailedAnswers(newAnswers);
     }
+  
+  useEffect(() => {
+    if (progress === 100 && !popupTriggered) {
+      openPopup();
+      setPopupTriggered(true);
+    }
+  }, [progress, popupTriggered, openPopup]);
 
   function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
     setResponse(e.target.value);
