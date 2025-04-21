@@ -63,7 +63,7 @@ if (prevKey !== null) {
  * Contains a form for the user to input and submit their API key.
  */
 function App() {
-  const [answers, setAnswers] = useState<number[]>([]); //for the answers to the questions
+  const [answers, setAnswers] = useState<number[] | string[]>([]); //for the answers to the questions
   const [questions, setQuestions] = useState<string[]>([]); //for the questions to be asked
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [page, setPage] = useState<string>('homePage');

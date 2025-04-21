@@ -1,7 +1,7 @@
 {
     "QUESTION_1": {
       "id": 1,
-      "body": "I value consistency and sustainability over potential and growth",
+      "body": "What do you value more in a workplace, consistency or potential for growth?",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -12,7 +12,7 @@
     },
     "QUESTION_2": {
       "id": 2,
-      "body": "I don't mind putting in extra hours if it means more chances for promotion and upwards mobility in the workplace",
+      "body": "Are you willing to put in extra hours for the sake of promotion?",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -23,7 +23,7 @@
     },
     "QUESTION_3": {
       "id": 3,
-      "body": "Work-life balance is of utmost importance to me and I desire flexibility with my job",
+      "body": "How important is work-life balance to you?",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -34,7 +34,7 @@
     },
     "QUESTION_4": {
       "id": 4,
-      "body": "Ethics does not matter to me in regards to what company I work for as long as I am compensated well",
+      "body": "How do your personal ethics influence your job choices?",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -45,7 +45,7 @@
     },
     "QUESTION_5": {
       "id": 5,
-      "body": "I prefer working within groups, socializing and creating bonds with the people I collaborate with",
+      "body": "Are you more of a group collaborator or an independent worker?",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -56,7 +56,7 @@
     },
     "QUESTION_6": {
       "id": 6,
-      "body": "I value smaller workplaces with more interconnected groups and sectors",
+      "body": "What kind of workspace do you prefer?",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -67,7 +67,7 @@
     },
     "QUESTION_7": {
       "id": 7,
-      "body": "I think of my future career as a way to realize my best self, rather than an avenue to make money",
+      "body": "Do you think of your future career as a way to realize your best self, or an avenue to make money?",
       "options": [
         "Strongly Disagree",
         "Disagree",

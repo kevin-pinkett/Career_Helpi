@@ -3,10 +3,10 @@ import { DetailedQuestions } from "./DetailedQuestions";
 import { CompletedQuiz } from "../popup/CompleteQuiz";
 
 interface DetailedQuestionsPageProp {
-  setPage: (page: string) => void;
-  answers: number[];
-  setAnswers: (answers: number[]) => void;
-  setQuestions: (questions: string[]) => void;
+    setPage: (page: string) => void;
+    answers: number[] | string[];
+    setAnswers: (answers: number[] | string[]) => void;
+    setQuestions: (questions: string[]) => void;
 }
 
 /**

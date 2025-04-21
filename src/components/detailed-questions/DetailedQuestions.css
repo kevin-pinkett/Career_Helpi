@@ -27,6 +27,14 @@
     padding: 15px;
 }
 
+.response-input {
+    vertical-align: top;
+    height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+    padding: 10px;
+    box-sizing: border-box;
+}
 .Nav-Buttons {
     padding: 10px;
     width: 100%;
