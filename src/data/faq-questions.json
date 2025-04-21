@@ -1,0 +1,32 @@
+{ 
+    "QUESTION_1": {
+      "id": 1,
+      "question": "How long do the career assessments take?",
+      "answer": "Our assessments are aimed to be a short and sweet method of determining your ideal career. We know the struggle of balancing classes and finding the time for extraneous things like this can be difficult. That's why we strive to make our assessments quick and easy for students."
+    },
+    
+    "QUESTION_2": {
+      "id": 2,
+      "question": "What kinds of questions are included in the assessments?",
+      "answer": "Our assessments contain two different types of questions. We have simple questions that allow us to determine broader aspects of your ideal career as well as detailed questions that get into the more technical aspects of the career for you."
+    },
+
+    "QUESTION_3": {
+      "id": 3,
+      "question": "Can you retake the assessment?",
+      "answer": "Yes. You can retake the assessment as many times as you like."
+    },
+
+    "QUESTION_4": {
+      "id": 4,
+      "question": "Do I need to know what career I want prior to this quiz?",
+      "answer": "No. You can take the quiz regardless of if you have a plan or not. Our quiz will factor in your personal preference and skills which can either reinforce your prior choice or help you to pick a new career."
+    },
+
+    "QUESTION_5": {
+      "id": 5,
+      "question": "What is I don't like the options I'm matched with?",
+      "answer": "No worries! You're free to try taking the quiz again as many times as you like. Regardless of your result, this assessment will serve as a tool to help you along your journey but it will not lock you into any particular option."
+    }
+}
+  

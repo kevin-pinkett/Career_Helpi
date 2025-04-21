@@ -1,6 +1,6 @@
 import { CompletedQuiz } from "../popup/CompleteQuiz";
-import { BasicQuestions } from "./BasicQuestions"
-import {useState} from "react"
+import { BasicQuestions } from "./BasicQuestions";
+import { useState } from "react";
 
 interface BasicQuestionsPageProp {
     setPage: (page: string) => void;
@@ -9,14 +9,33 @@ interface BasicQuestionsPageProp {
     setQuestions: (questions: string[]) => void;
 }
 
-export function BasicQuestionsPage({setPage, setAnswers, setQuestions}: BasicQuestionsPageProp) {
+/**
+ * Renders the Basic Questions Page component, including the basic quiz and a completion popup
+ *
+ * @param {BasicQuestionsPageProp} props - BasicQuestionsPage component props.
+ * @param {Function} props.setPage - Function to update the current page.
+ * @param {Function} props.setAnswers - Function to update the answers for the quiz.
+ * @param {Function} props.setQuestions - Function to update the questions for the quiz.
+ *
+ * @returns {JSX.Element} The rendered Basic Questions Page component.
+ */
+export function BasicQuestionsPage({ setPage, setAnswers, setQuestions }: BasicQuestionsPageProp) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     return (
-    <div className="Basic-Questions">
-    <h1>Basic Quiz</h1>
-    <BasicQuestions openPopup={() => setIsPopupOpen(true)} setPage={setPage} setAnswers={setAnswers} setQuestions={setQuestions}></BasicQuestions>
-    <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage}></CompletedQuiz>
-    </div>
-)
+        <div className="Basic-Questions">
+            <h1>Basic Quiz</h1>
+            <BasicQuestions 
+                openPopup={() => setIsPopupOpen(true)} 
+                setPage={setPage} 
+                setAnswers={setAnswers} 
+                setQuestions={setQuestions}
+            />
+            <CompletedQuiz 
+                isPopupOpen={isPopupOpen} 
+                closePopup={() => setIsPopupOpen(false)} 
+                setPage={setPage}
+            />
+        </div>
+    );
 }

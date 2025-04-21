@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Detailed_Question } from "../../interfaces/detailed-question"
-import { ProgressBar } from "../progress-bar/progress-bar";
+import { ProgressBar } from "../progress-bar/progressBar";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
 
@@ -13,6 +13,40 @@ interface Detailed_Question_Props{
 }
 
 
+/**
+ * Component representing a detailed questionnaire interface.
+ * 
+ * @param {object} props - The properties passed to the component.
+ * @param {() => void} props.openPopup - Function to trigger a popup when the questionnaire is completed.
+ * @param {(answers: number[]) => void} props.setAnswers - Function to update the answers for the questionnaire.
+ * @param {(questions: string[]) => void} props.setQuestions - Function to set the list of question bodies.
+ * @param {(page: number) => void} props.setPage - Function to set the current page of the questionnaire.
+ * 
+ * @returns {React.JSX.Element} A JSX element rendering the detailed questionnaire interface.
+ * 
+ * @description
+ * This component renders a detailed questionnaire interface, allowing users to navigate through questions,
+ * select answers, and track their progress. It imports questions from a JSON file and manages the state
+ * for answers, progress, and the currently displayed question. The component triggers a popup when all
+ * questions are answered.
+ * 
+ * @remarks
+ * - The `QUESTIONS` array is populated from a JSON file and follows the `Detailed_Question` interface.
+ * - Progress is calculated as a percentage of answered questions.
+ * - The `advanceQuestion` and `regressQuestion` functions handle navigation between questions.
+ * - The `handleAnswerChange` function updates the answers and triggers state updates.
+ * - A `ProgressBar` component is used to visually display the progress.
+ * 
+ * @example
+ * ```tsx
+ * <DetailedQuestions
+ *   openPopup={handlePopup}
+ *   setPage={setPage}
+ *   setAnswers={setAnswers}
+ *   setQuestions={setQuestions}
+ * />
+ * ```
+ */
 export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}: Detailed_Question_Props): React.JSX.Element {
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface

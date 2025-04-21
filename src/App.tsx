@@ -16,6 +16,52 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+/**
+ * The main application component for the Career Helpi app.
+ * 
+ * This component manages the overall structure and state of the application, 
+ * including navigation between pages, handling API key input, and maintaining 
+ * user answers and questions. It also renders the header, footer, and the 
+ * appropriate page content based on the current state.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered App component.
+ * 
+ * @remarks
+ * - The `App` component uses React's `useState` hook to manage the following states:
+ *   - `answers`: Stores the user's answers to the questions.
+ *   - `questions`: Stores the questions to be asked.
+ *   - `key`: Stores the API key input by the user.
+ *   - `page`: Tracks the current page being displayed.
+ * - The API key is stored in local storage upon submission and the page is reloaded 
+ *   to ensure the key is refreshed for use.
+ * 
+ * @example
+ * ```tsx
+ * <App />
+ * ```
+ * 
+ * @state {number[]} answers - Array of answers provided by the user.
+ * @state {string[]} questions - Array of questions to be displayed.
+ * @state {string} key - The API key input by the user.
+ * @state {string} page - The current page being displayed (e.g., 'homePage', 'basicPage').
+ * 
+ * @function handleSubmit
+ * Stores the API key in local storage and reloads the page to refresh the key.
+ * 
+ * @function changeKey
+ * Updates the `key` state whenever the user modifies the API key input field.
+ * 
+ * @childcomponent {Header} Renders the header with navigation controls.
+ * @childcomponent {HomePage} Displays the home page content.
+ * @childcomponent {BasicQuestionsPage} Displays the basic questions page.
+ * @childcomponent {DetailQuestionsPage} Displays the detailed questions page.
+ * @childcomponent {FAQPage} Displays the FAQ page.
+ * @childcomponent {ResultsPage} Displays the results page with user answers and questions.
+ * 
+ * @footer
+ * Contains a form for the user to input and submit their API key.
+ */
 function App() {
   const [answers, setAnswers] = useState<number[] | string[]>([]); //for the answers to the questions
   const [questions, setQuestions] = useState<string[]>([]); //for the questions to be asked
@@ -53,7 +99,7 @@ function App() {
       <Header page={page} setPage={setPage}/>
 
 
-      <div className="Page">
+      <div className="Page" data-testid="page">
         {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
         {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
@@ -61,7 +107,7 @@ function App() {
         {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
       </div>
 
-      <div className='footer-wrapper'>
+      <div className='footer-wrapper' data-testid="footer">
         <footer id="footer">
           <Form>
             <Form.Label>API Key:</Form.Label>

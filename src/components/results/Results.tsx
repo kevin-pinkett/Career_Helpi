@@ -25,6 +25,22 @@ function parsePrompt(answers: number[] | string[], questions: string[]): string 
 
 }
 
+/**
+ * The results page component based on the provided answers and questions.
+ * It fetches AI-generated results asynchronously and displays through the Result Card.
+ *
+ * @param {ResultsPageProps} props - The props for the ResultsPage component.
+ * @param {Answer[]} props.answers - The user's answers used to generate the results.
+ * @param {Question[]} props.questions - The questions corresponding to the user's answers.
+ *
+ * @returns {JSX.Element} The rendered ResultsPage component.
+ *
+ * @remarks
+ * - The component initializes with a default set of empty results.
+ * - It uses the `useEffect` hook to fetch AI-generated results when the `answers` or `questions` change.
+ * - Every individual result is displayed in a `ResultsCard` component.
+ *
+ */
 export function ResultsPage({ answers, questions}: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([
         {

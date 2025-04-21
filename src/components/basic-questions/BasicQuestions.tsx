@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
-import { ProgressBar } from "../progress-bar/progress-bar";
+import { ProgressBar } from "../progress-bar/progressBar";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
@@ -13,16 +13,53 @@ interface Basic_Question_Props{
   setQuestions: (questions: string[]) => void; // To lift back to App.tsx for use in results
 }
 
+const QUESTIONS: Basic_Question[] = Object.values(basicData)
+
+/**
+ * Component for rendering a series of basic questions and handling user responses.
+ * 
+ * @param {Basic_Question_Props} props - The properties passed to the component.
+ * @param {Function} props.openPopup - Function to trigger a popup when all questions are answered.
+ * @param {Function} props.setPage - Function to set the current page (not used in this component).
+ * @param {Function} props.setAnswers - Function to update the answers array in the parent component.
+ * @param {Function} props.setQuestions - Function to set the list of question bodies in the parent component.
+ * 
+ * @returns {React.JSX.Element} The rendered BasicQuestions component.
+ * 
+ * @description
+ * This component:
+ * - Loads a list of basic questions from a JSON file and initializes their state.
+ * - Tracks the user's progress through the questions and updates a progress bar.
+ * - Allows navigation between questions using "Previous" and "Next" buttons.
+ * - Handles user responses to questions and updates the answers state.
+ * - Triggers a popup when all questions are answered.
+ * 
+ * @remarks
+ * - The `QUESTIONS` array is expected to be an imported constant containing the list of questions.
+ * - Each question should conform to the `Basic_Question` interface, which includes an `id`, `body`, and `options`.
+ * - The progress is calculated as the percentage of questions answered.
+ * - The "Submit" button is enabled only when all questions are answered.
+ * 
+ * @example
+ * ```tsx
+ * <BasicQuestions
+ *   openPopup={handleOpenPopup}
+ *   setPage={setPage}
+ *   setAnswers={setAnswers}
+ *   setQuestions={setQuestions}
+ * />
+ * ```
+ */
 export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: Basic_Question_Props): React.JSX.Element {
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Basic_Question[] = Object.values(basicData)
+  
   
   useEffect(() => {
     const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
     setQuestions(questionBodies);
-  }, [QUESTIONS, setQuestions]);
+  }, [setQuestions]);
 
 
 
@@ -57,7 +94,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
-      }, [basicAnswers, QUESTIONS.length, progress]);
+      }, [basicAnswers, progress]);
 
   const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
@@ -93,10 +130,6 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
                 value={r_index}
                 checked={basicAnswers[currentQuestion.id] === r_index}
                 onChange={(e) => {
-                  /*const newAnswers = [...basicAnswers];
-                  newAnswers[currentQuestion.id] = parseInt(e.target.value);
-                  setBasicAnswers(newAnswers);
-                  */
                   handleAnswerChange(currentQuestion.id, r_index)
                 }}
               />
