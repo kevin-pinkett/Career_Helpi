@@ -91,7 +91,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   }, [progress, popupTriggered, openPopup]);
 
   function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
-    setResponse(e.target.value);
+    setResponse(response + e.target.value);
     handleAnswerChange(currentQuestion.id, e.target.value);
   }
 
