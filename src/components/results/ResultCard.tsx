@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-
+import "./ResultCard.css";
 
 
 
@@ -10,6 +10,7 @@ interface ResultsCardProps {
     traits: string[];
     jobRoles: string[];
     skills: string[];
+    link: string;
 
 }
 
@@ -26,13 +27,13 @@ interface ResultsCardProps {
  * @param {string[]} props.skills - A list of skills relevant to the result.
  * @returns {JSX.Element} A styled card component displaying the provided information.
  */
-function ResultsCard({ title, description, traits, jobRoles, skills}: ResultsCardProps) {
+function ResultsCard({ title, description, traits, jobRoles, skills, link}: ResultsCardProps) {
 
 
     return(
         <div className="Results-Card">
 
-        <Card style={{borderRadius: "8px"}}>
+        <Card>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>{description}</Card.Text>
@@ -53,7 +54,7 @@ function ResultsCard({ title, description, traits, jobRoles, skills}: ResultsCar
                     ))}</ul>
                 </Card.Text>     
 
-                <Button variant="primary">Go home</Button>
+                <Button variant="primary" href={link} target="_blank"rel="noopener noreferrer" >Learn More</Button>
             </Card.Body>
         </Card>
         </div>
