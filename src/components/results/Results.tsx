@@ -14,12 +14,12 @@ type Result = {
 }
 
 interface ResultsPageProps{
-    answers: number[];
+    answers: number[] | string[];
     questions: string[];
 
 }
 
-function parsePrompt(answers: number[], questions: string[]): string {
+function parsePrompt(answers: number[] | string[], questions: string[]): string {
     return questions
         .map((question, index) => `Q: ${question}\nA: ${answers[index+1]}\n\n`)
         .join("");

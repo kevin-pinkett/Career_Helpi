@@ -8,7 +8,7 @@ import "./DetailedQuestions.css"
 interface Detailed_Question_Props{
   openPopup:() => void;
   setPage: (page: string) => void;
-  setAnswers: (answers: number[]) => void;
+  setAnswers: (answers: string[]) => void;
   setQuestions: (questions: string[]) => void;
 }
 
@@ -53,7 +53,8 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
    */
   const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
 
-  const [detailedAnswers, localSetDetailedAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
+  const [detailedAnswers, setDetailedAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
+  const [response, setResponse] = useState<string>("");
   const [currentQuestion, setCurrentQuestion] = useState<Detailed_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
@@ -68,26 +69,32 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
 
 
   useEffect(() => {
-          if (progress < 100) {
-              const answeredQuestions = detailedAnswers.filter(answer => answer !== -1).length; 
-              const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
-              setProgress(newProgress);
-          }
+    if (progress < 100) {
+      const answeredQuestions = detailedAnswers.filter(answer => answer !== "").length; 
+      const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
+      setProgress(newProgress);
+      }
       }, [detailedAnswers, QUESTIONS.length, progress]);
-  const handleAnswerChange = (q_index: number, r_index: number) => {
+  
+  const handleAnswerChange = (q_index: number, response: string) => {
     const newAnswers = [...detailedAnswers];
-    newAnswers[q_index] = r_index;
-    setAnswers(newAnswers);
-    localSetDetailedAnswers(newAnswers);
-  }
-
+      newAnswers[q_index] = response;
+      setAnswers(newAnswers);
+      setDetailedAnswers(newAnswers);
+    }
+  
   useEffect(() => {
     if (progress === 100 && !popupTriggered) {
       openPopup();
       setPopupTriggered(true);
     }
   }, [progress, popupTriggered, openPopup]);
-    
+
+  function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
+    setResponse(response + e.target.value);
+    handleAnswerChange(currentQuestion.id, e.target.value);
+  }
+
   function advanceQuestion() {
     let newId: number;
     newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
@@ -116,27 +123,14 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
             <div className="Response-Box">
-              {currentQuestion.options.map((option: string, r_index: number) => (
-                <Form.Check
-                style={{ flex: 1 }}
-                key={r_index}
-                type="radio"
-                name={`answers-${currentQuestion.id}`}
-                label={option}
-                value={r_index}
-                checked={detailedAnswers[currentQuestion.id] === r_index}
-                onChange={(e) => {
-                  /*
-                  const newAnswers = [...detailedAnswers];
-                  newAnswers[currentQuestion.id] = parseInt(e.target.value);
-                  setDetailedAnswers(newAnswers);
-                  */
-                  handleAnswerChange(currentQuestion.id, r_index);
-                }}
-              />
-              ))}
+              <Form.Control
+              as="textarea"
+              className = "response-input"
+              rows={5}
+              value={detailedAnswers[currentQuestion.id]} 
+              onChange={updateResponse}/>
             </div>
-            
+
           </div>
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
@@ -150,3 +144,24 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
     
   );
 }
+
+ /*
+{currentQuestion.options.map((option: string, r_index: number) => (
+
+  <Form.Check
+  
+  style={{ flex: 1 }}
+  key={r_index}
+  type="radio"
+  name={`answers-${currentQuestion.id}`}
+  label={option}
+  value={r_index}
+  checked={detailedAnswers[currentQuestion.id] === r_index}
+  onChange={(e) => {
+    handleAnswerChange(currentQuestion.id, r_index);
+  }}
+  
+  
+/>
+))}
+*/

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 interface BasicQuestionsPageProp {
     setPage: (page: string) => void;
-    answers: number[];
+    answers: number[] | string[];
     setAnswers: (answers: number[]) => void;
     setQuestions: (questions: string[]) => void;
 }
