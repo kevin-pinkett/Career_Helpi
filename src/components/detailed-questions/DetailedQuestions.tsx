@@ -77,18 +77,19 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
       }, [detailedAnswers, QUESTIONS.length, progress]);
   
   const handleAnswerChange = (q_index: number, response: string) => {
-    const newAnswers = [...detailedAnswers];
+      const newAnswers = [...detailedAnswers];
       newAnswers[q_index] = response;
       setAnswers(newAnswers);
       setDetailedAnswers(newAnswers);
     }
   
-  useEffect(() => {
+  /*useEffect(() => {
     if (progress === 100 && !popupTriggered) {
       openPopup();
       setPopupTriggered(true);
     }
   }, [progress, popupTriggered, openPopup]);
+  */
 
   function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
     setResponse(response + e.target.value);
@@ -97,10 +98,10 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
 
   function advanceQuestion() {
     let newId: number;
-    newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
+    newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions-1].id : currentQuestionId + 1);
     setCurrentQuestionId(newId);
     setCurrentQuestion(QUESTIONS[QUESTIONS.findIndex((question: Detailed_Question) => {
-      return question.id === newId
+      return question.id === newId;
     })])
   }
 
@@ -127,7 +128,8 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
               as="textarea"
               className = "response-input"
               rows={5}
-              value={detailedAnswers[currentQuestion.id]} 
+              value={detailedAnswers[currentQuestion.id] || ""}
+              placeholder="Type your response here"
               onChange={updateResponse}/>
             </div>
 
