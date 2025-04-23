@@ -10,6 +10,7 @@ type Result = {
     traits: string[];
     jobRoles: string[];
     skills: string[];
+    link: string;
 }
 
 interface ResultsPageProps{
@@ -48,21 +49,24 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
             description: "",
             traits: [""],
             jobRoles: [""],
-            skills: [""]
+            skills: [""],
+            link: ""
         },
         {
             title: "",
             description: "",
             traits: [""],
             jobRoles: [""],
-            skills: [""]
+            skills: [""],
+            link: ""
         },
         {
             title: "",
             description: "",
             traits: [""],
             jobRoles: [""],
-            skills: [""]
+            skills: [""],
+            link: ""
         }
     ]);
 
@@ -93,6 +97,7 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
                     traits={result.traits}
                     jobRoles={result.jobRoles}
                     skills={result.skills}
+                    link={result.link}
                 />
             </div>
         ))}
