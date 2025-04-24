@@ -113,11 +113,11 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   }, [progress, popupTriggered, openPopup]);
 
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
+    <div>
       <Form.Group controlId="basicQuestions">
         <Form.Label className="subtitle"></Form.Label>
         
-        <div>
+        <div className="Basic-Page">
 
           {/*
           <div className="Question-Box">
@@ -141,12 +141,13 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           </div>
           */}
 
-          <div className="Question-Box">
+          <div className="Basic-Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>
-                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, r_index)}>{option}</Button>
+                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, r_index)}
+                    style={{ }}>{option}</Button>
                 </div>
               ))}
             </div>
@@ -157,9 +158,10 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
+
+          <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
         </div>
       </Form.Group>
-      <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
     </div>
   );
 }

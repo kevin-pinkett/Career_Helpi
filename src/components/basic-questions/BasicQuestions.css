@@ -1,18 +1,29 @@
-.Question-Box {
+.Basic-Page {
+    width: 70%;
+    justify-self: center;
+}
+
+.Basic-Question-Box {
     display: flex;
     flex-direction: column;
 
     border: 1px solid #ccc;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding: 15px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+    padding: 25px;
     background-color: white;
+
 }
 
 .Response-Box {
     padding: 15px;
     height: 80%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .Answer-Button {
@@ -20,6 +31,8 @@
     border-color: black;
     color: black;
 
+    width: 200px;
+    border-radius: 100px;
     padding: 20px;
 }
 .Answer-Button:hover {
