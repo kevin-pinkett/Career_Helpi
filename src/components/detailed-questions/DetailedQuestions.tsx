@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Detailed_Question } from "../../interfaces/detailed-question"
 import { ProgressBar } from "../progress-bar/progressBar";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
 
@@ -123,6 +124,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
 
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
+            <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
             <div className="Response-Box">
               <Form.Control
               as="textarea"

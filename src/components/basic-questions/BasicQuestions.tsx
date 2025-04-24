@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
 import { ProgressBar } from "../progress-bar/progressBar";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
@@ -116,9 +117,9 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
         <Form.Label className="subtitle"></Form.Label>
         
         <div className="Question-Page">
-
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
+            <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <Form.Check

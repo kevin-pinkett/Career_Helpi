@@ -1,10 +1,11 @@
 import { Button, } from "react-bootstrap";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 interface BasicQuestionProps {
     setPage: (page: string) => void;
   }
 
-/**
+/** 
  * Component that renders an option to go to basic career guidance questions.
  * This component displays a brief description and a button to navigate to the basic questions page.
  *
@@ -14,6 +15,7 @@ interface BasicQuestionProps {
  * @returns {JSX.Element} A styled div containing a description and a button to start the quiz.
  */
 export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
+    const speech = "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive."
     return (
     <div
       data-testid="basic-option"
@@ -28,7 +30,8 @@ export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
           fontSize: "20px",
           maxWidth: "300px",
         }}>
-        <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>
+        <p>{speech}</p>
+        <ConvertToSpeech text = {speech}></ConvertToSpeech>
         <Button id="BasicQuestions-Button" className="Button" onClick={() => setPage("basicPage")}>
           Start Quiz
         </Button>

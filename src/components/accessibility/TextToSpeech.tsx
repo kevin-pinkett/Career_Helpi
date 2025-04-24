@@ -9,37 +9,30 @@ export function ConvertToSpeech({text}: ConvertToSpeechProps) {
     const [isPlaying, setPlaying] = useState<boolean>(false);
     const [utterance, setUtterance] = useState<SpeechSynthesisUtterance|null>(null);
 
+    const synth = window.speechSynthesis;
+
     useEffect(() =>{
-        const synth = window.speechSynthesis;
         const newUtterance = new SpeechSynthesisUtterance(text);
         setUtterance(newUtterance);
 
         return () => {synth.cancel()};
-    }, [text]);
+    }, [synth, text]);
 
     function handlePlay(){
         if (utterance) {
             setPlaying(true);
-            window.speechSynthesis.speak(utterance);
-        }
-    }
-    
-    function handlePause(){
-        if (isPlaying){
-            setPlaying(false);
-            window.speechSynthesis.pause();
+            synth.speak(utterance);
         }
     }
 
     function handleStop(){
         if (isPlaying) {
             setPlaying(false);
-            window.speechSynthesis.cancel()
+            synth.cancel()
         }
     }
+    
     return (<div>
-        <Button onClick={handlePlay}>Play</Button>
-        <Button onClick={handlePause}>Pause</Button>
-        <Button onClick={handleStop}>Stop</Button>
+        <Button onClick={isPlaying ? handleStop : handlePlay}>{synth.speaking ? "Stop" : "Play"}</Button>
     </div>);
 }
