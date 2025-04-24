@@ -85,7 +85,7 @@
 
     "QUESTION_8": {
       "id": 8,
-      "body": "I enjoy solving new problems.",
+      "body": "I consider myself a problem solver.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -109,7 +109,7 @@
     
     "QUESTION_10": {
       "id": 10,
-      "body": "I enjoy learning about natural phenomena.",
+      "body": "I enjoy researching natural phenomena.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -118,9 +118,10 @@
         "Strongly Agree"
       ]
     },
+    
     "QUESTION_11": {
       "id": 11,
-      "body": "I enjoy literature and nonfiction.",
+      "body": "I easily get lost with a good book.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -131,7 +132,7 @@
     },
     "QUESTION_12": {
       "id": 12,
-      "body": "I easily get lost with a good book.",
+      "body": "I love to get active.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -142,7 +143,7 @@
     },
     "QUESTION_13": {
       "id": 13,
-      "body": "I love to get active.",
+      "body": "I am a self-starter.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -153,7 +154,7 @@
     },
     "QUESTION_14": {
       "id": 14,
-      "body": "I am a self-starter.",
+      "body": "I am detail-oriented.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -164,7 +165,7 @@
     },
     "QUESTION_15": {
       "id": 15,
-      "body": "I am detail-oriented.",
+      "body": "I want to be my own boss.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -175,7 +176,7 @@
     },
     "QUESTION_16": {
       "id": 16,
-      "body": "I want to be my own boss.",
+      "body": "I want to work flexible hours.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -186,7 +187,7 @@
     },
     "QUESTION_17": {
       "id": 17,
-      "body": "I want to work flexible hours.",
+      "body": "Job security is important to me.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -195,9 +196,10 @@
         "Strongly Agree"
       ]
     },
+    
     "QUESTION_18": {
       "id": 18,
-      "body": "Job security is important to me.",
+      "body": "I want a creative outlet in my job.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -208,7 +210,7 @@
     },
     "QUESTION_19": {
       "id": 19,
-      "body": "I want a job where I can express myself.",
+      "body": "I want a job where I can make the lives of others better.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -219,149 +221,7 @@
     },
     "QUESTION_20": {
       "id": 20,
-      "body": "I want a creative outlet in my job.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-    "QUESTION_21": {
-      "id": 21,
-      "body": "I want a job where I can help others.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-    "QUESTION_22": {
-      "id": 22,
-      "body": "I see myself as a mentor.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-    
-    "QUESTION_23": {
-      "id": 23,
-      "body": "I like working with visual arts.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_24": {
-      "id": 24,
-      "body": "I want to improve everyday life for people.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_25": {
-      "id": 25,
-      "body": "I enjoy learning about the human body.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_26": {
-      "id": 26,
-      "body": "I like hands on work.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_27": {
-      "id": 27,
-      "body": "I like working with animals.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_28": {
-      "id": 28,
-      "body": "Making the world a better place is central to my dream career.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_29": {
-      "id": 29,
-      "body": "I want to help preserve the environment.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_30": {
-      "id": 30,
-      "body": "I like to make jokes.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-
-    "QUESTION_31": {
-      "id": 31,
-      "body": "I like to entertain",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
-    },
-    
-    "QUESTION_32": {
-      "id": 32,
-      "body": "I am an extroverted person.",
+      "body": "I want to make the world a better place.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -370,6 +230,7 @@
         "Strongly Agree"
       ]
     }
+
     
     
 }
