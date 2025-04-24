@@ -58,7 +58,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   const [currentQuestion, setCurrentQuestion] = useState<Detailed_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
-  const [popupTriggered, setPopupTriggered] = useState(false);
+  //const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
   useEffect(() => {
