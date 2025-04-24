@@ -70,6 +70,8 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
+  const LETTERS = ["A","B","C","D","E"];
+
   function advanceQuestion() {
     let newId: number;
     newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
@@ -96,7 +98,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
       }
       }, [basicAnswers, progress]);
 
-  const handleAnswerChange = (q_index: number, r_index: number) => {
+    const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
           setAnswers(newAnswers);
@@ -115,8 +117,9 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
       <Form.Group controlId="basicQuestions">
         <Form.Label className="subtitle"></Form.Label>
         
-        <div className="Question-Page">
+        <div>
 
+          {/*
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
             <div className="Response-Box">
@@ -135,8 +138,20 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
               />
               ))}
             </div>
-            
           </div>
+          */}
+
+          <div className="Question-Box">
+            <div className="subtitle">{currentQuestion.body}</div>
+            <div className="Response-Box">
+              {currentQuestion.options.map((option: string, r_index: number) => (
+                <div>
+                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, r_index)}>{option}</Button>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>

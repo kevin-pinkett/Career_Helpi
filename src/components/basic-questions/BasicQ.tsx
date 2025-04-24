@@ -24,7 +24,6 @@ export function BasicQuestionsPage({ setPage, setAnswers, setQuestions }: BasicQ
 
     return (
         <div className="Basic-Questions">
-            <h1>Basic Quiz</h1>
             <BasicQuestions 
                 openPopup={() => setIsPopupOpen(true)} 
                 setPage={setPage} 
