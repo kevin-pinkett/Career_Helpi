@@ -10,9 +10,8 @@ export function ConvertToSpeech({text}: ConvertToSpeechProps) {
     const [isPlaying, setPlaying] = useState<boolean>(false);
     const [utterance, setUtterance] = useState<SpeechSynthesisUtterance|null>(null);
 
-    const synth = window.speechSynthesis;
-
     useEffect(() =>{
+        const synth = window.speechSynthesis;
         const newUtterance = new SpeechSynthesisUtterance(text);
         setUtterance(newUtterance);
 
@@ -21,19 +20,19 @@ export function ConvertToSpeech({text}: ConvertToSpeechProps) {
         };
 
         return () => {synth.cancel()};
-    }, [synth, text]);
+    }, [ text]);
 
     function handlePlay(){
         if (utterance) {
             setPlaying(true);
-            synth.speak(utterance);
+            window.speechSynthesis.speak(utterance);
         }
     }
 
     function handleStop(){
         if (isPlaying) {
             setPlaying(false);
-            synth.cancel()
+            window.speechSynthesis.cancel()
         }
     }
 

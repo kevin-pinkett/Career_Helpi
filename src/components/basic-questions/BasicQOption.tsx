@@ -29,8 +29,12 @@ export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
           fontSize: "20px",
           maxWidth: "300px",
         }}>
-        <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>
-        <ConvertToSpeech text = {"Basic Quiz. Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive."}></ConvertToSpeech>
+        <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+          <ConvertToSpeech
+            text="Basic Quiz. Quick and easy career guidance! Answer a few straightforward questions to receive personalized insights without the deep dive."
+          />
+        </div> 
+        <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>      
         <Button id="BasicQuestions-Button" className="Button" onClick={() => setPage("basicPage")}>
           Start Quiz
         </Button>

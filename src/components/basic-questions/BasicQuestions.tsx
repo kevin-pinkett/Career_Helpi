@@ -119,7 +119,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
         <div className="Question-Page">
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
-            <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}><ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech></div>
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <Form.Check

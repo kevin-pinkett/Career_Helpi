@@ -29,8 +29,12 @@ export function FAQOption({setPage}: FAQProps) {
           fontSize: "20px",
           maxWidth: "300px",
         }}>
+        <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+          <ConvertToSpeech
+            text="Frequently asked questions. Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey."
+          />
+        </div> 
         <p>Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey.</p>
-        <ConvertToSpeech text = {"Frequently asked questions. Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey."}></ConvertToSpeech>
         <Button id="FAQ-Button" className="Button" onClick={() => setPage("faqPage")}>
           Go to FAQ
         </Button>

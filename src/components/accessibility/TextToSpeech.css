@@ -1,7 +1,7 @@
 .play-button {
     font-size: 1rem;        /* Bigger emoji for visibility */
-    width: 30px;              /* Slightly bigger for better clickability */
-    height: 30px;
+    width: 25px;              /* Slightly bigger for better clickability */
+    height: 25px;
     display: flex;            /* Use flex to center content */
     align-items: center;
     justify-content: center;

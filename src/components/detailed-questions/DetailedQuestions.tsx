@@ -124,7 +124,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
 
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
-            <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}><ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech></div>
             <div className="Response-Box">
               <Form.Control
               as="textarea"

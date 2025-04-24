@@ -30,8 +30,12 @@ export function DetailedQuestionsOption({setPage}: DetailedQuestionProps) {
           fontSize: "20px",
           maxWidth: "300px",
         }}>
+        <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+          <ConvertToSpeech
+            text="Detailed Quiz. Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you."
+          />
+        </div> 
         <p>Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.</p>
-        <ConvertToSpeech text = {"Detailed Quiz. Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you."}></ConvertToSpeech>
         <Button id="DetailedQuestions-Button" className="Button" onClick={() => setPage("detailedPage")}>
           Start Quiz
         </Button>
