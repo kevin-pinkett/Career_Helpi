@@ -15,7 +15,6 @@ interface BasicQuestionProps {
  * @returns {JSX.Element} A styled div containing a description and a button to start the quiz.
  */
 export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
-    const speech = "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive."
     return (
     <div
       data-testid="basic-option"
@@ -30,8 +29,8 @@ export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
           fontSize: "20px",
           maxWidth: "300px",
         }}>
-        <p>{speech}</p>
-        <ConvertToSpeech text = {speech}></ConvertToSpeech>
+        <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>
+        <ConvertToSpeech text = {"Basic Quiz. Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive."}></ConvertToSpeech>
         <Button id="BasicQuestions-Button" className="Button" onClick={() => setPage("basicPage")}>
           Start Quiz
         </Button>

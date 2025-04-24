@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 interface FAQProps {
     setPage: (page: string) => void;
@@ -29,6 +30,7 @@ export function FAQOption({setPage}: FAQProps) {
           maxWidth: "300px",
         }}>
         <p>Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey.</p>
+        <ConvertToSpeech text = {"Frequently asked questions. Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey."}></ConvertToSpeech>
         <Button id="FAQ-Button" className="Button" onClick={() => setPage("faqPage")}>
           Go to FAQ
         </Button>

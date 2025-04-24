@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react"
 import { Button } from "react-bootstrap";
+import "./TextToSpeech.css";
 
 interface ConvertToSpeechProps{
     text: string;
@@ -14,6 +15,10 @@ export function ConvertToSpeech({text}: ConvertToSpeechProps) {
     useEffect(() =>{
         const newUtterance = new SpeechSynthesisUtterance(text);
         setUtterance(newUtterance);
+
+        newUtterance.onend = () => {
+            setPlaying(false);
+        };
 
         return () => {synth.cancel()};
     }, [synth, text]);
@@ -31,8 +36,8 @@ export function ConvertToSpeech({text}: ConvertToSpeechProps) {
             synth.cancel()
         }
     }
-    
+
     return (<div>
-        <Button onClick={isPlaying ? handleStop : handlePlay}>{synth.speaking ? "Stop" : "Play"}</Button>
+        <img className="play-button" onClick={isPlaying ? handleStop : handlePlay} alt = {isPlaying ? "⏹️" : "▶️"} src = {isPlaying ? "/assets/Pause.png" : "assets/Play.png"}></img>
     </div>);
 }

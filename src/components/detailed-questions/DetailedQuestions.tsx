@@ -14,7 +14,7 @@ interface Detailed_Question_Props{
 }
 
 
-/**
+/** Copilot
  * Component representing a detailed questionnaire interface.
  * 
  * @param {object} props - The properties passed to the component.

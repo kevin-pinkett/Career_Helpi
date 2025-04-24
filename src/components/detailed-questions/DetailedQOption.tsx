@@ -1,4 +1,5 @@
 import { Button, } from "react-bootstrap";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 interface DetailedQuestionProps {
     setPage: (page: string) => void;
@@ -30,6 +31,7 @@ export function DetailedQuestionsOption({setPage}: DetailedQuestionProps) {
           maxWidth: "300px",
         }}>
         <p>Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.</p>
+        <ConvertToSpeech text = {"Detailed Quiz. Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you."}></ConvertToSpeech>
         <Button id="DetailedQuestions-Button" className="Button" onClick={() => setPage("detailedPage")}>
           Start Quiz
         </Button>
