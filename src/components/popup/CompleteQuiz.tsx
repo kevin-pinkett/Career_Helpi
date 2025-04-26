@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap";
 import confetti from "canvas-confetti";
 import "./CompleteQuiz.css"
-import { useEffect, useState } from "react";
 
 interface CompletedQuizProps{
     isPopupOpen: boolean;
