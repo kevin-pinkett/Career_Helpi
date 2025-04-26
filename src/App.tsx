@@ -89,11 +89,11 @@ function App() {
         <img src="assets/Helpi Mascot.png" alt="mascot" style={{
             display: "flex",
             justifySelf: "center",
-            height: "15%",
-            width: "15%",
-            padding: "20px"
+            height: "10%",
+            width: "10%",
+            padding: "15px"
             }}></img>
-        <div id="header-title">The Career Helpi</div>
+        <div id="header-title">Koalafi</div>
       </div>
 
       <Header page={page} setPage={setPage}/>

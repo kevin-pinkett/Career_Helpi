@@ -22,8 +22,8 @@
     height: 80%;
 
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Answer-Button {
@@ -31,9 +31,10 @@
     border-color: black;
     color: black;
 
-    width: 200px;
+    width: 700px;
     border-radius: 100px;
-    padding: 20px;
+    padding: 10px;
+    margin: 5px;
 }
 .Answer-Button:hover {
     background-color: #FE604D;
