@@ -70,8 +70,6 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
-  const LETTERS = ["A","B","C","D","E"];
-
   function advanceQuestion() {
     let newId: number;
     newId = (currentQuestionId === num_questions ? QUESTIONS[num_questions - 1].id : currentQuestionId + 1);
@@ -147,7 +145,14 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>
                   <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, r_index)}
-                    style={{ }}>{option}</Button>
+                    style={{ backgroundColor: basicAnswers[currentQuestionId] === r_index ? "#FE604D" : "white",
+                             color: basicAnswers[currentQuestionId] === r_index ? "white" : "black"
+                    }}>
+                      <div className="Outer-Button-Box">
+                        <div className="Check-Marker">{basicAnswers[currentQuestionId] === r_index ? "✅" : ""}</div>
+                        <div>{option}</div>
+                      </div>
+                    </Button>
                 </div>
               ))}
             </div>

@@ -35,10 +35,24 @@
     border-radius: 100px;
     padding: 10px;
     margin: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .Answer-Button:hover {
-    background-color: #FE604D;
-    color: white;
+    background-color: #FE604D !important;
+    color: white !important;
+}
+
+.Outer-Button-Box {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.Check-Marker {
+    margin-right: 10px;
 }
 
 .Nav-Buttons {
