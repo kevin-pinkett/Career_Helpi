@@ -2,6 +2,7 @@ import ResultsCard from "./ResultCard";
 
 import { useEffect, useState } from "react";
 import { getGPTResponse } from "../../GPTIntegration";
+import "./Results.css"
 
 
 type Result = {
@@ -43,40 +44,43 @@ function parsePrompt(answers: number[] | string[], questions: string[]): string 
  *
  */
 export function ResultsPage({ answers, questions}: ResultsPageProps) {
-    const [results, setResults] = useState<Result[]>([
-        {
-            title: "",
-            description: "",
-            traits: [""],
-            jobRoles: [""],
-            skills: [""],
-            link: ""
-        },
-        {
-            title: "",
-            description: "",
-            traits: [""],
-            jobRoles: [""],
-            skills: [""],
-            link: ""
-        },
-        {
-            title: "",
-            description: "",
-            traits: [""],
-            jobRoles: [""],
-            skills: [""],
-            link: ""
-        }
-    ]);
+    const [results, setResults] = useState<Result[]>([ {
+        title: "",
+        description: "",
+        traits: [""],
+        jobRoles: [""],
+        skills: [""],
+        link: ""
+    },
+    {
+        title: "",
+        description: "",
+        traits: [""],
+        jobRoles: [""],
+        skills: [""],
+        link: ""
+    },
+    {
+        title: "",
+        description: "",
+        traits: [""],
+        jobRoles: [""],
+        skills: [""],
+        link: ""
+    }
+]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchResults = async () => {
+            setLoading(true);
             try {
                 const aiResponse = await getGPTResponse(parsePrompt(answers, questions));
                 setResults(aiResponse);
             } catch (error) {
                 console.error("Ai Error:", error);
+            } finally {
+                setLoading(false);
             }
         };
     
@@ -88,6 +92,11 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
     return (
     <div className="Results-Page">
     <h1>Results</h1>
+    {loading ? (
+     
+            <div className="spinner"></div>
+            
+    ) : (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '2%' }}>
         {results.map((result, index) => (
             <div key={index} style={{width: '30%' }}>
@@ -102,8 +111,9 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
             </div>
         ))}
     </div>
+    )}
     </div>
-    )
+    );
 
 }
 
