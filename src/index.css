@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: DynaPuff;
+  src: url(../public/DynaPuff-VariableFont_wdth\,wght.ttf);
+}
+
+
 /* Our universal styles */
 /************************************************************************************/
 

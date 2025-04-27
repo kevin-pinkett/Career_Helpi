@@ -5,6 +5,7 @@
 
 .Basic-Question-Box {
     display: flex;
+    align-items: center;
     flex-direction: column;
 
     border: 1px solid #ccc;
@@ -15,6 +16,25 @@
     padding: 25px;
     background-color: white;
 
+}
+
+.Basic-Question-Question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: DynaPuff;
+    font-weight: bold;
+    color: white;
+
+    width: 500px;
+    height: 100px;
+
+    border-radius: 15px;
+    background-image: url("/public/assets/questionbg.png");
+    background-color: #cf4b3c;
+    background-blend-mode:soft-light;
+    background-size: cover;
 }
 
 .Response-Box {

@@ -140,7 +140,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           */}
 
           <div className="Basic-Question-Box">
-            <div className="subtitle">{currentQuestion.body}</div>
+            <div className="Basic-Question-Question">{currentQuestion.body}</div>
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>
