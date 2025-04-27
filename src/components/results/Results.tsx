@@ -94,7 +94,7 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
     <h1>Results</h1>
     {loading ? (
      
-            <div className="spinner"></div>
+            <div className="spinner"> <img src="/assets/Spinner@1x-1.0s-255px-255px.svg" alt="Loading spinner"></img></div>
             
     ) : (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '2%' }}>
