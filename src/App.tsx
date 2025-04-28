@@ -101,11 +101,28 @@ function App() {
         <Header page={page} setPage={setPage}/>
       </div>
 
-      
-
-
       <div className="Page" data-testid="page">
-        {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
+        {page === 'homePage' && (
+          <div>
+            <div className="Greeting-Box">
+              <img src="assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
+                  width: "25%",
+                  height: "25%",
+                }}></img>
+              <div className="Greeting-Text">
+                <span>Hello! My name's Ozzie, and I'm a career matching wizard! </span>
+                <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
+                
+                <Form>
+                  <Form.Label>API Key:</Form.Label>
+                  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+                  <br></br>
+                  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+                </Form>
+              </div>
+            </div>
+            <HomePage setPage={setPage} />
+            </div>)}
         {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
@@ -115,12 +132,7 @@ function App() {
 
       <div className='footer-wrapper' data-testid="footer">
         <footer id="footer">
-          <Form>
-            <Form.Label>API Key:</Form.Label>
-            <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-            <br></br>
-            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-          </Form>
+          
         </footer>
       </div>
 

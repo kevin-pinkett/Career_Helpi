@@ -9,6 +9,24 @@
   max-height: 100vh;
 }
 
+
+.Greeting-Box {
+  display: flex;
+  justify-self: center;
+  justify-content: space-around;
+  align-items: center;
+
+  width: auto;
+}
+
+.Greeting-Text {
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+}
+
 .Header-Wrapper {
   display: flex;
   justify-content: center;

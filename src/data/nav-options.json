@@ -14,7 +14,7 @@
     "CUSTOM_OPTION": {
         "name": "Create-Your-Own Quiz",
         "destination": "aiPage",
-        "optionText": "Already have an idea what you want to do? Input your preferences and we'll tailor a quiz for you!",
+        "optionText": "Already have an idea what you want to do? We can help with that too! Input your preferences and we'll tailor a quiz for you!",
         "button": "Create My Quiz"
     }
 }

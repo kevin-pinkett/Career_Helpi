@@ -42,9 +42,10 @@ const OPTIONS: OptionInfo[] = Object.values(optionData)
 export function HomePage({ setPage }: HomePageProp) {
   
   return (
-    <div data-testid="home-page" className="Home-page">
-      <div className="Box-Container">
+    <div data-testid="home-page">
+      
 
+      <div className="Box-Container">
         {OPTIONS.map((option) => (
           <div className="Page-Box">
             <p className="subtitle" style={{ fontSize: "25px"}}>{option.name}</p>
@@ -53,7 +54,6 @@ export function HomePage({ setPage }: HomePageProp) {
             </div>
           </div>
         ))}
-
       </div>
   </div>
   );

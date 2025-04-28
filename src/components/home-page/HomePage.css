@@ -1,9 +1,8 @@
-.Home-Page{
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+.Greeting-Box {
+    display: flex;
+    justify-content: space-around;
+
+    padding: 25px;
 }
 
 .Box-Container{
@@ -16,8 +15,6 @@
 }
 
 .Page-Box{
-    
-
     padding: 10px;
     padding-bottom: 25px;
     width: 30%;
@@ -27,5 +24,6 @@
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
+
 }
 

@@ -73,7 +73,7 @@ export function Header({ page, setPage }: HeaderProps) {
           onClick={aiState}
           disabled={page === "aiPage"}
           >
-          Create Your Own Quiz
+          Custom Quiz
           </Button>
         <Button
           style={{ flex: 1 }}
