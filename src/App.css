@@ -11,8 +11,11 @@
 
 .Header-Wrapper {
   display: flex;
+  justify-content: center;
   background-color: #FE604D;
   align-items: center;
+  box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 #header-title {
@@ -22,7 +25,7 @@
   color: white;
   font-weight: bolder;
   background-color: #FE604D;
-  width: 100%;
+
 }
 
 .Page {

@@ -86,17 +86,21 @@ function App() {
     <div className="App">
 
       <div className="Header-Wrapper">
-        <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-            display: "flex",
-            justifySelf: "center",
-            height: "10%",
-            width: "10%",
-            padding: "15px"
-            }}></img>
-        <div id="header-title">Koalafi</div>
+        <div style={{
+          display: "flex",
+          alignItems: "center"
+        }}>
+          <img src="assets/Helpi Mascot.png" alt="mascot" style={{
+              display: "flex",
+              width: "20%",
+              padding: "15px"
+              }}></img>
+          <div id="header-title">Koalafi</div>
+        </div>
+        <Header page={page} setPage={setPage}/>
       </div>
 
-      <Header page={page} setPage={setPage}/>
+      
 
 
       <div className="Page" data-testid="page">
