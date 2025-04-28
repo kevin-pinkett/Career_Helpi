@@ -7,6 +7,7 @@ import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
 import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 import { ResultsPage } from './components/results/Results';
+import { AIQuestionsPage } from './components/create-your-own/AIQ';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -105,6 +106,7 @@ function App() {
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
         {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
+        {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage}/></div>)}
       </div>
 
       <div className='footer-wrapper' data-testid="footer">
