@@ -5,8 +5,9 @@ interface DetailedQuestionProps {
     setPage: (page: string) => void;
   }
 
-/**
-  * Component that renders an option to go to detailed career guidance questions.
+/** Copilot Generated Doc
+ * 
+ * Component that renders an option to go to detailed career guidance questions.
  * This component displays a brief description and a button to navigate to the detailed questions page.
  *
  * @param {DetailedQuestionProps} props - The props object containing:

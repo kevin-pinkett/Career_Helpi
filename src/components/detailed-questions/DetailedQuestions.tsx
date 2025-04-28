@@ -15,7 +15,8 @@ interface Detailed_Question_Props{
 
 const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
 
-/** Copilot
+/** Copilot Generated Doc
+ * 
  * Component representing a detailed questionnaire interface.
  * 
  * @param {object} props - The properties passed to the component.

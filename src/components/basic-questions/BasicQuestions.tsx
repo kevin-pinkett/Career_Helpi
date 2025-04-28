@@ -16,7 +16,8 @@ interface Basic_Question_Props{
 
 const QUESTIONS: Basic_Question[] = Object.values(basicData)
 
-/**
+/** Copilot Generated Doc
+ * 
  * Component for rendering a series of basic questions and handling user responses.
  * 
  * @param {Basic_Question_Props} props - The properties passed to the component.

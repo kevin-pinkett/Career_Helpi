@@ -7,7 +7,8 @@ interface CompletedQuizProps{
     setPage: (page: string) => void;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A React functional component that represents a popup displayed when the user has completed a quiz.
  * The popup provides options to either continue working or submit the quiz.
  *

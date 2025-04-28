@@ -5,7 +5,7 @@ interface BasicQuestionProps {
     setPage: (page: string) => void;
   }
 
-/** 
+/** Copilot Generated Doc
  * Component that renders an option to go to basic career guidance questions.
  * This component displays a brief description and a button to navigate to the basic questions page.
  *

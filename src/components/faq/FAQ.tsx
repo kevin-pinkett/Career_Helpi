@@ -3,7 +3,8 @@ import FAQData from "../../data/faq-questions.json";
 import { FAQQuestion } from "./FAQQuestion";
 import "./FAQ.css"
 
-/**
+/** Copilot Generated Doc
+ * 
  * Renders the FAQPage component, which displays a list of frequently asked questions
  * and their corresponding answers in a dropdown format.
  *

@@ -5,7 +5,8 @@ interface FAQProps {
     setPage: (page: string) => void;
   }
 
-/**
+/** Copilot Generated Doc
+ * 
  * Component that renders an FAQ option with a brief description and a button
  * to navigate to the FAQ page.
  *

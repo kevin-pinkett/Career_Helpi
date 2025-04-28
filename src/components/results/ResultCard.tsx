@@ -14,7 +14,8 @@ interface ResultsCardProps {
 
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A functional React component that displays a card with details about results, 
  * including a title, description, traits, potential job roles, and skills.
  *

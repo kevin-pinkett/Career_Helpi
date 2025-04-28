@@ -7,7 +7,8 @@ interface FAQQuestionProps{
     answer: string;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A functional component that displays a question and its corresponding answer.
  * The answer is shown or hidden based on the component's state.
  *
