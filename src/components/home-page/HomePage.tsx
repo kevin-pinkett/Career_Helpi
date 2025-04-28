@@ -1,5 +1,6 @@
 import { BasicQuestionsOption } from "../basic-questions/BasicQOption";
 import { DetailedQuestionsOption } from "../detailed-questions/DetailedQOption";
+import { AIQuestionsOption } from "../create-your-own/AIQOption";
 import { FAQOption } from "../faq/FAQOption";
 import { Row } from "react-bootstrap";
 import "./HomePage.css";
@@ -60,6 +61,17 @@ export function HomePage({ setPage }: HomePageProp) {
             />
           </Row>
         </div>
+        <div id="create-your-own-box" className="Page-Box">
+          <div
+            className="subtitle"
+            style={{ fontSize: "25px", fontWeight: "5px" }}
+          >
+            Create Your Own Quiz
+          </div>
+          <Row>
+            <AIQuestionsOption setPage={setPage} data-testId="ai-option" />
+          </Row>
+          </div>
         <div id="faq-box" className="Page-Box">
           <div
             className="subtitle"
