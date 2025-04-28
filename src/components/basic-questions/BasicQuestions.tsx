@@ -55,13 +55,11 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  
-  
+
   useEffect(() => {
     const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
     setQuestions(questionBodies);
   }, [setQuestions]);
-
 
 
   const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
@@ -119,7 +117,11 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
         <div className="Question-Page">
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
-            <div style={{ position: "absolute", top: "10px", right: "10px" }}><ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech></div>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}><ConvertToSpeech text = {currentQuestion.body + 
+              currentQuestion.options.reduce((acc: string, option: string, index: number) => {
+                return `${acc} ${index+1}.) ${option} `;
+              }, "")
+            }></ConvertToSpeech></div>
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <Form.Check

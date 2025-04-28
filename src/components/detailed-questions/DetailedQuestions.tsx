@@ -13,6 +13,7 @@ interface Detailed_Question_Props{
   setQuestions: (questions: string[]) => void;
 }
 
+const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
 
 /** Copilot
  * Component representing a detailed questionnaire interface.
@@ -52,7 +53,11 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
+
+  useEffect(() => {
+    const questionBodies = QUESTIONS.map((question: Detailed_Question) => question.body);
+    setQuestions(questionBodies);
+  }, [setQuestions]);
 
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
   const [response, setResponse] = useState<string>("");
@@ -62,12 +67,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   //const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
-  useEffect(() => {
-      const questionBodies = QUESTIONS.map((question: Detailed_Question) => question.body);
-      setQuestions(questionBodies);
-    }, [QUESTIONS, setQuestions]);
-
-
 
   useEffect(() => {
     if (progress < 100) {
@@ -75,7 +74,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
-      }, [detailedAnswers, QUESTIONS.length, progress]);
+      }, [detailedAnswers, num_questions, progress]);
   
   const handleAnswerChange = (q_index: number, response: string) => {
       const newAnswers = [...detailedAnswers];

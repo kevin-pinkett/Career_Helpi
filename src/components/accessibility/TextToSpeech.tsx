@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react"
-import { Button } from "react-bootstrap";
 import "./TextToSpeech.css";
 
 interface ConvertToSpeechProps{
@@ -14,6 +13,10 @@ export function ConvertToSpeech({text}: ConvertToSpeechProps) {
         const synth = window.speechSynthesis;
         const newUtterance = new SpeechSynthesisUtterance(text);
         setUtterance(newUtterance);
+
+        newUtterance.onstart = () => {
+            console.log(newUtterance.text)
+        }
 
         newUtterance.onend = () => {
             setPlaying(false);
