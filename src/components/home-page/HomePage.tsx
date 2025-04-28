@@ -3,6 +3,7 @@ import { DetailedQuestionsOption } from "../detailed-questions/DetailedQOption";
 import { FAQOption } from "../faq/FAQOption";
 import { Row } from "react-bootstrap";
 import "./HomePage.css";
+import { NavOption } from "../nav-option/NavOption";
 
 interface HomePageProp {
   setPage: (page: string) => void;
@@ -43,7 +44,7 @@ export function HomePage({ setPage }: HomePageProp) {
             Basic Quiz
           </div>
           <Row>
-            <BasicQuestionsOption setPage={setPage} />
+            <NavOption setPage={setPage} destination="basicPage" text="Hello" buttonText="World"/>
           </Row>
         </div>
         <div id="detailed-questions-box" className="Page-Box">
