@@ -16,10 +16,12 @@
 }
 
 .Page-Box{
+    
+
     padding: 10px;
     padding-bottom: 25px;
     width: 30%;
-    height: 25%;
+    height: 250px;
     border: 1px solid #ccc;
     padding: 15px;
     border-radius: 8px;

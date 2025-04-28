@@ -2,27 +2,19 @@ import { BasicQuestionsOption } from "../basic-questions/BasicQOption";
 import { DetailedQuestionsOption } from "../detailed-questions/DetailedQOption";
 import { AIQuestionsOption } from "../create-your-own/AIQOption";
 import { FAQOption } from "../faq/FAQOption";
-import { Row } from "react-bootstrap";
-import "./HomePage.css";
+import { Button, Row } from "react-bootstrap";
 import { NavOption } from "../nav-option/NavOption";
+import { OptionInfo } from "../../interfaces/nav-option";
+
+
+import optionData from "../../data/nav-options.json"
+import "./HomePage.css";
 
 interface HomePageProp {
   setPage: (page: string) => void;
 }
 
-interface OptionInfo {
-  destination: string
-  optionText: string;
-  button: string;
-}
-
-const options: Record<string, OptionInfo> = {
-  "Basic Quiz": {destination: "basicPage", optionText: "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.", button: "Start Quiz"},
-  "Detailed Quiz": {destination: "detailedPage", optionText: "Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.", button: "Start Quiz"},
-  "FAQ": {destination: "faqPage", optionText: "Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey.", button: "Go to FAQ"}
-}
-
-
+const OPTIONS: OptionInfo[] = Object.values(optionData)
 
 /**
  * Represents the HomePage component, which serves as the main landing page
@@ -52,54 +44,17 @@ export function HomePage({ setPage }: HomePageProp) {
   return (
     <div data-testid="home-page" className="Home-page">
       <div className="Box-Container">
-        <div id="basic-questions-box" className="Page-Box">
-          <div
-            className="subtitle"
-            style={{ fontSize: "25px", fontWeight: "5px" }}
-          >
-            Basic Quiz
+
+        {OPTIONS.map((option) => (
+          <div className="Page-Box">
+            <p className="subtitle" style={{ fontSize: "25px"}}>{option.name}</p>
+            <div style={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
+              <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button}></NavOption>
+            </div>
           </div>
-          <Row>
-            <NavOption setPage={setPage} destination="basicPage" text="Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive." buttonText="Start Quiz"/>
-          </Row>
-        </div>
-        <div id="detailed-questions-box" className="Page-Box">
-          <div
-            className="subtitle"
-            style={{ fontSize: "25px", fontWeight: "5px" }}
-          >
-            Detailed Quiz
-          </div>
-          <Row>
-            <DetailedQuestionsOption
-              setPage={setPage}
-              data-testId="detailed-option"
-            />
-          </Row>
-        </div>
-        <div id="create-your-own-box" className="Page-Box">
-          <div
-            className="subtitle"
-            style={{ fontSize: "25px", fontWeight: "5px" }}
-          >
-            Create Your Own Quiz
-          </div>
-          <Row>
-            <AIQuestionsOption setPage={setPage} data-testId="ai-option" />
-          </Row>
-          </div>
-        <div id="faq-box" className="Page-Box">
-          <div
-            className="subtitle"
-            style={{ fontSize: "25px", fontWeight: "5px" }}
-          >
-            FAQ
-          </div>
-          <Row>
-            <FAQOption setPage={setPage} data-testId="faq-option" />
-          </Row>
-        </div>
+        ))}
+
       </div>
-    </div>
+  </div>
   );
 }
