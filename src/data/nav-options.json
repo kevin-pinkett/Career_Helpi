@@ -1,0 +1,20 @@
+{
+    "BASIC_OPTION": {
+        "name": "Basic Quiz",
+        "destination": "basicPage",
+        "text": "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.",
+        "button": "Start Quiz"
+    },
+    "DETAILED_OPTION": {
+        "name": "Basic Quiz",
+        "destination": "basicPage",
+        "text": "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.",
+        "button": "Start Quiz"
+    },
+    "BASIC_OPTION": {
+        "name": "Basic Quiz",
+        "destination": "basicPage",
+        "text": "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.",
+        "button": "Start Quiz"
+    },
+}

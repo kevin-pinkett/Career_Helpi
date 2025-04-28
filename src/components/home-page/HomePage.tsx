@@ -9,6 +9,20 @@ interface HomePageProp {
   setPage: (page: string) => void;
 }
 
+interface OptionInfo {
+  destination: string
+  optionText: string;
+  button: string;
+}
+
+const options: Record<string, OptionInfo> = {
+  "Basic Quiz": {destination: "basicPage", optionText: "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.", button: "Start Quiz"},
+  "Detailed Quiz": {destination: "detailedPage", optionText: "Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.", button: "Start Quiz"},
+  "FAQ": {destination: "faqPage", optionText: "Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey.", button: "Go to FAQ"}
+}
+
+
+
 /**
  * Represents the HomePage component, which serves as the main landing page
  * for the application. It provides three primary options for navigation:
@@ -33,6 +47,7 @@ interface HomePageProp {
  * - The `data-testid` attributes are used for testing purposes.
  */
 export function HomePage({ setPage }: HomePageProp) {
+  
   return (
     <div data-testid="home-page" className="Home-page">
       <div className="Box-Container">
@@ -44,7 +59,7 @@ export function HomePage({ setPage }: HomePageProp) {
             Basic Quiz
           </div>
           <Row>
-            <NavOption setPage={setPage} destination="basicPage" text="Hello" buttonText="World"/>
+            <NavOption setPage={setPage} destination="basicPage" text="Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive." buttonText="Start Quiz"/>
           </Row>
         </div>
         <div id="detailed-questions-box" className="Page-Box">

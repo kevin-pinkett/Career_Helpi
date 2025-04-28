@@ -116,29 +116,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
         <Form.Label className="subtitle"></Form.Label>
         
         <div className="Basic-Page">
-
-          {/*
-          <div className="Question-Box">
-            <div className="subtitle">{currentQuestion.body}</div>
-            <div className="Response-Box">
-              {currentQuestion.options.map((option: string, r_index: number) => (
-                <Form.Check
-                style={{ flex: 1 }}
-                key={r_index}
-                type="radio"
-                name={`answers-${currentQuestion.id}`}
-                label={option}
-                value={r_index}
-                checked={basicAnswers[currentQuestion.id] === r_index}
-                onChange={(e) => {
-                  handleAnswerChange(currentQuestion.id, r_index)
-                }}
-              />
-              ))}
-            </div>
-          </div>
-          */}
-
+          
           <div className="Basic-Question-Box">
             <div className="Basic-Question-Question">{currentQuestion.body}</div>
             <div className="Response-Box">
