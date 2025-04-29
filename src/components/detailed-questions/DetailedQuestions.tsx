@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Detailed_Question } from "../../interfaces/detailed-question"
 import { ProgressBar } from "../progress-bar/progressBar";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Detailed_Question_Props{
   openPopup:() => void;
@@ -12,8 +14,10 @@ interface Detailed_Question_Props{
   setQuestions: (questions: string[]) => void;
 }
 
+const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
 
-/**
+/** Copilot Generated Doc
+ * 
  * Component representing a detailed questionnaire interface.
  * 
  * @param {object} props - The properties passed to the component.
@@ -51,7 +55,11 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
+
+  useEffect(() => {
+    const questionBodies = QUESTIONS.map((question: Detailed_Question) => question.body);
+    setQuestions(questionBodies);
+  }, [setQuestions]);
 
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
   const [response, setResponse] = useState<string>("");
@@ -61,12 +69,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   //const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
-  useEffect(() => {
-      const questionBodies = QUESTIONS.map((question: Detailed_Question) => question.body);
-      setQuestions(questionBodies);
-    }, [QUESTIONS, setQuestions]);
-
-
 
   useEffect(() => {
     if (progress < 100) {
@@ -74,7 +76,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
-      }, [detailedAnswers, QUESTIONS.length, progress]);
+      }, [detailedAnswers, num_questions, progress]);
   
   const handleAnswerChange = (q_index: number, response: string) => {
       const newAnswers = [...detailedAnswers];
@@ -123,6 +125,11 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
 
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+              <SpeechProvider>
+                <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
+              </SpeechProvider>
+            </div>
             <div className="Response-Box">
               <Form.Control
               as="textarea"

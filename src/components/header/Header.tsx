@@ -6,7 +6,8 @@ interface HeaderProps {
   setPage: (page: string) => void;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * Header component that renders a navigation bar with buttons to switch between different pages.
  *
  * @param {HeaderProps} props - The properties for the Header component.

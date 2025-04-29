@@ -6,7 +6,8 @@ interface ProgressBarProps {
     setProgress: (progress: number) => void;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A functional component that renders a progress bar with dynamic color and width
  * based on the `progress` value. The progress bar changes color depending on the
  * progress percentage:

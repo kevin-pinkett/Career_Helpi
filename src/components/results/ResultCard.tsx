@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import "./ResultCard.css";
+import { SpeechProvider } from "../accessibility/SpeechContext";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 
 
@@ -14,7 +16,8 @@ interface ResultsCardProps {
 
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A functional React component that displays a card with details about results, 
  * including a title, description, traits, potential job roles, and skills.
  *
@@ -32,8 +35,19 @@ function ResultsCard({ title, description, traits, jobRoles, skills, link}: Resu
 
     return(
         <div className="Results-Card">
-
         <Card>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+                <SpeechProvider>
+                    <ConvertToSpeech
+                    text = {`${title}. 
+                    ${description}
+                    Traits: ${traits.join(", ")}.
+                    Potential Job Roles: ${jobRoles.join(", ")}.
+                    Skills: ${skills.join(", ")}.
+                    `}
+                    />
+                </SpeechProvider>
+            </div> 
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>{description}</Card.Text>

@@ -3,7 +3,8 @@ import FAQData from "../../data/faq-questions.json";
 import { FAQQuestion } from "./FAQQuestion";
 import "./FAQ.css"
 
-/**
+/** Copilot Generated Doc
+ * 
  * Renders the FAQPage component, which displays a list of frequently asked questions
  * and their corresponding answers in a dropdown format.
  *
@@ -27,7 +28,7 @@ export function FAQPage() {
         <h1>FAQ Page</h1>
         <div className= "FAQ-Container">
             {QUESTIONS.map((currentQuestion: FAQ_Question) => (
-                <div className="Question-Dropdown">
+                <div className="Question-Dropdown" key={currentQuestion.id}>
                     <FAQQuestion question={currentQuestion.question} answer={currentQuestion.answer}></FAQQuestion>
                 </div>
             ))}
