@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Form} from "react-bootstrap";
 import { SpeechProvider } from "../accessibility/SpeechContext";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import "./AIQ.css"
 
 interface AIQProps {
     setPage: (page: string) => void;
@@ -16,14 +17,15 @@ export function AIQuestionsPage({setPage}: AIQProps) {
         <div className="AIQ">
             <h1>Choose your Industry:</h1>
             <div className="Question-Box">
-            <div className="subtitle">{"What industry would you want to work in?"}</div>
-            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-                <SpeechProvider>
-                    <ConvertToSpeech
-                    text="What industry would you want to work in?"
-                    />
-                </SpeechProvider>
-            </div> 
+            <div className="AIQ-subtitle">{"What industry would you want to work in?"}
+                <div style={{ margin: "10px" }}>
+                    <SpeechProvider>
+                        <ConvertToSpeech
+                        text="What industry would you want to work in?"
+                        />
+                    </SpeechProvider>
+                </div> 
+            </div>
             <div className="Response-Box">
               <Form.Control
               as="textarea"
