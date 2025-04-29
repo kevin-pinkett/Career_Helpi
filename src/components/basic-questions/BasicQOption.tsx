@@ -31,11 +31,11 @@ export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
           maxWidth: "300px",
         }}>
         <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-          <SpeechProvider>
+        <SpeechProvider>
             <ConvertToSpeech
               text="Basic Quiz. Quick and easy career guidance! Answer a few straightforward questions to receive personalized insights without the deep dive."
             />
-          </SpeechProvider>
+        </SpeechProvider>
         </div> 
         <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>      
         <Button id="BasicQuestions-Button" className="Button" onClick={() => setPage("basicPage")}>
