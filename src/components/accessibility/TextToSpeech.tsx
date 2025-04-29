@@ -10,7 +10,7 @@ export function ConvertToSpeech({ text }: ConvertToSpeechProps) {
     const { currentPlayingText, setCurrentPlayingText } = useSpeechContext();
     const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
-
+    
     useEffect(() => {
         const synth = window.speechSynthesis;
         const newUtterance = new SpeechSynthesisUtterance(text);
@@ -21,7 +21,9 @@ export function ConvertToSpeech({ text }: ConvertToSpeechProps) {
 
         setUtterance(newUtterance);
 
-        
+        newUtterance.rate = 1.05;
+        newUtterance.pitch = 1.1;
+        newUtterance.volume = 1;
 
         return () => {
             synth.cancel();

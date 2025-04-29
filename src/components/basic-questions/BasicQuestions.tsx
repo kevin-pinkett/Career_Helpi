@@ -121,9 +121,9 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <div className="subtitle">{currentQuestion.body}</div>
             <div style={{ position: "absolute", top: "10px", right: "10px" }}>
               <SpeechProvider>
-                <ConvertToSpeech text = {currentQuestion.body + 
+                <ConvertToSpeech text = {currentQuestion.body + "..." +
                 currentQuestion.options.reduce((acc: string, option: string, index: number) => {
-                  return `${acc} ${index+1}.) ${option} `;
+                  return `${acc} ${index+1} ${option}... `;
                   }, "")
                 }></ConvertToSpeech>
               </SpeechProvider> 
