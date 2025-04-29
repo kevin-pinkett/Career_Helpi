@@ -1,8 +1,3 @@
-import { BasicQuestionsOption } from "../basic-questions/BasicQOption";
-import { DetailedQuestionsOption } from "../detailed-questions/DetailedQOption";
-import { AIQuestionsOption } from "../create-your-own/AIQOption";
-import { FAQOption } from "../faq/FAQOption";
-import { Button, Row } from "react-bootstrap";
 import { NavOption } from "../nav-option/NavOption";
 import { OptionInfo } from "../../interfaces/nav-option";
 
