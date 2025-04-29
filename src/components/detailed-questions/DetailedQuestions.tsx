@@ -5,6 +5,7 @@ import { ProgressBar } from "../progress-bar/progressBar";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Detailed_Question_Props{
   openPopup:() => void;
@@ -124,7 +125,11 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
 
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
-            <div style={{ position: "absolute", top: "10px", right: "10px" }}><ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech></div>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+              <SpeechProvider>
+                <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
+              </SpeechProvider>
+            </div>
             <div className="Response-Box">
               <Form.Control
               as="textarea"

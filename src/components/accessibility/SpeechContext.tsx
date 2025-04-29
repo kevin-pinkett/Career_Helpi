@@ -1,10 +1,8 @@
 import { createContext, useContext, useState } from "react";
 
-type SetPlayingFn = ((playing: boolean) => void) | null;
-
 interface SpeechContextType {
-    currentSetPlaying: SetPlayingFn;
-    setCurrentSetPlaying: (fn: SetPlayingFn) => void;
+    currentPlayingText: string | null;
+    setCurrentPlayingText: (text: string | null) => void;
 }
 
 const SpeechContext = createContext<SpeechContextType | undefined>(undefined);
@@ -24,10 +22,10 @@ const SpeechContext = createContext<SpeechContextType | undefined>(undefined);
  *          and updater function to its children.
  */
 export function SpeechProvider({ children }: { children: React.ReactNode }) {
-    const [currentSetPlaying, setCurrentSetPlaying] = useState<SetPlayingFn>(null);
+    const [currentPlayingText, setCurrentPlayingText] = useState<string | null>(null);
 
     return (
-        <SpeechContext.Provider value={{ currentSetPlaying, setCurrentSetPlaying }}>
+        <SpeechContext.Provider value={{ currentPlayingText, setCurrentPlayingText }}>
             {children}
         </SpeechContext.Provider>
     );

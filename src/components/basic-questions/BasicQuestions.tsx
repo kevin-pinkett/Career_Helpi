@@ -6,6 +6,7 @@ import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Basic_Question_Props{
   openPopup:() => void;
@@ -118,11 +119,15 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
         <div className="Question-Page">
           <div className="Question-Box">
             <div className="subtitle">{currentQuestion.body}</div>
-            <div style={{ position: "absolute", top: "10px", right: "10px" }}><ConvertToSpeech text = {currentQuestion.body + 
-              currentQuestion.options.reduce((acc: string, option: string, index: number) => {
-                return `${acc} ${index+1}.) ${option} `;
-              }, "")
-            }></ConvertToSpeech></div>
+            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+              <SpeechProvider>
+                <ConvertToSpeech text = {currentQuestion.body + 
+                currentQuestion.options.reduce((acc: string, option: string, index: number) => {
+                  return `${acc} ${index+1}.) ${option} `;
+                  }, "")
+                }></ConvertToSpeech>
+              </SpeechProvider> 
+            </div>
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <Form.Check

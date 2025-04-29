@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface FAQProps {
     setPage: (page: string) => void;
@@ -31,9 +32,11 @@ export function FAQOption({setPage}: FAQProps) {
           maxWidth: "300px",
         }}>
         <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-          <ConvertToSpeech
-            text="Frequently asked questions. Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey."
-          />
+          <SpeechProvider>
+            <ConvertToSpeech
+              text="Frequently asked questions. Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey."
+            />
+          </SpeechProvider>
         </div> 
         <p>Curious about how this works? Find answers to questions about the quiz, results, and next steps in your career journey.</p>
         <Button id="FAQ-Button" className="Button" onClick={() => setPage("faqPage")}>
