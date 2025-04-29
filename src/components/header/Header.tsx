@@ -37,6 +37,9 @@ export function Header({ page, setPage }: HeaderProps) {
   const faqState = () => {
     setPage("faqPage");
   };
+  const aiState = () => {
+    setPage("aiPage");
+  }
 
   return (
     <div className="Header">
@@ -65,6 +68,14 @@ export function Header({ page, setPage }: HeaderProps) {
         >
           Detailed Quiz
         </Button>
+        <Button
+          style={{ flex: 1 }}
+          className="Header-Button"
+          onClick={aiState}
+          disabled={page === "aiPage"}
+          >
+          Create Your Own Quiz
+          </Button>
         <Button
           style={{ flex: 1 }}
           className="Header-Button"
