@@ -46,7 +46,7 @@ export function HomePage({ setPage }: HomePageProp) {
           <div className="Page-Box">
             <p className="subtitle" style={{ fontSize: "25px"}}>{option.name}</p>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
-              <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button}></NavOption>
+              <NavOption setPage={setPage} name={option.name} destination={option.destination} text={option.optionText} buttonText={option.button}></NavOption>
             </div>
           </div>
         ))}
