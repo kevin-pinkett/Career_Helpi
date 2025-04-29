@@ -110,7 +110,7 @@ function App() {
                   height: "25%",
                 }}></img>
               <div className="Greeting-Text">
-                <span>Hello! My name's Ozzie, and I'm a career matching wizard! </span>
+                <span>Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
                 <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
                 
                 <Form>

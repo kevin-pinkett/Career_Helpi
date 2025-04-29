@@ -118,14 +118,16 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
         <div className="Basic-Page">
           
           <div className="Basic-Question-Box">
-            <div className="Basic-Question-Question">{currentQuestion.body}</div>
-            <SpeechProvider>
+            <div className="Basic-Question-Question">
+              {currentQuestion.body}
+              <SpeechProvider>
                 <ConvertToSpeech text = {currentQuestion.body + "..." +
                 currentQuestion.options.reduce((acc: string, option: string, index: number) => {
                   return `${acc} ${index+1} ${option}... `;
                   }, "")
                 }></ConvertToSpeech>
-              </SpeechProvider> 
+              </SpeechProvider>
+            </div> 
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>
@@ -143,8 +145,6 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             </div>
             <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
           </div>
-
-
 
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>

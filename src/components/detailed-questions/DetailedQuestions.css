@@ -26,9 +26,10 @@
     align-items: center;
 
     text-align: center;
+    text-wrap: balance;
     color: white;
 
-    width: 500px;
+    width: 75%;
     height: 100px;
     margin-bottom: 20px;
 

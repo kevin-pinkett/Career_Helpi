@@ -122,10 +122,12 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
         <div className="Detailed-Page">
 
           <div className="Detailed-Question-Box">
-            <div className="Detailed-Question-Question">{currentQuestion.body}</div>
-            <SpeechProvider>
+            <div className="Detailed-Question-Question">
+              {currentQuestion.body}
+              <SpeechProvider>
                 <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
               </SpeechProvider>
+            </div>
             <Form.Control
             as="textarea"
             className = "Response-Input"
