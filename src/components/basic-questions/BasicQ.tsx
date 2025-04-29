@@ -9,7 +9,7 @@ interface BasicQuestionsPageProp {
     setQuestions: (questions: string[]) => void;
 }
 
-/**
+/** Copilot Generated Doc
  * Renders the Basic Questions Page component, including the basic quiz and a completion popup
  *
  * @param {BasicQuestionsPageProp} props - BasicQuestionsPage component props.

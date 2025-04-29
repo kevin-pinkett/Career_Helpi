@@ -1,10 +1,12 @@
 import { Button, } from "react-bootstrap";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface BasicQuestionProps {
     setPage: (page: string) => void;
   }
 
-/**
+/** Copilot Generated Doc
  * Component that renders an option to go to basic career guidance questions.
  * This component displays a brief description and a button to navigate to the basic questions page.
  *
@@ -28,7 +30,14 @@ export function BasicQuestionsOption({setPage}: BasicQuestionProps) {
           fontSize: "20px",
           maxWidth: "300px",
         }}>
-        <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>
+        <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+        <SpeechProvider>
+            <ConvertToSpeech
+              text="Basic Quiz. Quick and easy career guidance! Answer a few straightforward questions to receive personalized insights without the deep dive."
+            />
+        </SpeechProvider>
+        </div> 
+        <p>Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.</p>      
         <Button id="BasicQuestions-Button" className="Button" onClick={() => setPage("basicPage")}>
           Start Quiz
         </Button>

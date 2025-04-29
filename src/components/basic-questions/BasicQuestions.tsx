@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
 import { ProgressBar } from "../progress-bar/progressBar";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Basic_Question_Props{
   openPopup:() => void;
@@ -15,7 +17,8 @@ interface Basic_Question_Props{
 
 const QUESTIONS: Basic_Question[] = Object.values(basicData)
 
-/**
+/** Copilot Generated Doc
+ * 
  * Component for rendering a series of basic questions and handling user responses.
  * 
  * @param {Basic_Question_Props} props - The properties passed to the component.
@@ -54,13 +57,11 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  
-  
+
   useEffect(() => {
     const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
     setQuestions(questionBodies);
   }, [setQuestions]);
-
 
 
   const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
@@ -118,6 +119,13 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           
           <div className="Basic-Question-Box">
             <div className="Basic-Question-Question">{currentQuestion.body}</div>
+            <SpeechProvider>
+                <ConvertToSpeech text = {currentQuestion.body + "..." +
+                currentQuestion.options.reduce((acc: string, option: string, index: number) => {
+                  return `${acc} ${index+1} ${option}... `;
+                  }, "")
+                }></ConvertToSpeech>
+              </SpeechProvider> 
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>

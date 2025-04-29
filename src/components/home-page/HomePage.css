@@ -8,6 +8,7 @@
 }
 
 .Page-Box{
+    position: relative;
     padding: 10px;
     padding-bottom: 25px;
     width: 30%;

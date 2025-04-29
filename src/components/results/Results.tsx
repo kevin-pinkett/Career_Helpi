@@ -27,7 +27,8 @@ function parsePrompt(answers: number[] | string[], questions: string[]): string 
 
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * The results page component based on the provided answers and questions.
  * It fetches AI-generated results asynchronously and displays through the Result Card.
  *
@@ -94,7 +95,7 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
     <h1>Results</h1>
     {loading ? (
      
-            <div className="spinner"> <img src="/assets/Spinner@1x-1.0s-255px-255px.svg" alt="Loading spinner"></img></div>
+            <div className="spinner"> <img src="assets/Spinner@1x-1.0s-255px-255px.svg" alt="Loading spinner"></img></div>
             
     ) : (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '2%' }}>

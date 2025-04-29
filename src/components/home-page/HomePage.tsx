@@ -16,7 +16,8 @@ interface HomePageProp {
 
 const OPTIONS: OptionInfo[] = Object.values(optionData)
 
-/**
+/** Copilot Generated Doc
+ * 
  * Represents the HomePage component, which serves as the main landing page
  * for the application. It provides three primary options for navigation:
  * Basic Quiz, Detailed Quiz, and FAQ.
