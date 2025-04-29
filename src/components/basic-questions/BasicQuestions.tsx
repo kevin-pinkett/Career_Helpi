@@ -113,7 +113,6 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   return (
     <div>
       <Form.Group controlId="basicQuestions">
-        <Form.Label className="subtitle"></Form.Label>
         
         <div className="Basic-Page">
           
@@ -134,7 +133,10 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
                 </div>
               ))}
             </div>
+            <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
           </div>
+
+
 
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
@@ -142,7 +144,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
 
-          <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
+          
         </div>
       </Form.Group>
     </div>

@@ -26,7 +26,6 @@ export function DetailQuestionsPage({setPage, setAnswers, setQuestions}: Detaile
 
   return (
     <div className="DetailQuestions">
-      <h1>Detailed Questions</h1>
       <DetailedQuestions
         openPopup={() => setIsPopupOpen(true)}
         setPage={setPage}

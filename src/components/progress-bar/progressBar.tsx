@@ -34,9 +34,19 @@ export function ProgressBar({progress, setProgress}: ProgressBarProps) {
     return(
         <div className="container">
             <div className="progress-bar">
+                <img src="assets/Helpi Mascot.png" alt="mascot" style={{
+                    width: "20%",
+                    padding: "15px",
+                    position: "absolute",
+                    left: `${progress}%`,
+                    transform: "translateX(-50%)",
+                    zIndex: "1",
+                    pointerEvents: "none",
+                    transition: "left 0.3s ease-in-out"
+                }}></img>
                 <div data-testid="bar-fill" 
                      className="progress-bar-fill" 
-                     style={{ width : `${progress}%`, backgroundColor : getColor()}}>
+                     style={{ width : `${progress}%`, backgroundColor : getColor() }}>
                 </div>
             </div>
             <div className="progress-label">{progress.toFixed(2)}%</div>
