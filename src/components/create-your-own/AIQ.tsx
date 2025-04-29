@@ -26,7 +26,7 @@ export function AIQuestionsPage({setPage}: AIQProps) {
                     </SpeechProvider>
                 </div> 
             </div>
-            <div className="Response-Box">
+            <div className="AIQ-Response-Box">
               <Form.Control
               as="textarea"
               className = "response-input"
