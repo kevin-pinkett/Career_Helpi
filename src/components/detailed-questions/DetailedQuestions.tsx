@@ -117,29 +117,27 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   }
   
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="detailedQuestions">
-        <Form.Label className="subtitle"></Form.Label>
         
-        <div className="Question-Page">
+        <div className="Detailed-Page">
 
-          <div className="Question-Box">
-            <div className="subtitle">{currentQuestion.body}</div>
-            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+          <div className="Detailed-Question-Box">
+            <div className="Detailed-Question-Question">
+              {currentQuestion.body}
               <SpeechProvider>
                 <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
               </SpeechProvider>
             </div>
-            <div className="Response-Box">
-              <Form.Control
-              as="textarea"
-              className = "response-input"
-              rows={5}
-              value={detailedAnswers[currentQuestion.id] || ""}
-              placeholder="Type your response here"
-              onChange={updateResponse}/>
-            </div>
+            <Form.Control
+            as="textarea"
+            className = "Response-Input"
+            rows={5}
+            value={detailedAnswers[currentQuestion.id] || ""}
+            placeholder="Type your response here"
+            onChange={updateResponse}/>
+            
 
+            <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
           </div>
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
@@ -147,30 +145,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
         </div>
-      </Form.Group>
-      <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
-    </div>
-    
+      </Form.Group>    
   );
 }
-
- /*
-{currentQuestion.options.map((option: string, r_index: number) => (
-
-  <Form.Check
-  
-  style={{ flex: 1 }}
-  key={r_index}
-  type="radio"
-  name={`answers-${currentQuestion.id}`}
-  label={option}
-  value={r_index}
-  checked={detailedAnswers[currentQuestion.id] === r_index}
-  onChange={(e) => {
-    handleAnswerChange(currentQuestion.id, r_index);
-  }}
-  
-  
-/>
-))}
-*/

@@ -1,35 +1,66 @@
 .App{
+  background-image: url("/public/assets/bg.png");
   background-color: #fcc9bd;
+  background-blend-mode: overlay;
+  background-size: cover;
+  
 
   overflow: auto;
   max-height: 100vh;
 }
 
+
+.Greeting-Box {
+  display: flex;
+  justify-self: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: auto;
+
+  margin: 20px;
+}
+
+.Greeting-Text {
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 50%;
+
+}
+
 .Header-Wrapper {
   display: flex;
+  justify-content: center;
   background-color: #FE604D;
   align-items: center;
+  box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 #header-title {
   font-size: 40px;
+  letter-spacing: 1px;
   padding: 15px;
   color: white;
+  font-family: GloomieSaturday;
   font-weight: bolder;
   background-color: #FE604D;
-  width: 100%;
+
 }
 
 .Page {
   display: flex;
   flex: 1;
   flex-direction: column;
-  min-height: 100vh;
+
 }
 
 footer {
   width: 100%;
-  bottom: 0;
+  margin-top: 30px;
   left: 0;
   padding: 15px;
   border-top-left-radius: 10px;
