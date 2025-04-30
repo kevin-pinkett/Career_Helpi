@@ -33,7 +33,7 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
     
         const duration = 5 * 1000; // 5 seconds
         const end = Date.now() + duration;
-    
+
         const frame = () => {
           // Left side burst
           confetti({
