@@ -101,9 +101,6 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
                 margin: "30px",
             }}></img>
             <span>Ozzie is deciding what careers are right for you...</span>
-            <div className="spinner">
-                <img src="assets/Spinner@1x-1.0s-255px-255px.svg" alt="Loading spinner"></img>
-            </div>
         </div>
             
     ) : (
