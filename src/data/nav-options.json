@@ -1,0 +1,20 @@
+{
+    "BASIC_OPTION": {
+        "name": "Basic Quiz",
+        "destination": "basicPage",
+        "optionText": "Quick and easy career guidance! Answer a few straight forward questions to receive personalized insights without the deep dive.",
+        "button": "Start Quiz"
+    },
+    "DETAILED_OPTION": {
+        "name": "Detailed Quiz",
+        "destination": "detailedPage",
+        "optionText": "Explore your career path in depth. Thoughtful questions will help you discover options and recommendations tailored to you.",
+        "button": "Start Quiz"
+    },
+    "CUSTOM_OPTION": {
+        "name": "Create-Your-Own Quiz",
+        "destination": "aiPage",
+        "optionText": "Already have an idea what you want to do? We can help with that too! Input your preferences and we'll tailor a quiz for you!",
+        "button": "Create My Quiz"
+    }
+}

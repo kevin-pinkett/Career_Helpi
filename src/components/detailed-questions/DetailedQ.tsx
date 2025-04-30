@@ -9,7 +9,8 @@ interface DetailedQuestionsPageProp {
     setQuestions: (questions: string[]) => void;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * Renders the `DetailQuestionsPage` component, which serves as a container for detailed questions
  * and a popup for completing the quiz. It manages the state for the popup visibility and passes
  * necessary props to child components.
@@ -26,7 +27,6 @@ export function DetailQuestionsPage({setPage, setAnswers, setQuestions}: Detaile
 
   return (
     <div className="DetailQuestions">
-      <h1>Detailed Questions</h1>
       <DetailedQuestions
         openPopup={() => setIsPopupOpen(true)}
         setPage={setPage}

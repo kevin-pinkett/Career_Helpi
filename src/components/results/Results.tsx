@@ -27,7 +27,8 @@ function parsePrompt(answers: number[] | string[], questions: string[]): string 
 
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * The results page component based on the provided answers and questions.
  * It fetches AI-generated results asynchronously and displays through the Result Card.
  *
@@ -92,10 +93,16 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
 
     return (
     <div className="Results-Page">
-    <h1>Results</h1>
     {loading ? (
      
-            <div className="spinner"> <img src="/assets/Spinner@1x-1.0s-255px-255px.svg" alt="Loading spinner"></img></div>
+        <div className="Loading-Screen">
+            <img src="assets/Helpi Mascot (thinkingclear).png" alt="Loading Ozzie" style={{
+                width: "25%",
+                height: "25%",
+                margin: "30px",
+            }}></img>
+            <span>Ozzie is deciding what careers are right for you...</span>
+        </div>
             
     ) : (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '2%' }}>

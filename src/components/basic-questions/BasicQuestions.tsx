@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
 import { ProgressBar } from "../progress-bar/progressBar";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Basic_Question_Props{
   openPopup:() => void;
@@ -15,7 +17,8 @@ interface Basic_Question_Props{
 
 const QUESTIONS: Basic_Question[] = Object.values(basicData)
 
-/**
+/** Copilot Generated Doc
+ * 
  * Component for rendering a series of basic questions and handling user responses.
  * 
  * @param {Basic_Question_Props} props - The properties passed to the component.
@@ -54,13 +57,11 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   /** Imports basic question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  
-  
+
   useEffect(() => {
     const questionBodies = QUESTIONS.map((question: Basic_Question) => question.body);
     setQuestions(questionBodies);
   }, [setQuestions]);
-
 
 
   const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
@@ -96,7 +97,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
       }
       }, [basicAnswers, progress]);
 
-  const handleAnswerChange = (q_index: number, r_index: number) => {
+    const handleAnswerChange = (q_index: number, r_index: number) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = r_index;
           setAnswers(newAnswers);
@@ -111,40 +112,51 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   }, [progress, popupTriggered, openPopup]);
 
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
+    <div>
       <Form.Group controlId="basicQuestions">
-        <Form.Label className="subtitle"></Form.Label>
         
-        <div className="Question-Page">
-
-          <div className="Question-Box">
-            <div className="subtitle">{currentQuestion.body}</div>
+        <div className="Basic-Page">
+          
+          <div className="Basic-Question-Box">
+            <div className="Basic-Question-Question">
+              {currentQuestion.body}
+              <div style={{margin: "10px"}}>
+                <SpeechProvider>
+                  <ConvertToSpeech text = {currentQuestion.body + "..." +
+                  currentQuestion.options.reduce((acc: string, option: string, index: number) => {
+                    return `${acc} ${index+1} ${option}... `;
+                    }, "")
+                  }></ConvertToSpeech>
+                </SpeechProvider>
+              </div>
+            </div> 
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
-                <Form.Check
-                style={{ flex: 1 }}
-                key={r_index}
-                type="radio"
-                name={`answers-${currentQuestion.id}`}
-                label={option}
-                value={r_index}
-                checked={basicAnswers[currentQuestion.id] === r_index}
-                onChange={(e) => {
-                  handleAnswerChange(currentQuestion.id, r_index)
-                }}
-              />
+                <div>
+                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, r_index)}
+                    style={{ backgroundColor: basicAnswers[currentQuestionId] === r_index ? "#FE604D" : "white",
+                             color: basicAnswers[currentQuestionId] === r_index ? "white" : "black"
+                    }}>
+                      <div className="Outer-Button-Box">
+                        <div className="Check-Marker">{basicAnswers[currentQuestionId] === r_index ? "✅" : ""}</div>
+                        <div>{option}</div>
+                      </div>
+                    </Button>
+                </div>
               ))}
             </div>
-            
+            <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
           </div>
+
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
+
+          
         </div>
       </Form.Group>
-      <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
     </div>
   );
 }

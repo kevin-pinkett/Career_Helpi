@@ -23,12 +23,23 @@ export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Ele
         }
     }, [questions])
 
+    const [loading, setLoading] = useState<boolean>(false);
+    
     useEffect(() => {
         const fetchQuestions = async () => {
-            const response = await getGPTResponse(industry);
-            const new_questions = response.map((question: AIQuestion) => question);
-            setQuestions(new_questions);
-            setHasFetched(true);
+            setLoading(true);
+            try {
+                const response = await getGPTResponse(industry);
+                const new_questions = response.map((question: AIQuestion) => question);
+                setQuestions(new_questions);
+                setHasFetched(true);
+            } catch (error) {
+                console.error("Error fetching questions:", error);
+            }
+            finally {
+                setLoading(false);
+            }
+
         };
         if (setQuiz && !hasFetched) {
             fetchQuestions();
@@ -81,36 +92,48 @@ export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Ele
     }
     return (
         <div>
-            {setQuiz && hasFetched ? (
-                <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
-                <Form.Group controlId="aiQuestions">
-                  <Form.Label className="subtitle"></Form.Label>
-                  <div className="Question-Page">
-          
-                    <div className="Question-Box">
-                      <div className="subtitle">{currentQuestion?.body}</div>
-                      <div className="Response-Box">
-                        <Form.Control
-                        as="textarea"
-                        className = "response-input"
-                        rows={5}
-                        value={currentQuestionId !== null ? answers[currentQuestionId - 1] || "" : ""}
-                        placeholder="Type your response here"
-                        onChange={updateResponse}/>
+            {loading ? (
+                <div className="Loading-Screen">
+                <img src="assets/Helpi Mascot (thinkingclear).png" alt="Loading Ozzie" style={{
+                    width: "25%",
+                    height: "25%",
+                    margin: "30px",
+                }}></img>
+                <span>Ozzie is deciding what questions to ask...</span>
+            </div>
+            ) : ( <div>
+                {setQuiz && hasFetched ? (
+                    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
+                    <Form.Group controlId="aiQuestions">
+                      <Form.Label className="subtitle"></Form.Label>
+                      <div className="Question-Page">
+              
+                        <div className="Question-Box">
+                          <div className="subtitle">{currentQuestion?.body}</div>
+                          <div className="Response-Box">
+                            <Form.Control
+                            as="textarea"
+                            className = "response-input"
+                            rows={5}
+                            value={currentQuestionId !== null ? answers[currentQuestionId - 1] || "" : ""}
+                            placeholder="Type your response here"
+                            onChange={updateResponse}/>
+                          </div>
+              
+                        </div>
+                        <div className="Nav-Buttons">
+                          <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
+                          <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+                          <Button className="Submit-Button" disabled={progress !== 100}>Submit</Button>
+                        </div>
                       </div>
-          
-                    </div>
-                    <div className="Nav-Buttons">
-                      <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
-                      <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
-                      <Button className="Submit-Button" disabled={progress !== 100}>Submit</Button>
-                    </div>
+                    </Form.Group>
+                    <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
                   </div>
-                </Form.Group>
-                <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
-              </div>
-            ) : (
-                <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}></div>)} 
+                ) : (<div></div>)}
+                </div>
+                )
+            }
         </div>
     );
 }
