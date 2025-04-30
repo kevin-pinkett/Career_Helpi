@@ -3,7 +3,7 @@ import { useSpeechContext } from "./SpeechContext";
 import "./TextToSpeech.css";
 
 interface ConvertToSpeechProps {
-    text: string | null;
+    text: string;
 }
 
 export function ConvertToSpeech({ text }: ConvertToSpeechProps) {
@@ -14,19 +14,18 @@ export function ConvertToSpeech({ text }: ConvertToSpeechProps) {
     useEffect(() => {
         const synth = window.speechSynthesis;
         
-        if (text) {
-            const newUtterance = new SpeechSynthesisUtterance(text);
+        const newUtterance = new SpeechSynthesisUtterance(text);
 
-            newUtterance.onend = () => {
-                setCurrentPlayingText(null);
-            };
+        newUtterance.onend = () => {
+            setCurrentPlayingText(null);
+        };
     
-            setUtterance(newUtterance);
+        setUtterance(newUtterance);
     
-            newUtterance.rate = 1.05;
-            newUtterance.pitch = 1.1;
-            newUtterance.volume = 1;
-        }
+        newUtterance.rate = 1.05;
+        newUtterance.pitch = 1.1;
+        newUtterance.volume = 1;
+
 
         return () => {
             synth.cancel();

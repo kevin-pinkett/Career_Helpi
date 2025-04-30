@@ -116,7 +116,7 @@ export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Ele
                             <div style={{ margin: "10px" }}>
                                 <SpeechProvider>
                                     <ConvertToSpeech
-                                        text = {currentQuestion?.body ?? null}
+                                        text = {currentQuestion?.body}
                                     />
                                 </SpeechProvider>
                             </div> 
