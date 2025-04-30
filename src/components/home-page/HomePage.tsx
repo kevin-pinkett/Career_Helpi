@@ -1,5 +1,7 @@
 import { NavOption } from "../nav-option/NavOption";
 import { OptionInfo } from "../../interfaces/nav-option";
+import { SpeechProvider } from "../accessibility/SpeechContext";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 
 import optionData from "../../data/nav-options.json"
@@ -41,9 +43,14 @@ export function HomePage({ setPage }: HomePageProp) {
     <div data-testid="home-page">
       
 
-      <div className="Box-Container">
+      <div className="Box-Container" >
         {OPTIONS.map((option) => (
-          <div className="Page-Box">
+          <div className="Page-Box" style={{position: "relative"}}>
+            <div style={{position: "absolute", top: "10px", right: "10px"}}>
+              <SpeechProvider>
+                <ConvertToSpeech text = {`${option.name}. ${option.optionText}`}></ConvertToSpeech>
+              </SpeechProvider>
+            </div>
             <p className="subtitle" style={{ fontSize: "25px"}}>{option.name}</p>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
               <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button}></NavOption>

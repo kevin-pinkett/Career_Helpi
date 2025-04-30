@@ -120,13 +120,15 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           <div className="Basic-Question-Box">
             <div className="Basic-Question-Question">
               {currentQuestion.body}
-              <SpeechProvider>
-                <ConvertToSpeech text = {currentQuestion.body + "..." +
-                currentQuestion.options.reduce((acc: string, option: string, index: number) => {
-                  return `${acc} ${index+1} ${option}... `;
-                  }, "")
-                }></ConvertToSpeech>
-              </SpeechProvider>
+              <div style={{margin: "10px"}}>
+                <SpeechProvider>
+                  <ConvertToSpeech text = {currentQuestion.body + "..." +
+                  currentQuestion.options.reduce((acc: string, option: string, index: number) => {
+                    return `${acc} ${index+1} ${option}... `;
+                    }, "")
+                  }></ConvertToSpeech>
+                </SpeechProvider>
+              </div>
             </div> 
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (

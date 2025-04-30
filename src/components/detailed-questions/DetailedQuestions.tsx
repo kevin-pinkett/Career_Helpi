@@ -84,14 +84,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
       setAnswers(newAnswers);
       setDetailedAnswers(newAnswers);
     }
-  
-  /*useEffect(() => {
-    if (progress === 100 && !popupTriggered) {
-      openPopup();
-      setPopupTriggered(true);
-    }
-  }, [progress, popupTriggered, openPopup]);
-  */
 
   function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
     setResponse(response + e.target.value);
@@ -124,9 +116,11 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
           <div className="Detailed-Question-Box">
             <div className="Detailed-Question-Question">
               {currentQuestion.body}
-              <SpeechProvider>
-                <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
-              </SpeechProvider>
+              <div style={{margin: "10px"}}>
+                <SpeechProvider>
+                  <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
+                </SpeechProvider>
+              </div>
             </div>
             <Form.Control
             as="textarea"
