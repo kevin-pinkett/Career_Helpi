@@ -21,7 +21,6 @@ export function AIQuestionsPage({setPage}: AIQProps) {
     }
     return (
         <div style={{maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
-            <h1>Choose your Industry:</h1>
             <div>      
             <div className = "AIQ-Question-Page">
                 <div className="AIQ-Question-Box">
