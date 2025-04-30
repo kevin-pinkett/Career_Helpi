@@ -1,51 +1,92 @@
+
 .AIQ {
     width: 70%;
     height: 80vh;
-    justify-self: center;
+    margin: 0 auto;
     padding-top: 30px;
-}
-
-.Question-Box {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    position: relative;
-
-    border: 1px solid #ccc;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-
-    padding: 25px;
-    background-color: white;
+    justify-content: center;
+}
+  
+.AIQ-Question-Page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.AIQ-subtitle {
+.AIQ-Question-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+  
+.AIQ-subtitle,
+.AIQ-Question-Question {
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-    text-wrap: balance;
     color: white;
-
     width: 75%;
     height: 100px;
     margin-bottom: 20px;
-
     border-radius: 15px;
     background-image: url("/public/assets/questionbg.png");
     background-color: #cc2c1a;
-    background-blend-mode:soft-light;
+    background-blend-mode: soft-light;
     background-size: cover;
 }
-
-.AIQ-Response-Box {
-    vertical-align: top;
-    height: 150px;
+  
+.AIQ-Response-Input {
     width: 80%;
+    min-height: 150px;
     resize: vertical;
-    line-height: 1.5;
     padding: 10px;
+    line-height: 1.5;
     box-sizing: border-box;
+    font-size: 1rem;
 }
+  
+.Nav-Buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    gap: 10px;
+}
+  
+.Loading-Screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: #333;
+}
+  
+  /* Reusable button style */
+.Submit-Button {
+    width: 25%;
+    color: white;
+    background-color: #FE604D;
+    border: none;
+}
+
+.AIQ-Submit-Button {
+    width: 100%;
+    color: white;
+    background-color: #FE604D;
+    border: none;
+}
+  
