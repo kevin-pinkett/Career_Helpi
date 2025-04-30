@@ -13,8 +13,8 @@ interface AIQuestionProps {
 export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Element {
     const [questions, setQuestions] = useState<AIQuestion[]>([]);
     const [hasFetched, setHasFetched] = useState(false);
-    const [currentQuestion, setCurrentQuestion] = useState<AIQuestion | null>(null);
-    const [currentQuestionId, setCurrentQuestionId] = useState<number | null>(null);
+    const [currentQuestion, setCurrentQuestion] = useState<AIQuestion>({id: 0, body: ""});
+    const [currentQuestionId, setCurrentQuestionId] = useState<number>(0);
     const [answers, setAnswers] = useState<string[]>([]);
     const [progress, setProgress] = useState<number>(0);
     //const [response, setResponse] = useState<string>("")
