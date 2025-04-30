@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Button, Collapse, Card } from "react-bootstrap";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface FAQQuestionProps{
     question: string;
     answer: string;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A functional component that displays a question and its corresponding answer.
  * The answer is shown or hidden based on the component's state.
  *
@@ -25,6 +28,11 @@ export function FAQQuestion({question, answer}: FAQQuestionProps){
             <div style={{ visibility: open ? "visible" : "hidden"}}>
                 <Card body className="answer" data-testid="collapsed-answer">
                     {answer}
+                    <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
+                        <SpeechProvider>
+                            <ConvertToSpeech text = {question + " " + answer}></ConvertToSpeech>
+                        </SpeechProvider>
+                    </div>
                 </Card>
             </div>
         </Collapse>

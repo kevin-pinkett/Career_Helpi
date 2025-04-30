@@ -1,5 +1,7 @@
 import { Button } from "react-bootstrap";
+import confetti from "canvas-confetti";
 import "./CompleteQuiz.css"
+import { useEffect } from "react";
 
 interface CompletedQuizProps{
     isPopupOpen: boolean;
@@ -7,7 +9,8 @@ interface CompletedQuizProps{
     setPage: (page: string) => void;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * A React functional component that represents a popup displayed when the user has completed a quiz.
  * The popup provides options to either continue working or submit the quiz.
  *
@@ -25,14 +28,70 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
         setPage("resultsPage");
     }
 
-    return <div> {isPopupOpen && <div className="popup">
-            <div className="popup-content">
-                <h3>You have answered all questions!</h3>
-                <div className="popup-buttons">
-                    <Button onClick={() => closePopup(false)}>Continue Working</Button>
-                    <Button onClick={Submit}>Submit</Button>
-                </div>
+    useEffect(() => {
+        if (!isPopupOpen) return;
+    
+        const duration = 5 * 1000; // 5 seconds
+        const end = Date.now() + duration;
+    
+        const frame = () => {
+          // Left side burst
+          confetti({
+            particleCount: 2,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0, y: 1 },
+            colors: ["#f53b55", "#f43bc4", "#f5953b"],
+          });
+    
+          // Right side burst
+          confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1, y: 1 },
+            colors: ["#f53b55", "#f43bc4", "#f5953b"],
+          });
+    
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        };
+    
+        frame();
+      }, [isPopupOpen]);
+
+    return ( 
+        <div> 
+            <div>
+                {isPopupOpen && <div style={{ 
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: 9999,
+                    pointerEvents: "none",
+                }}>
+                </div>}
             </div>
-        </div>}
-    </div>
+
+            {isPopupOpen && <div className="popup">
+                <div className="popup-content">
+                <img src="assets/Helpi Mascot (partyclear).png" alt="mascot" style={{
+                    display: "flex",
+                    justifySelf: "center",
+                    height: "50%",
+                    width: "50%",
+                    margin: "15px"
+                    }}></img>
+                    <h3>You have answered all questions!</h3>
+                    <div className="popup-buttons">
+                        <Button onClick={() => closePopup(false)}>Continue Working</Button>
+                        <Button onClick={Submit}>Submit</Button>
+                    </div>
+                </div>
+            </div>}
+        </div>
+    )
 }

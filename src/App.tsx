@@ -7,6 +7,7 @@ import { BasicQuestionsPage } from './components/basic-questions/BasicQ';
 import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 import { ResultsPage } from './components/results/Results';
+import { AIQuestionsPage } from './components/create-your-own/AIQ';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -86,35 +87,52 @@ function App() {
     <div className="App">
 
       <div className="Header-Wrapper">
-        <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-            display: "flex",
-            justifySelf: "center",
-            height: "15%",
-            width: "15%",
-            padding: "20px"
-            }}></img>
-        <div id="header-title">The Career Helpi</div>
+        <div style={{
+          display: "flex",
+          alignItems: "center"
+        }}>
+          <img src="assets/Helpi Mascot.png" alt="mascot" style={{
+              display: "flex",
+              width: "20%",
+              padding: "15px"
+              }}></img>
+          <div id="header-title">Koalafi</div>
+        </div>
+        <Header page={page} setPage={setPage}/>
       </div>
 
-      <Header page={page} setPage={setPage}/>
-
-
       <div className="Page" data-testid="page">
-        {page === 'homePage' && (<div><HomePage setPage={setPage} /></div>)}
+        {page === 'homePage' && (
+          <div>
+            <div className="Greeting-Box">
+              <img src="assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
+                  width: "25%",
+                  height: "25%",
+                }}></img>
+              <div className="Greeting-Text">
+                <span>Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
+                <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
+                
+                <Form>
+                  <Form.Label>API Key:</Form.Label>
+                  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+                  <br></br>
+                  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+                </Form>
+              </div>
+            </div>
+            <HomePage setPage={setPage} />
+            </div>)}
         {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         {page === 'faqPage' && (<div><FAQPage /></div>)}
         {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
+        {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage}/></div>)}
       </div>
 
       <div className='footer-wrapper' data-testid="footer">
         <footer id="footer">
-          <Form>
-            <Form.Label>API Key:</Form.Label>
-            <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-            <br></br>
-            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-          </Form>
+          
         </footer>
       </div>
 

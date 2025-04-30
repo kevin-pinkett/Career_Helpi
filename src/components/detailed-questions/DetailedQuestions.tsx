@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Detailed_Question } from "../../interfaces/detailed-question"
 import { ProgressBar } from "../progress-bar/progressBar";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
+import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Detailed_Question_Props{
   openPopup:() => void;
@@ -12,8 +14,10 @@ interface Detailed_Question_Props{
   setQuestions: (questions: string[]) => void;
 }
 
+const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
 
-/**
+/** Copilot Generated Doc
+ * 
  * Component representing a detailed questionnaire interface.
  * 
  * @param {object} props - The properties passed to the component.
@@ -51,7 +55,11 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
     /** Imports detailed question from JSON file and stores them in a array
    *  Format followings basic question interface
    */
-  const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
+
+  useEffect(() => {
+    const questionBodies = QUESTIONS.map((question: Detailed_Question) => question.body);
+    setQuestions(questionBodies);
+  }, [setQuestions]);
 
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
   const [response, setResponse] = useState<string>("");
@@ -61,12 +69,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   //const [popupTriggered, setPopupTriggered] = useState(false);
   const num_questions = QUESTIONS.length;
 
-  useEffect(() => {
-      const questionBodies = QUESTIONS.map((question: Detailed_Question) => question.body);
-      setQuestions(questionBodies);
-    }, [QUESTIONS, setQuestions]);
-
-
 
   useEffect(() => {
     if (progress < 100) {
@@ -74,7 +76,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
-      }, [detailedAnswers, QUESTIONS.length, progress]);
+      }, [detailedAnswers, num_questions, progress]);
   
   const handleAnswerChange = (q_index: number, response: string) => {
       const newAnswers = [...detailedAnswers];
@@ -82,14 +84,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
       setAnswers(newAnswers);
       setDetailedAnswers(newAnswers);
     }
-  
-  /*useEffect(() => {
-    if (progress === 100 && !popupTriggered) {
-      openPopup();
-      setPopupTriggered(true);
-    }
-  }, [progress, popupTriggered, openPopup]);
-  */
 
   function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
     setResponse(response + e.target.value);
@@ -115,24 +109,29 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
   }
   
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
       <Form.Group controlId="detailedQuestions">
-        <Form.Label className="subtitle"></Form.Label>
         
-        <div className="Question-Page">
+        <div className="Detailed-Page">
 
-          <div className="Question-Box">
-            <div className="subtitle">{currentQuestion.body}</div>
-            <div className="Response-Box">
-              <Form.Control
-              as="textarea"
-              className = "response-input"
-              rows={5}
-              value={detailedAnswers[currentQuestion.id] || ""}
-              placeholder="Type your response here"
-              onChange={updateResponse}/>
+          <div className="Detailed-Question-Box">
+            <div className="Detailed-Question-Question">
+              {currentQuestion.body}
+              <div style={{margin: "10px"}}>
+                <SpeechProvider>
+                  <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
+                </SpeechProvider>
+              </div>
             </div>
+            <Form.Control
+            as="textarea"
+            className = "Response-Input"
+            rows={5}
+            value={detailedAnswers[currentQuestion.id] || ""}
+            placeholder="Type your response here"
+            onChange={updateResponse}/>
+            
 
+            <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
           </div>
           <div className="Nav-Buttons">
             <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
@@ -140,30 +139,6 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
         </div>
-      </Form.Group>
-      <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
-    </div>
-    
+      </Form.Group>    
   );
 }
-
- /*
-{currentQuestion.options.map((option: string, r_index: number) => (
-
-  <Form.Check
-  
-  style={{ flex: 1 }}
-  key={r_index}
-  type="radio"
-  name={`answers-${currentQuestion.id}`}
-  label={option}
-  value={r_index}
-  checked={detailedAnswers[currentQuestion.id] === r_index}
-  onChange={(e) => {
-    handleAnswerChange(currentQuestion.id, r_index);
-  }}
-  
-  
-/>
-))}
-*/

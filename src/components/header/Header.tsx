@@ -6,7 +6,8 @@ interface HeaderProps {
   setPage: (page: string) => void;
 }
 
-/**
+/** Copilot Generated Doc
+ * 
  * Header component that renders a navigation bar with buttons to switch between different pages.
  *
  * @param {HeaderProps} props - The properties for the Header component.
@@ -36,6 +37,9 @@ export function Header({ page, setPage }: HeaderProps) {
   const faqState = () => {
     setPage("faqPage");
   };
+  const aiState = () => {
+    setPage("aiPage");
+  }
 
   return (
     <div className="Header">
@@ -64,6 +68,14 @@ export function Header({ page, setPage }: HeaderProps) {
         >
           Detailed Quiz
         </Button>
+        <Button
+          style={{ flex: 1 }}
+          className="Header-Button"
+          onClick={aiState}
+          disabled={page === "aiPage"}
+          >
+          Custom Quiz
+          </Button>
         <Button
           style={{ flex: 1 }}
           className="Header-Button"

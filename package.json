@@ -11,8 +11,9 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "bootstrap": "^5.3.2",
+    "canvas-confetti": "^1.9.3",
     "gh-pages": "^6.1.1",
-    "openai": "^4.93.0",
+    "openai": "^4.17.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0"
   }
 }
