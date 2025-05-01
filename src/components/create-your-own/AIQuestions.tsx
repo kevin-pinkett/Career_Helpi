@@ -95,19 +95,18 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
         }
     }
     return (
-        <div>
+        <div style={{width: "100%"}}>
             {loading ? (
                 <div className="Loading-Screen">
                 <img src="assets/Helpi Mascot (thinkingclear).png" alt="Loading Ozzie" style={{
-                    width: "25%",
-                    height: "25%",
+                    width: "20%",
+                    height: "20%",
                     margin: "30px",
                 }}></img>
                 <span>Ozzie is deciding what questions to ask...</span>
             </div>
             ) : ( <div>
                 {setQuiz && hasFetched ? (
-                    <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
                     <Form.Group controlId="aiQuestions">
                       <Form.Label className="subtitle"></Form.Label>
                       <div className="AIQ-Question-Page">
@@ -130,18 +129,16 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
                             value={currentQuestionId !== null ? answers[currentQuestionId - 1] || "" : ""}
                             placeholder="Type your response here"
                             onChange={updateResponse}/>
-                            
                           </div>
+                          <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
                         </div>
-                        <div className="Nav-Buttons">
+                        <div className="AIQ-Nav-Buttons">
                           <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
                           <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
                           <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
                         </div>
                       </div>
                     </Form.Group>
-                    <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
-                  </div>
                 ) : (<div></div>)}
                 </div>
                 )
