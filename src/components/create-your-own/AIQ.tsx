@@ -4,6 +4,7 @@ import { SpeechProvider } from "../accessibility/SpeechContext";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import "./AIQ.css"
 import { AIQuestions} from "./AIQuestions";
+import { CompletedQuiz } from "../popup/CompleteQuiz";
 
 interface AIQProps {
     setPage: (page: string) => void;
@@ -12,6 +13,7 @@ interface AIQProps {
 export function AIQuestionsPage({setPage}: AIQProps) {
     const [response, setResponse] = useState<string>("");
     const [quiz, setQuiz] = useState<boolean>(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
         setResponse(e.target.value);
     }
@@ -47,8 +49,10 @@ export function AIQuestionsPage({setPage}: AIQProps) {
                     <Button className="AIQ-Submit-Button" disabled={response === ""} onClick={handleSubmit}>Submit</Button> 
                 </div>
             </div>
-            <AIQuestions industry={response} setQuiz={quiz}></AIQuestions>
+            <AIQuestions industry={response} setQuiz={quiz} openPopup={() => setIsPopupOpen(true)}></AIQuestions>
+            <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage}></CompletedQuiz>
             </div>
+
         </div>
     );
 }
