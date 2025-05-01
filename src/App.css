@@ -1,12 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  
   background-image: url("/public/assets/bg.png");
   background-color: #fcc9bd;
   background-blend-mode: overlay;
   background-size: cover;
-  
-
   overflow: auto;
-  max-height: 100vh;
 }
 
 

@@ -1,33 +1,27 @@
-
-.AIQ {
-    width: 70%;
-    height: 80vh;
-    margin: 0 auto;
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-  
 .AIQ-Question-Page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-self: center;
+    padding-top: 30px;
+    width: 70%;
     height: 100%;
 }
 
 .AIQ-Question-Box {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
-    padding: 25px;
+    flex-direction: column;
+    position: relative;
+
     border: 1px solid #ccc;
-    border-radius: 10px 10px 0 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+    padding: 25px;
+    background-color: white;
     width: 100%;
-    max-width: 800px;
 }
   
 .AIQ-subtitle,
@@ -56,13 +50,17 @@
     box-sizing: border-box;
     font-size: 1rem;
 }
-  
-.Nav-Buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 800px;
-    gap: 10px;
+
+.AIQ-Nav-Buttons{
+padding: 10px;
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background-color: #FE604D;
 }
   
 .Loading-Screen {
