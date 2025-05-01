@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  overflow-y: scroll;
   margin: 0;
 }
 
@@ -12,7 +13,6 @@ html, body {
   background-color: #fcc9bd;
   background-blend-mode: overlay;
   background-size: cover;
-  overflow: auto;
 }
 
 
@@ -22,9 +22,7 @@ html, body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   width: auto;
-
   margin: 20px;
 }
 
@@ -39,6 +37,7 @@ html, body {
 
 .Header-Wrapper {
   display: flex;
+  min-width: 100%;
   justify-content: center;
   background-color: #FE604D;
   align-items: center;
@@ -54,7 +53,7 @@ html, body {
   font-family: GloomieSaturday;
   font-weight: bolder;
   background-color: #FE604D;
-
+  white-space: nowrap;
 }
 
 .Page {
