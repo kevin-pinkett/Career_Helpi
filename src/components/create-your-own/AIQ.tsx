@@ -21,32 +21,33 @@ export function AIQuestionsPage({setPage}: AIQProps) {
     }
     return (
         <div style={{maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
-            <h1>Choose your Industry:</h1>
-            <div className="Question-Box">      
-            <div className = "Question-Page">
-                <div className="Question-Box">
-                <div className="AIQ-subtitle">{"What industry would you want to work in?"}
-                <div style={{ margin: "10px" }}>
-                    <SpeechProvider>
-                        <ConvertToSpeech
-                        text="What industry would you want to work in?"
-                        />
-                    </SpeechProvider>
-                </div> 
-            </div>
-                <div className="Response-Box">
-                <Form.Control
-                as="textarea"
-                className = "response-input"
-                rows={5}
-                value={response}
-                placeholder="Type your response here"
-                onChange={updateResponse}/>
+            <div>      
+            <div className = "AIQ-Question-Page">
+                <div className="AIQ-Question-Box">
+                    <div className="AIQ-subtitle">{"What industry would you want to work in?"}
+                        <div style={{ margin: "10px" }}>
+                            <SpeechProvider>
+                                <ConvertToSpeech
+                                text="What industry would you want to work in?"
+                                />
+                            </SpeechProvider>
+                        </div> 
+                    </div> 
+                    <div className="AIQ-Response-Input">
+                        <Form.Control
+                        as="textarea"
+                        className = "Response"
+                        rows={5}
+                        value={response}
+                        placeholder="Type your response here"
+                        onChange={updateResponse}/>
+                    </div>
+                </div>
+                <div className="Nav-Buttons"> 
+                    <Button className="AIQ-Submit-Button" disabled={response === ""} onClick={handleSubmit}>Submit</Button> 
                 </div>
             </div>
-            <Button className="Submit-Button" disabled={response === ""} onClick={handleSubmit}>Submit</Button>
             <AIQuestions industry={response} setQuiz={quiz}></AIQuestions>
-            </div>
             </div>
         </div>
     );

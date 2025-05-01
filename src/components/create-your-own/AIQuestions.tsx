@@ -3,6 +3,9 @@ import { getGPTResponse } from "../../AIQIntegration";
 import { AIQuestion } from "../../interfaces/ai-question";
 import { Form, Button } from "react-bootstrap";
 import { ProgressBar } from "../progress-bar/progressBar";
+import { SpeechProvider } from "../accessibility/SpeechContext";
+import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+
 interface AIQuestionProps {
     industry: string;
     setQuiz: boolean;
@@ -106,20 +109,28 @@ export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Ele
                     <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
                     <Form.Group controlId="aiQuestions">
                       <Form.Label className="subtitle"></Form.Label>
-                      <div className="Question-Page">
+                      <div className="AIQ-Question-Page">
               
-                        <div className="Question-Box">
-                          <div className="subtitle">{currentQuestion?.body}</div>
-                          <div className="Response-Box">
+                        <div className="AIQ-Question-Box">
+                          <div className="AIQ-Question-Question">{currentQuestion?.body}
+                            <div style={{ margin: "10px" }}>
+                                <SpeechProvider>
+                                    <ConvertToSpeech
+                                        text = {currentQuestion?.body}
+                                    />
+                                </SpeechProvider>
+                            </div> 
+                          </div>
+                          <div className="AIQ-Response-Input">
                             <Form.Control
                             as="textarea"
-                            className = "response-input"
+                            className = "Response"
                             rows={5}
                             value={currentQuestionId !== null ? answers[currentQuestionId - 1] || "" : ""}
                             placeholder="Type your response here"
                             onChange={updateResponse}/>
+                            
                           </div>
-              
                         </div>
                         <div className="Nav-Buttons">
                           <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>

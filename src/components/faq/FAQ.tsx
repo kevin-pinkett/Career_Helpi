@@ -25,7 +25,6 @@ export function FAQPage() {
 
     return (
     <div className="FAQ">
-        <h1>FAQ Page</h1>
         <div className= "FAQ-Container">
             {QUESTIONS.map((currentQuestion: FAQ_Question) => (
                 <div className="Question-Dropdown" key={currentQuestion.id}>
