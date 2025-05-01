@@ -7,10 +7,11 @@ import { SpeechProvider } from "../accessibility/SpeechContext";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 interface AIQuestionProps {
+    openPopup: () => void;
     industry: string;
     setQuiz: boolean;
 }
-export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Element {
+export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): React.JSX.Element {
     const [questions, setQuestions] = useState<AIQuestion[]>([]);
     const [hasFetched, setHasFetched] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState<AIQuestion>({id: 0, body: ""});
@@ -134,7 +135,7 @@ export function AIQuestions({industry, setQuiz}: AIQuestionProps): React.JSX.Ele
                         <div className="AIQ-Nav-Buttons">
                           <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
                           <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
-                          <Button className="Submit-Button" disabled={progress !== 100}>Submit</Button>
+                          <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
                         </div>
                       </div>
                     </Form.Group>
