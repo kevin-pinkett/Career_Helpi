@@ -4,6 +4,7 @@ import { SpeechProvider } from "../accessibility/SpeechContext";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import "./AIQ.css"
 import { AIQuestions} from "./AIQuestions";
+import { CompletedQuiz } from "../popup/CompleteQuiz";
 
 interface AIQProps {
     setPage: (page: string) => void;
@@ -12,6 +13,7 @@ interface AIQProps {
 export function AIQuestionsPage({setPage}: AIQProps) {
     const [response, setResponse] = useState<string>("");
     const [quiz, setQuiz] = useState<boolean>(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
         setResponse(e.target.value);
     }
@@ -20,7 +22,7 @@ export function AIQuestionsPage({setPage}: AIQProps) {
 
     }
     return (
-        <div style={{maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
+        <div style={{margin: "0 auto", padding: "20px" }}>
             <div>      
             <div className = "AIQ-Question-Page">
                 <div className="AIQ-Question-Box">
@@ -43,12 +45,14 @@ export function AIQuestionsPage({setPage}: AIQProps) {
                         onChange={updateResponse}/>
                     </div>
                 </div>
-                <div className="Nav-Buttons"> 
+                <div className="AIQ-Nav-Buttons"> 
                     <Button className="AIQ-Submit-Button" disabled={response === ""} onClick={handleSubmit}>Submit</Button> 
                 </div>
             </div>
-            <AIQuestions industry={response} setQuiz={quiz}></AIQuestions>
+            <AIQuestions industry={response} setQuiz={quiz} openPopup={() => setIsPopupOpen(true)}></AIQuestions>
+            <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage}></CompletedQuiz>
             </div>
+
         </div>
     );
 }

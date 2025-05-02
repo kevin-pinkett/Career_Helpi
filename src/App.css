@@ -1,12 +1,18 @@
+html, body {
+  height: 100%;
+  overflow-y: scroll;
+  margin: 0;
+}
+
 .App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  
   background-image: url("/public/assets/bg.png");
   background-color: #fcc9bd;
   background-blend-mode: overlay;
   background-size: cover;
-  
-
-  overflow: auto;
-  max-height: 100vh;
 }
 
 
@@ -16,9 +22,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   width: auto;
-
   margin: 20px;
 }
 
@@ -33,6 +37,7 @@
 
 .Header-Wrapper {
   display: flex;
+  min-width: 100%;
   justify-content: center;
   background-color: #FE604D;
   align-items: center;
@@ -48,7 +53,7 @@
   font-family: GloomieSaturday;
   font-weight: bolder;
   background-color: #FE604D;
-
+  white-space: nowrap;
 }
 
 .Page {
