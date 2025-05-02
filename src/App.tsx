@@ -105,7 +105,7 @@ function App() {
         {page === 'homePage' && (
           <div>
             <div className="Greeting-Box">
-              <img src="/assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
+              <img src="assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
                   width: "25%",
                   height: "25%",
                 }}></img>
