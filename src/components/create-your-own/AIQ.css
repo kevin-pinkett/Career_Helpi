@@ -1,11 +1,14 @@
-.AIQ {
-    width: 70%;
-    height: 80vh;
+.AIQ-Question-Page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-self: center;
     padding-top: 30px;
+    width: 70%;
+    height: 100%;
 }
 
-.Question-Box {
+.AIQ-Question-Box {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -18,34 +21,73 @@
 
     padding: 25px;
     background-color: white;
+    width: 100%;
 }
-
-.AIQ-subtitle {
+  
+.AIQ-subtitle,
+.AIQ-Question-Question {
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-    text-wrap: balance;
     color: white;
-
     width: 75%;
     height: 100px;
     margin-bottom: 20px;
-
     border-radius: 15px;
     background-image: url("/public/assets/questionbg.png");
     background-color: #cc2c1a;
-    background-blend-mode:soft-light;
+    background-blend-mode: soft-light;
     background-size: cover;
 }
-
-.AIQ-Response-Box {
-    vertical-align: top;
-    height: 150px;
+  
+.AIQ-Response-Input {
     width: 80%;
+    min-height: 150px;
     resize: vertical;
-    line-height: 1.5;
     padding: 10px;
+    line-height: 1.5;
     box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.AIQ-Nav-Buttons{
+padding: 10px;
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background-color: #FE604D;
+}
+  
+.Loading-Screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: #333;
+}
+  
+  /* Reusable button style */
+.Submit-Button {
+    width: 25%;
+    color: white;
+    background-color: #FE604D;
+    border: none;
+}
+
+.AIQ-Submit-Button {
+    width: 100%;
+    color: white;
+    background-color: #FE604D;
+    border: none;
+}
+
+.AIQ-Submit-Button:disabled {
+    background-color: #d34f40;
 }

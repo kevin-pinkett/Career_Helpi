@@ -13,17 +13,19 @@ export function ConvertToSpeech({ text }: ConvertToSpeechProps) {
     
     useEffect(() => {
         const synth = window.speechSynthesis;
+        
         const newUtterance = new SpeechSynthesisUtterance(text);
 
         newUtterance.onend = () => {
             setCurrentPlayingText(null);
         };
-
+    
         setUtterance(newUtterance);
-
+    
         newUtterance.rate = 1.05;
         newUtterance.pitch = 1.1;
         newUtterance.volume = 1;
+
 
         return () => {
             synth.cancel();

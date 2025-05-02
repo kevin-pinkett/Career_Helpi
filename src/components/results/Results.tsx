@@ -44,6 +44,7 @@ function parsePrompt(answers: number[] | string[], questions: string[]): string 
  * - Every individual result is displayed in a `ResultsCard` component.
  *
  */
+
 export function ResultsPage({ answers, questions}: ResultsPageProps) {
     const [results, setResults] = useState<Result[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
