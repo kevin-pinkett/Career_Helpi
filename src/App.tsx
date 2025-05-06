@@ -93,7 +93,7 @@ function App() {
   }
 
 
-  // validation response method was taken from chatgpt 
+  // validation response method was taken from chatgpt and openai docs
   async function validateApiKey(key: string): Promise<boolean> {
     try{
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -104,7 +104,7 @@ function App() {
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: "Hello!" }],
+          messages: [{ role: "user", content: "test for api key" }],
           max_tokens: 1
         })
       });
@@ -121,8 +121,6 @@ function App() {
       throw error;
     }
   }
-
-
 
   return (
     <div className="App">
