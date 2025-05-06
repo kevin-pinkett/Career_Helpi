@@ -31,10 +31,18 @@ export async function getGPTResponse(prompt: string) {
         throw new Error("Missing API key");
     }
     const openai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
+
     try {
     const response = await openai.chat.completions.create({
         model: "gpt-4o",
-        messages: [{ role: "user", content: `Here is the list of questions and answers 
+
+        messages: [
+            {
+                role: "system",
+                content: "You are a helpful and concise career advisor. You only respond with a JSON array, no other text."
+            },
+            
+            { role: "user", content: `Here is the list of questions and answers 
             that the user answered in a career quiz ${prompt}. Notice that a 0 = strongly disagree, 1 = disagree, 2 = neutral, 3 = agree, 4 = strongly agree. Please respond with three 
             viable career options in the form of a JSON array. Make sure the response is only JSON array and no other text.
             Object must contain these fields:
@@ -58,7 +66,7 @@ export async function getGPTResponse(prompt: string) {
     ]` 
 }],
     });
-    const responseString = response.choices[0].message.content;
+    const responseString = response.choices[0]?.message?.content;
     console.log("Raw AI Response:", responseString);
 
     if (!responseString) {
