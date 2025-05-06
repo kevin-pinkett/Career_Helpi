@@ -25,7 +25,7 @@
 
     "QUESTION_3": {
       "id": 3,
-      "body": "I am comfortable with technology.",
+      "body": "I enjoy learning new software or troubleshooting technical problems.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -37,7 +37,7 @@
 
     "QUESTION_4": {
       "id": 4,
-      "body": "I prefer working outdoors.",
+      "body": "I would prefer a job where a lot of my work is outdoors.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -61,7 +61,7 @@
 
     "QUESTION_6": {
       "id": 6,
-      "body": "I prefer to work in a dynamic environment.",
+      "body": "I prefer to work in an environment where priorities and tasks change often.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -73,7 +73,7 @@
 
     "QUESTION_7": {
       "id": 7,
-      "body": "I like to travel often.",
+      "body": "I would like to travel frequently for my career.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -85,7 +85,7 @@
 
     "QUESTION_8": {
       "id": 8,
-      "body": "I consider myself a problem solver.",
+      "body": "I enjoy identifying problems and developing practical/creative solutions.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -97,7 +97,7 @@
     
     "QUESTION_9": {
       "id": 9,
-      "body": "I enjoy learning about historical events.",
+      "body": "I enjoy learning about history, culture, or past societies.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -132,7 +132,7 @@
     },
     "QUESTION_12": {
       "id": 12,
-      "body": "I love to get active.",
+      "body": "I would prefer a job that requires physical movement or keeps me active.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -143,7 +143,7 @@
     },
     "QUESTION_13": {
       "id": 13,
-      "body": "I am a self-starter.",
+      "body": "I am self motivated and prefer setting my own goals/scheduels.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -165,7 +165,7 @@
     },
     "QUESTION_15": {
       "id": 15,
-      "body": "I want to be my own boss.",
+      "body": "I want to be my own boss and run my own business.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -187,7 +187,7 @@
     },
     "QUESTION_17": {
       "id": 17,
-      "body": "Job security is important to me.",
+      "body": "Long-term job security is important to me.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -210,7 +210,7 @@
     },
     "QUESTION_19": {
       "id": 19,
-      "body": "I want a job where I can make the lives of others better.",
+      "body": "I want a job where I can make the lives of others/communities better.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -221,7 +221,29 @@
     },
     "QUESTION_20": {
       "id": 20,
-      "body": "I want to make the world a better place.",
+      "body": "I want to make the world a better place, by contributing to large-scale positive change.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_21": {
+      "id": 21,
+      "body": "I want a job that requires higher education.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_22": {
+      "id": 22,
+      "body": "I like to work with my hands.",
       "options": [
         "Strongly Disagree",
         "Disagree",
@@ -230,8 +252,5 @@
         "Strongly Agree"
       ]
     }
-
-    
-    
 }
   

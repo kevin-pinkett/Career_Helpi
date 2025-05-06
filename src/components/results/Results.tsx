@@ -46,31 +46,7 @@ function parsePrompt(answers: number[] | string[], questions: string[]): string 
  */
 
 export function ResultsPage({ answers, questions}: ResultsPageProps) {
-    const [results, setResults] = useState<Result[]>([ {
-        title: "",
-        description: "",
-        traits: [""],
-        jobRoles: [""],
-        skills: [""],
-        link: ""
-    },
-    {
-        title: "",
-        description: "",
-        traits: [""],
-        jobRoles: [""],
-        skills: [""],
-        link: ""
-    },
-    {
-        title: "",
-        description: "",
-        traits: [""],
-        jobRoles: [""],
-        skills: [""],
-        link: ""
-    }
-]);
+    const [results, setResults] = useState<Result[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -85,10 +61,10 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
                 setLoading(false);
             }
         };
-    
-        fetchResults(); // Call the async function
-    }, [answers, questions]);
 
+        fetchResults(); 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); 
 
 
     return (
