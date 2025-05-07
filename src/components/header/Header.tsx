@@ -1,5 +1,6 @@
 import "./Header.css";
 import { Button } from "react-bootstrap";
+import { SettingsPopup } from "../settings/Settings";
 
 interface HeaderProps {
   page: string;
@@ -84,6 +85,7 @@ export function Header({ page, setPage }: HeaderProps) {
         >
           FAQ
         </Button>
+        <SettingsPopup></SettingsPopup>
       </div>
     </div>
   );
