@@ -18,8 +18,8 @@ export function SettingsPopup() {
     <div>
         <Button style={{fontSize: "30px"}} onClick={isOpen ? handleClose : handleOpen}> ⚙︎ </Button>
         <Settings isOpen={isOpen}>
-        <p>This is your settings content.</p>
-      </Settings>
+          <p>This is your settings content.</p>
+        </Settings>
     </div>
   )
 }

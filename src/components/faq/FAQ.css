@@ -28,7 +28,7 @@
 }
 
 .question {
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 1.1rem;
     font-weight: 600;
     text-align: left;
@@ -41,11 +41,11 @@
 }
 
 .question:hover {
-    background-color: #d34f40;
+    background-color: var(--main-color);
 }
 
 .answer {
-    background-color: #fff;
+    background-color: var(--bg-color);
     padding: 1rem;
     font-size: 1rem;
     color: #555;

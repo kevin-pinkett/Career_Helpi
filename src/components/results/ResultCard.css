@@ -6,7 +6,7 @@
 
 .Results-Card .card {
     border-radius: 8px;
-    background-color: #fff;
+    background-color: var(--bg-color);
 }
 
 .Results-Card .card-title {
