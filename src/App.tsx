@@ -74,13 +74,52 @@ function App() {
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
-    localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    validateApiKey(key).then((valid) => {
+      if (valid){
+        localStorage.setItem(saveKeyData, JSON.stringify(key));
+        window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+      } else {
+        alert("Invalid ChatGPT API Key. Please try again.")
+      }
+    }).catch(()=> {
+      alert("Error validating ChatGPT API Key. Try again.")
+    })
+
   }
 
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
+  }
+
+
+  // validation response method was taken from chatgpt and openai docs
+  async function validateApiKey(key: string): Promise<boolean> {
+    try{
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${key}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: "test for api key" }],
+          max_tokens: 1
+        })
+      });
+  
+      if (response.status === 200) {
+        return true;
+      } else if (response.status === 401) {
+        return false; 
+      } else {
+        throw new Error("Unexpected error");
+      }
+    } catch (error) {
+      console.error("Validation error:", error);
+      throw error;
+    }
   }
 
   return (
