@@ -11,7 +11,7 @@ import { SpeechProvider } from "../accessibility/SpeechContext";
 interface Basic_Question_Props{
   openPopup:() => void;
   setPage: (page: string) => void; // To lift back to App.tsx for use in results
-  setAnswers: (answers: number[]) => void; // To lift back to App.tsx for use in results
+  setAnswers: (answers: string[]) => void; // To lift back to App.tsx for use in results
   setQuestions: (questions: string[]) => void; // To lift back to App.tsx for use in results
 }
 
@@ -100,7 +100,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
     const handleAnswerChange = (q_index: number, selectedAnswer: string) => {
           const newAnswers = [...basicAnswers];
           newAnswers[q_index] = selectedAnswer;
-          setAnswers(newAnswers.map(answer => parseInt(answer) || 0));
+          setAnswers(newAnswers);
           localSetBasicAnswers(newAnswers);
   }
 

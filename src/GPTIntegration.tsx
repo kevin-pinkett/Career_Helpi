@@ -33,9 +33,10 @@ export async function getGPTResponse(prompt: string) {
     const openai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
 
     try {
+        console.log(prompt);
     const response = await openai.chat.completions.create({
         model: "gpt-4o",
-
+        
         messages: [
             {
                 role: "system",
