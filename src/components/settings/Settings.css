@@ -11,6 +11,7 @@
 }
 
 .popup-content {
+  position: relative;
   background-color: var(--bg-color);
   padding: 20px;
   border-radius: 8px;
