@@ -55,16 +55,19 @@ code {
 }
 
 :root[data-text-size='small'] {
-  --small-text: 10px;
-  --large-text: 20px;
+  --small-text: 18px;
+  --large-text: 22px;
+  --gear: 30px
 }
 :root[data-text-size='medium'] {
-  --small-text: 20px;
-  --large-text: 30px;
+  --small-text: 22px;
+  --large-text: 25px;
+  --gear: 40px
 }
 :root[data-text-size='large'] {
-  --small-text: 30px;
-  --large-text: 40px;
+  --small-text: 25px;
+  --large-text: 30px;
+  --gear: 50px
 }
 
 h1 {

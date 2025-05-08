@@ -9,6 +9,7 @@ import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 import { ResultsPage } from './components/results/Results';
 import { AIQuestionsPage } from './components/create-your-own/AIQ';
 import { ThemeProvider } from './components/dark-mode/theme-context';
+import { TextSizeProvider } from './components/text-size/TextSizeContext';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -125,6 +126,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      <TextSizeProvider>
       <div className="App">
 
         <div className="Header-Wrapper">
@@ -150,13 +152,13 @@ function App() {
                     width: "25%",
                     height: "25%",
                   }}></img>
-                <div className="Greeting-Text">
-                  <span>Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
+                <div style = {{fontSize: "var(--small-text)"}} className="Greeting-Text">
+                  <span> Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
                   <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
                   
                   <Form>
                     <Form.Label>API Key:</Form.Label>
-                    <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+                    <Form.Control style={{fontSize: "var(--small-text)"}} type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
                     <br></br>
                     <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
                   </Form>
@@ -178,6 +180,7 @@ function App() {
         </div>
 
       </div>
+      </TextSizeProvider>
     </ThemeProvider>
   );
 }

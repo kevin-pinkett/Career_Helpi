@@ -25,6 +25,7 @@
     align-items: center;
 
     color: var(--text-color);
+    font-size: var(--small-text);
 
     width: 500px;
     height: 100px;
@@ -54,6 +55,7 @@
     border-radius: 100px;
     padding: 10px;
     margin: 5px;
+    font-size: var(--small-text);
 
     display: flex;
     flex-direction: row;
@@ -90,6 +92,7 @@
 .Submit-Button {
     width: 25%;
     color: var(--text-color);
+    font-size: var(--small-text);
     background-color: var(--main-color);
     border: none;
 }

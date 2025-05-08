@@ -77,7 +77,7 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
             </div>
 
             {isPopupOpen && <div className="popup">
-                <div className="popup-content">
+                <div style={{fontSize: "var(--small-text)"}} className="popup-content">
                 <img src="assets/Helpi Mascot (partyclear).png" alt="mascot" style={{
                     display: "flex",
                     justifySelf: "center",
@@ -85,7 +85,7 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
                     width: "50%",
                     margin: "15px"
                     }}></img>
-                    <h3>You have answered all questions!</h3>
+                    <h3 style={{fontSize: "var(--large-text)"}}>You have answered all questions!</h3>
                     <div className="popup-buttons">
                         <Button onClick={() => closePopup(false)}>Continue Working</Button>
                         <Button onClick={Submit}>Submit</Button>

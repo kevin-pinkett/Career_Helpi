@@ -8,19 +8,19 @@ interface TextSizeType {
   }
 
 const TextSizeContext = createContext<TextSizeType>({
-    textSize: "medium",
+    textSize: "small",
     setSize: () => {},
   });
 
 export const TextSizeProvider = ({ children }: {children: React.ReactNode}) => {
     const [textSize, setTextSize] = useState<TextSize>(() => {
-        const stored = localStorage.getItem('text-size') as TextSize | null;
+        const stored = localStorage.getItem('data-text-size') as TextSize | null;
         return stored === 'small' || stored === 'large' ? stored : 'medium';
       });
     
     useEffect(() => {
         document.documentElement.setAttribute('data-text-size', textSize);
-        localStorage.setItem('text-size', textSize);
+        localStorage.setItem('data-text-size', textSize);
     }, [textSize]);
     
     return (

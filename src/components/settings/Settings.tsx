@@ -18,7 +18,7 @@ export function SettingsPopup() {
   
   return (
     <div>
-        <Button style={{fontSize: "30px"}} onClick={isOpen ? handleClose : handleOpen}> ⚙︎ </Button>
+        <Button style={{fontSize: "var(--gear)"}} onClick={isOpen ? handleClose : handleOpen}> ⚙︎ </Button>
         <Settings isOpen={isOpen}>
           <div style={{ position: "absolute", top: "10px", right: "10px"}}><Button onClick={() => setIsOpen(false)}>X</Button></div>
           <ThemeToggle/>
