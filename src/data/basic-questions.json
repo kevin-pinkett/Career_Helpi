@@ -251,6 +251,28 @@
         "Agree",
         "Strongly Agree"
       ]
+    },
+    "QUESTION_23": {
+      "id": 23,
+      "body": "I enjoy expressing myself through art, music, writing.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_24": {
+      "id": 24,
+      "body": "I enjoy teaching or mentoring others.",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
     }
 }
   

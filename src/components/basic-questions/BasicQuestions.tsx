@@ -64,7 +64,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   }, [setQuestions]);
 
 
-  const [basicAnswers, localSetBasicAnswers] = useState<number[]>(new Array(QUESTIONS.length).fill(-1));
+  const [basicAnswers, localSetBasicAnswers] = useState<string[]>(new Array(QUESTIONS.length).fill(""));
   const [currentQuestion, setCurrentQuestion] = useState<Basic_Question>(QUESTIONS[0]);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(QUESTIONS[0].id);
   const [progress, setProgress] = useState<number>(0);
@@ -91,16 +91,16 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
 
   useEffect(() => {
     if (progress < 100) {
-      const answeredQuestions = basicAnswers.filter(answer => answer !== -1).length; 
+      const answeredQuestions = basicAnswers.filter(answer => answer !== "").length; 
       const newProgress = (answeredQuestions/QUESTIONS.length) * 100;
       setProgress(newProgress);
       }
       }, [basicAnswers, progress]);
 
-    const handleAnswerChange = (q_index: number, r_index: number) => {
+    const handleAnswerChange = (q_index: number, selectedAnswer: string) => {
           const newAnswers = [...basicAnswers];
-          newAnswers[q_index] = r_index;
-          setAnswers(newAnswers);
+          newAnswers[q_index] = selectedAnswer;
+          setAnswers(newAnswers.map(answer => parseInt(answer) || 0));
           localSetBasicAnswers(newAnswers);
   }
 
@@ -133,12 +133,12 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>
-                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, r_index)}
-                    style={{ backgroundColor: basicAnswers[currentQuestionId] === r_index ? "#FE604D" : "white",
-                             color: basicAnswers[currentQuestionId] === r_index ? "white" : "black"
+                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, option)}
+                    style={{ backgroundColor: basicAnswers[currentQuestionId] === option ? "#FE604D" : "white",
+                             color: basicAnswers[currentQuestionId] === option ? "white" : "black"
                     }}>
                       <div className="Outer-Button-Box">
-                        <div className="Check-Marker">{basicAnswers[currentQuestionId] === r_index ? "✅" : ""}</div>
+                        <div className="Check-Marker">{basicAnswers[currentQuestionId] === option ? "✅" : ""}</div>
                         <div>{option}</div>
                       </div>
                     </Button>
