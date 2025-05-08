@@ -103,7 +103,7 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
                     height: "20%",
                     margin: "30px",
                 }}></img>
-                <span>Ozzie is deciding what questions to ask...</span>
+                <span style={{color: "var(--text-color-2)"}}>Ozzie is deciding what questions to ask...</span>
             </div>
             ) : ( <div>
                 {setQuiz && hasFetched ? (

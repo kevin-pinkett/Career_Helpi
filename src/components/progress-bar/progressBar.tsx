@@ -50,7 +50,7 @@ export function ProgressBar({progress, setProgress}: ProgressBarProps) {
                      style={{ width : `${progress}%`, backgroundColor : getColor() }}>
                 </div>
             </div>
-            <div className="progress-label">{progress.toFixed(2)}%</div>
+            <div style={{ color: "var(--text-color-2)"}} className="progress-label">{progress.toFixed(2)}%</div>
             
         </div>
     )

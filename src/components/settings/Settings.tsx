@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import "./Settings.css"
+import { ThemeToggle } from '../dark-mode/theme-toggle';
 
 
 export function SettingsPopup() {
@@ -18,7 +19,7 @@ export function SettingsPopup() {
     <div>
         <Button style={{fontSize: "30px"}} onClick={isOpen ? handleClose : handleOpen}> ⚙︎ </Button>
         <Settings isOpen={isOpen}>
-          <p>This is your settings content.</p>
+          <ThemeToggle/>
         </Settings>
     </div>
   )

@@ -8,7 +8,7 @@ import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 import { ResultsPage } from './components/results/Results';
 import { AIQuestionsPage } from './components/create-your-own/AIQ';
-//import { ThemeProvider } from './components/dark-mode/theme-context';
+import { ThemeProvider } from './components/dark-mode/theme-context';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -124,7 +124,7 @@ function App() {
   }
 
   return (
-    //<ThemeProvider>
+    <ThemeProvider>
       <div className="App">
 
         <div className="Header-Wrapper">
@@ -178,7 +178,7 @@ function App() {
         </div>
 
       </div>
-    //</ThemeProvider>
+    </ThemeProvider>
   );
 }
 

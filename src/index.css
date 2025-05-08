@@ -30,10 +30,11 @@ code {
   height: 100%;
 }
 
-:root {
-  --bg-color: #fff;
+:root, [data-theme='light'] {
+  --bg-color: white;
   --main-color: #FE604D;
-  --text-color: #fff;
+  --text-color: white;
+  --text-color-2: black;
   --focused-color:  #d34f40;
   --second-bg-color: #fcc9bd;
   --text-box-color: #cc2c1a;
@@ -43,13 +44,14 @@ code {
 
 [data-theme='dark'] {
   --bg-color: #313131;
-  --main-color: #313131;
-  --text-color: #fff;
-  --focused-color:  #313131;
+  --main-color: #000000;
+  --text-color: white;
+  --text-color-2: white;
+  --focused-color:  #1f1f1f;
   --second-bg-color: #313131;
-  --text-box-color: #cc2c1a;
+  --text-box-color: #313131;
   --border-color-1: black;
-  --border-color-2: #ccc;
+  --border-color-2: #1f1f1f;
 }
 
 h1 {
