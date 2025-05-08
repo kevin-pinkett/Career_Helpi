@@ -134,8 +134,8 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
             <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
           </div>
           <div className="Nav-Buttons">
-            <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
-            <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+            <Button style={{ width: "45%", fontSize: "var(--small-text)"}} onClick={regressQuestion}>Previous</Button>
+            <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={advanceQuestion}>Next</Button>
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
         </div>

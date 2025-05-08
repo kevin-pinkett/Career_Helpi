@@ -12,12 +12,13 @@
     padding: 10px;
     padding-bottom: 25px;
     width: 30%;
-    height: 250px;
+    min-height: 250px;
     border: 1px solid var(--border-color-2);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     background-color: var(--bg-color);
+    overflow-y: auto;
 
 }
 

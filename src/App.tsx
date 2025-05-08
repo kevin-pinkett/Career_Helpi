@@ -136,7 +136,7 @@ function App() {
           }}>
             <img src="assets/Helpi Mascot.png" alt="mascot" style={{
                 display: "flex",
-                width: "20%",
+                width: "var(--ozzie)",
                 padding: "15px"
                 }}></img>
             <div id="header-title">Koalafi</div>

@@ -31,9 +31,8 @@
     color: var(--text-color);
 
     width: 75%;
-    height: 100px;
+    min-height: 100px;
     margin-bottom: 20px;
-    padding: 10px;
 
     border-radius: 15px;
     background-image: url("/public/assets/questionbg.png");

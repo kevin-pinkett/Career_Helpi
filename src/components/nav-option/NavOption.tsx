@@ -12,7 +12,7 @@ export function NavOption({setPage, destination, text, buttonText}: NavOptionPro
     <div>
       <div style={{color: "var(--text-color-2)", fontSize: "var(--small-text)"}}>
         <p>{text}</p>
-        <Button onClick={() => setPage(destination)}>
+        <Button style={{fontSize: "var(--small-text)"}} onClick={() => setPage(destination)}>
           {buttonText}
         </Button>
       </div>
