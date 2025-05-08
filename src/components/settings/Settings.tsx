@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import "./Settings.css"
 import { ThemeToggle } from '../dark-mode/theme-toggle';
+import { ChooseTextSize } from '../text-size/TextSize';
 
 
 export function SettingsPopup() {
@@ -21,6 +22,7 @@ export function SettingsPopup() {
         <Settings isOpen={isOpen}>
           <div style={{ position: "absolute", top: "10px", right: "10px"}}><Button onClick={() => setIsOpen(false)}>X</Button></div>
           <ThemeToggle/>
+          <ChooseTextSize/>
         </Settings>
     </div>
   )

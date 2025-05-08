@@ -30,7 +30,7 @@ code {
   height: 100%;
 }
 
-:root, [data-theme='light'] {
+:root[data-theme='light'] {
   --bg-color: white;
   --main-color: #FE604D;
   --text-color: white;
@@ -42,7 +42,7 @@ code {
   --border-color-2: #ccc;
 }
 
-[data-theme='dark'] {
+:root[data-theme='dark'] {
   --bg-color: #313131;
   --main-color: #000000;
   --text-color: white;
@@ -52,6 +52,19 @@ code {
   --text-box-color: #313131;
   --border-color-1: black;
   --border-color-2: #1f1f1f;
+}
+
+:root[data-text-size='small'] {
+  --small-text: 10px;
+  --large-text: 20px;
+}
+:root[data-text-size='medium'] {
+  --small-text: 20px;
+  --large-text: 30px;
+}
+:root[data-text-size='large'] {
+  --small-text: 30px;
+  --large-text: 40px;
 }
 
 h1 {
