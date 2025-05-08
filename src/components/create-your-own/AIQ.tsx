@@ -35,8 +35,9 @@ export function AIQuestionsPage({setPage}: AIQProps) {
                             </SpeechProvider>
                         </div> 
                     </div> 
-                    <div className="AIQ-Response-Input">
+                    <div style={{fontSize: "var(--small-text)"}} className="AIQ-Response-Input">
                         <Form.Control
+                        style={{fontSize: "var(--small-text)"}}
                         as="textarea"
                         className = "Response"
                         rows={5}

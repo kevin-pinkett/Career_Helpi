@@ -51,7 +51,7 @@ export function HomePage({ setPage }: HomePageProp) {
                 <ConvertToSpeech text = {`${option.name}. ${option.optionText}`}></ConvertToSpeech>
               </SpeechProvider>
             </div>
-            <p className="subtitle" style={{ fontSize: "25px"}}>{option.name}</p>
+            <p className="subtitle" style={{ fontSize: "var(--large-text)", color: "var(--text-color-2)"}}>{option.name}</p>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
               <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button}></NavOption>
             </div>

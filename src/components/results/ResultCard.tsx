@@ -68,7 +68,7 @@ function ResultsCard({ title, description, traits, jobRoles, skills, link}: Resu
                     ))}</ul>
                 </Card.Text>     
 
-                <Button variant="primary" href={link} target="_blank"rel="noopener noreferrer" >Learn More</Button>
+                <Button style = {{fontSize: "var(--small-text)"}} variant="primary" href={link} target="_blank"rel="noopener noreferrer" >Learn More</Button>
             </Card.Body>
         </Card>
         </div>

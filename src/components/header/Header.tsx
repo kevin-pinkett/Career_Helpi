@@ -1,5 +1,6 @@
 import "./Header.css";
 import { Button } from "react-bootstrap";
+import { SettingsPopup } from "../settings/Settings";
 
 interface HeaderProps {
   page: string;
@@ -43,9 +44,9 @@ export function Header({ page, setPage }: HeaderProps) {
 
   return (
     <div className="Header">
-      <div style={{ display: "flex", width: "100%" }}>
+      <div style={{ display: "flex", width: "100%"}}>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)"}}
           className="Header-Button"
           onClick={homeState}
           disabled={page === "homePage"}
@@ -53,7 +54,7 @@ export function Header({ page, setPage }: HeaderProps) {
           Home Page
         </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={basicButtonState}
           disabled={page === "basicPage"}
@@ -61,7 +62,7 @@ export function Header({ page, setPage }: HeaderProps) {
           Basic Quiz
         </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={detailedButtonState}
           disabled={page === "detailedPage"}
@@ -69,7 +70,7 @@ export function Header({ page, setPage }: HeaderProps) {
           Detailed Quiz
         </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={aiState}
           disabled={page === "aiPage"}
@@ -77,13 +78,14 @@ export function Header({ page, setPage }: HeaderProps) {
           Custom Quiz
           </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={faqState}
           disabled={page === "faqPage"}
         >
           FAQ
         </Button>
+        <SettingsPopup></SettingsPopup>
       </div>
     </div>
   );
