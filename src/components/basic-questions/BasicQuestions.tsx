@@ -149,8 +149,8 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           </div>
 
           <div className="Nav-Buttons">
-            <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
-            <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+            <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={regressQuestion}>Previous</Button>
+            <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={advanceQuestion}>Next</Button>
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
 

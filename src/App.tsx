@@ -8,6 +8,8 @@ import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 import { ResultsPage } from './components/results/Results';
 import { AIQuestionsPage } from './components/create-your-own/AIQ';
+import { ThemeProvider } from './components/dark-mode/theme-context';
+import { TextSizeProvider } from './components/text-size/TextSizeContext';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -123,59 +125,63 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <ThemeProvider>
+      <TextSizeProvider>
+      <div className="App">
 
-      <div className="Header-Wrapper">
-        <div style={{
-          display: "flex",
-          alignItems: "center"
-        }}>
-          <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-              display: "flex",
-              width: "20%",
-              padding: "15px"
-              }}></img>
-          <div id="header-title">Koalafi</div>
-        </div>
-        <Header page={page} setPage={setPage}/>
-      </div>
-
-      <div className="Page" data-testid="page">
-        {page === 'homePage' && (
-          <div>
-            <div className="Greeting-Box">
-              <img src="assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
-                  width: "25%",
-                  height: "25%",
+        <div className="Header-Wrapper">
+          <div style={{
+            display: "flex",
+            alignItems: "center"
+          }}>
+            <img src="assets/Helpi Mascot.png" alt="mascot" style={{
+                display: "flex",
+                width: "var(--ozzie)",
+                padding: "15px"
                 }}></img>
-              <div className="Greeting-Text">
-                <span>Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
-                <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
-                
-                <Form>
-                  <Form.Label>API Key:</Form.Label>
-                  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-                  <br></br>
-                  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-                </Form>
+            <div id="header-title">Koalafi</div>
+          </div>
+          <Header page={page} setPage={setPage}/>
+        </div>
+
+        <div className="Page" data-testid="page">
+          {page === 'homePage' && (
+            <div>
+              <div className="Greeting-Box">
+                <img src="assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
+                    width: "25%",
+                    height: "25%",
+                  }}></img>
+                <div style = {{fontSize: "var(--small-text)"}} className="Greeting-Text">
+                  <span> Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
+                  <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
+                  
+                  <Form>
+                    <Form.Label>API Key:</Form.Label>
+                    <Form.Control style={{fontSize: "var(--small-text)"}} type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+                    <br></br>
+                    <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+                  </Form>
+                </div>
               </div>
-            </div>
-            <HomePage setPage={setPage} />
-            </div>)}
-        {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
-        {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
-        {page === 'faqPage' && (<div><FAQPage /></div>)}
-        {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
-        {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage}/></div>)}
-      </div>
+              <HomePage setPage={setPage} />
+              </div>)}
+          {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
+          {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
+          {page === 'faqPage' && (<div><FAQPage /></div>)}
+          {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
+          {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage}/></div>)}
+        </div>
 
-      <div className='footer-wrapper' data-testid="footer">
-        <footer id="footer">
-          
-        </footer>
-      </div>
+        <div className='footer-wrapper' data-testid="footer">
+          <footer id="footer">
+            
+          </footer>
+        </div>
 
-    </div>
+      </div>
+      </TextSizeProvider>
+    </ThemeProvider>
   );
 }
 
