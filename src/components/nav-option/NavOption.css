@@ -1,0 +1,12 @@
+.NavButton {
+    width: 25%;
+    color: white;
+    background-color: #FE604D;
+    border: none;
+}
+
+.NavButton:disabled {
+    background-color: #d34f40;
+    border-color: #d34f40;
+    color: white;
+}

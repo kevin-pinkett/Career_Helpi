@@ -9,6 +9,7 @@ import "./HomePage.css";
 
 interface HomePageProp {
   setPage: (page: string) => void;
+  hasValidKey: boolean;
 }
 
 const OPTIONS: OptionInfo[] = Object.values(optionData)
@@ -37,7 +38,7 @@ const OPTIONS: OptionInfo[] = Object.values(optionData)
  * - Each section includes a subtitle and a corresponding option component.
  * - The `data-testid` attributes are used for testing purposes.
  */
-export function HomePage({ setPage }: HomePageProp) {
+export function HomePage({ setPage, hasValidKey }: HomePageProp) {
   
   return (
     <div data-testid="home-page">
@@ -53,7 +54,7 @@ export function HomePage({ setPage }: HomePageProp) {
             </div>
             <p className="subtitle" style={{ fontSize: "25px"}}>{option.name}</p>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
-              <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button}></NavOption>
+              <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button} disabled={!hasValidKey}></NavOption>
             </div>
           </div>
         ))}
