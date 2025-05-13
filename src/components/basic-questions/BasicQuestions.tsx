@@ -89,6 +89,12 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
     })])
   }
 
+  function clearAnswers() {
+    localSetBasicAnswers(new Array(QUESTIONS.length).fill(""));
+    setCurrentQuestion(QUESTIONS[0])
+    setCurrentQuestionId(QUESTIONS[0].id)
+  }
+
   useEffect(() => {
     if (progress < 100) {
       const answeredQuestions = basicAnswers.filter(answer => answer !== "").length; 
@@ -151,6 +157,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           <div className="Nav-Buttons">
             <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={regressQuestion}>Previous</Button>
             <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={advanceQuestion}>Next</Button>
+            <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={clearAnswers}>Clear</Button>
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
 
