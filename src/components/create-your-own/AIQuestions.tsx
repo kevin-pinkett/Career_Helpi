@@ -12,8 +12,8 @@ interface AIQuestionProps {
     industry: string;
     setQuiz: boolean;
     setQuestionBodies: (questions: string[]) => void;
-    setAnswers: (answers: string[] | number[]) => void;
-    answers: string[] | number[];
+    setAnswers: (answers: string[]) => void;
+    answers: string[];
 }
 export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, setAnswers, answers}: AIQuestionProps): React.JSX.Element {
     const [questions, setQuestions] = useState<AIQuestion[]>([]);

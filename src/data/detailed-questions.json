@@ -1,145 +1,54 @@
 {
     "QUESTION_1": {
       "id": 1,
-      "body": "Describe the kind of workplace environment you'd thrive in. Do you prefer stability, opportunities for advancement, or something else?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "Describe the kind of workplace environment you'd thrive in. Do you prefer stability, opportunities for advancement, or something else?"
     },
     "QUESTION_2": {
       "id": 2,
-      "body": "How do you feel about working beyond regular hours for career advancement?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "How do you feel about working beyond regular hours for career advancement?"
     },
     "QUESTION_3": {
       "id": 3,
-      "body": "What does a healthy work-life balance look like to you? How important is it to you?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "What does a healthy work-life balance look like to you? How important is it to you?"
     },
     "QUESTION_4": {
       "id": 4,
-      "body": "Describe your hobbies and what you do for fun.",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "Describe your hobbies and what you do for fun."
     },
     "QUESTION_5": {
       "id": 5,
-      "body": "Are you more of a group collaborator or an independent worker?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "Are you more of a group collaborator or an independent worker?"
     },
     "QUESTION_6": {
       "id": 6,
-      "body": "What kind of workspace do you prefer?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "What kind of workspace do you prefer?"
     },
     "QUESTION_7": {
       "id": 7,
-      "body": "Do you think of your future career as a way to realize your best self, or an avenue to make money?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "Do you think of your future career as a way to realize your best self, or an avenue to make money?"
     },
     "QUESTION_8": {
       "id": 8,
-      "body": "What are your ethics and how important are they do fit into your career?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "What are your ethics and how important are they do fit into your career?"
     },
     "QUESTION_9": {
       "id": 9,
-      "body": "What does an ideal career look like for you in the long run?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "What does an ideal career look like for you in the long run?"
     },
     "QUESTION_10": {
       "id": 10,
-      "body": "How do you approach a difficult problem?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "How do you approach a difficult problem?"
     },
     "QUESTION_11": {
       "id": 11,
-      "body": "How do you handle high stress and pressure?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "How do you handle high stress and pressure?"
     },
     "QUESTION_12": {
       "id": 12,
-      "body": "What were your favorite subjects in school?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "What were your favorite subjects in school?"
     },
     "QUESTION_13": {
       "id": 13,
-      "body": "Do you want to pursue higher education, or learn throughout your career?",
-      "options": [
-        "Strongly Disagree",
-        "Disagree",
-        "Neutral",
-        "Agree",
-        "Strongly Agree"
-      ]
+      "body": "Do you want to pursue higher education, or learn throughout your career?"
     }
   }  

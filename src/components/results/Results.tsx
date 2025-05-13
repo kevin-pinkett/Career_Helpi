@@ -63,6 +63,7 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
         };
 
         fetchResults(); 
+        // had to disable next line because ChatGPT would infinitely regenerate results if dependency was made on answers and questions state.
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); 
 

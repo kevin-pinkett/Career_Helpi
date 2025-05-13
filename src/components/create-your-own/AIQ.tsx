@@ -9,8 +9,8 @@ import { CompletedQuiz } from "../popup/CompleteQuiz";
 interface AIQProps {
     setPage: (page: string) => void;
     setQuestions: (questions: string[]) => void;
-    answers: string[] | number[];
-    setAnswers: (answers: string[] | number[]) => void;
+    answers: string[];
+    setAnswers: (answers: string[]) => void;
 }
 
 export function AIQuestionsPage({setPage, setQuestions, setAnswers, answers}: AIQProps) {

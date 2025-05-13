@@ -14,7 +14,10 @@ interface Detailed_Question_Props{
   setQuestions: (questions: string[]) => void;
 }
 
-const QUESTIONS: Detailed_Question[] = Object.values(detailedData)
+const QUESTIONS: Detailed_Question[] = Object.values(detailedData).map((question) => ({
+  id: question.id,
+  body: question.body,
+}));
 
 /** Copilot Generated Doc
  * 

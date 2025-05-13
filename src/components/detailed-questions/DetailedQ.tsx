@@ -4,8 +4,8 @@ import { CompletedQuiz } from "../popup/CompleteQuiz";
 
 interface DetailedQuestionsPageProp {
     setPage: (page: string) => void;
-    answers: number[] | string[];
-    setAnswers: (answers: number[] | string[]) => void;
+    answers: string[];
+    setAnswers: (answers: string[]) => void;
     setQuestions: (questions: string[]) => void;
 }
 
