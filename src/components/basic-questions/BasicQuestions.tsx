@@ -95,6 +95,36 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
     setCurrentQuestionId(QUESTIONS[0].id)
   }
 
+  function fillTempAnswers(){
+    const answers = [
+      "I prefer to work in a group setting.",
+      "Disagree",
+      "I prefer to not deal with technical problems.",
+      "Fully outdoor job in nature.",
+      "I enjoy leading small projects or mentoring peers.",
+      "Agree",
+      "Strongly Agree",
+      "Strongly Agree",
+      "History or cultural studies",
+      "Natural disasters and phenomena",
+      "Neutral",
+      "Strongly Agree",
+      "Agree",
+      "Disagree",
+      "Strongly Agree",
+      "Neutral",
+      "Disagree",
+      "I prefer structured and clear procedure in my work.",
+      "I want a job that improves individual lives.",
+      "High school diploma or trade certification",
+      "Strongly Agree",
+      "Reading or watching documentaries.",
+      "Agree"
+    ]
+    localSetBasicAnswers(answers)
+    setAnswers(answers)
+  }
+
   useEffect(() => {
     if (progress < 100) {
       const answeredQuestions = basicAnswers.filter(answer => answer !== "").length; 
@@ -161,6 +191,8 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
           </div>
 
+          <br></br>
+          <Button onClick={fillTempAnswers}>Sherpa Debug</Button>
           
         </div>
       </Form.Group>
