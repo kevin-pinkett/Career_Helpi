@@ -59,21 +59,21 @@ code {
   --large-text: 22px;
   --gear: 30px;
   --header-title: 40px;
-  --ozzie: 20%
+  --ozzie: 25%
 }
 :root[data-text-size='medium'] {
   --small-text: 22px;
   --large-text: 25px;
   --gear: 40px;
   --header-title: 50px;
-  --ozzie: 25%
+  --ozzie: 30%
 }
 :root[data-text-size='large'] {
   --small-text: 25px;
   --large-text: 30px;
   --gear: 50px;
   --header-title: 60px;
-  --ozzie: 30%;
+  --ozzie: 35%;
 }
 
 h1 {

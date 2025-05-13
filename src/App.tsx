@@ -139,9 +139,9 @@ function App() {
             alignItems: "center"
           }}>
             <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-                display: "flex",
+                //display: "flex",
                 width: "var(--ozzie)",
-                padding: "15px"
+                padding: "15px",
                 }}></img>
             <div id="header-title">Koalafi</div>
           </div>
