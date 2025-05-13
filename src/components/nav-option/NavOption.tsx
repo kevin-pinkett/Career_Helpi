@@ -14,8 +14,8 @@ export function NavOption({setPage, destination, text, buttonText, disabled}: Na
     <div>
       <div >
         <p>{text}</p>
-        <div className="NavButton">
-        <Button onClick={() => setPage(destination)}
+        <div>
+        <Button className={"NavButton"} onClick={() => setPage(destination)}
           disabled={disabled}>
           {buttonText}
         </Button>
