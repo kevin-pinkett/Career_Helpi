@@ -112,7 +112,7 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
                     height: "20%",
                     margin: "30px",
                 }}></img>
-                <span>Ozzie is deciding what questions to ask...</span>
+                <span style={{color: "var(--text-color-2)"}}>Ozzie is deciding what questions to ask...</span>
             </div>
             ) : ( <div>
                 {setQuiz && hasFetched ? (
@@ -132,6 +132,7 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
                           </div>
                           <div className="AIQ-Response-Input">
                             <Form.Control
+                            style={{fontSize: "var(--small-text)"}}
                             as="textarea"
                             className = "Response"
                             rows={5}
@@ -142,8 +143,8 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
                           <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
                         </div>
                         <div className="AIQ-Nav-Buttons">
-                          <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
-                          <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+                          <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={regressQuestion}>Previous</Button>
+                          <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={advanceQuestion}>Next</Button>
                           <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
                         </div>
                       </div>

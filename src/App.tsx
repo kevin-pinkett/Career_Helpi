@@ -8,6 +8,8 @@ import { FAQPage } from './components/faq/FAQ';
 import { DetailQuestionsPage } from './components/detailed-questions/DetailedQ';
 import { ResultsPage } from './components/results/Results';
 import { AIQuestionsPage } from './components/create-your-own/AIQ';
+import { ThemeProvider } from './components/dark-mode/theme-context';
+import { TextSizeProvider } from './components/text-size/TextSizeContext';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -74,8 +76,17 @@ function App() {
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
-    localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    validateApiKey(key).then((valid) => {
+      if (valid){
+        localStorage.setItem(saveKeyData, JSON.stringify(key));
+        window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+      } else {
+        alert("Invalid ChatGPT API Key. Please try again.")
+      }
+    }).catch(()=> {
+      alert("Error validating ChatGPT API Key. Try again.")
+    })
+
   }
 
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
@@ -83,24 +94,84 @@ function App() {
     setKey(event.target.value);
   }
 
+
+  // validation response method was taken from chatgpt and openai docs
+  async function validateApiKey(key: string): Promise<boolean> {
+    try{
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${key}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: "test for api key" }],
+          max_tokens: 1
+        })
+      });
+  
+      if (response.status === 200) {
+        return true;
+      } else if (response.status === 401) {
+        return false; 
+      } else {
+        throw new Error("Unexpected error");
+      }
+    } catch (error) {
+      console.error("Validation error:", error);
+      throw error;
+    }
+  }
+
   return (
-    <div className="App">
+    <ThemeProvider>
+      <TextSizeProvider>
+      <div className="App">
 
-      <div className="Header-Wrapper">
-        <div style={{
-          display: "flex",
-          alignItems: "center"
-        }}>
-          <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-              display: "flex",
-              width: "20%",
-              padding: "15px"
-              }}></img>
-          <div id="header-title">Koalafi</div>
+        <div className="Header-Wrapper">
+          <div style={{
+            display: "flex",
+            alignItems: "center"
+          }}>
+            <img src="assets/Helpi Mascot.png" alt="mascot" style={{
+                display: "flex",
+                width: "var(--ozzie)",
+                padding: "15px"
+                }}></img>
+            <div id="header-title">Koalafi</div>
+          </div>
+          <Header page={page} setPage={setPage}/>
         </div>
-        <Header page={page} setPage={setPage}/>
-      </div>
 
+        <div className="Page" data-testid="page">
+          {page === 'homePage' && (
+            <div>
+              <div className="Greeting-Box">
+                <img src="assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
+                    width: "25%",
+                    height: "25%",
+                  }}></img>
+                <div style = {{fontSize: "var(--small-text)"}} className="Greeting-Text">
+                  <span> Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
+                  <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
+                  
+                  <Form>
+                    <Form.Label>API Key:</Form.Label>
+                    <Form.Control style={{fontSize: "var(--small-text)"}} type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+                    <br></br>
+                    <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+                  </Form>
+                </div>
+              </div>
+              <HomePage setPage={setPage} />
+              </div>)}
+          {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
+          {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
+          {page === 'faqPage' && (<div><FAQPage /></div>)}
+          {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
+          {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage}/></div>)}
+        </div>
       <div className="Page" data-testid="page">
         {page === 'homePage' && (
           <div>
@@ -130,13 +201,15 @@ function App() {
         {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage} setQuestions={setQuestions} setAnswers={setAnswers} answers={answers}/></div>)}
       </div>
 
-      <div className='footer-wrapper' data-testid="footer">
-        <footer id="footer">
-          
-        </footer>
-      </div>
+        <div className='footer-wrapper' data-testid="footer">
+          <footer id="footer">
+            
+          </footer>
+        </div>
 
-    </div>
+      </div>
+      </TextSizeProvider>
+    </ThemeProvider>
   );
 }
 

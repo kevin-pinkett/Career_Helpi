@@ -10,7 +10,7 @@ html, body {
   min-height: 100%;
   
   background-image: url("/public/assets/bg.png");
-  background-color: #fcc9bd;
+  background-color: var(--second-bg-color);
   background-blend-mode: overlay;
   background-size: cover;
 }
@@ -28,10 +28,11 @@ html, body {
 
 .Greeting-Text {
   padding: 30px;
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color-2);
   border-radius: 8px;
   width: 50%;
+  color: var(--text-color-2);
 
 }
 
@@ -39,20 +40,20 @@ html, body {
   display: flex;
   min-width: 100%;
   justify-content: center;
-  background-color: #FE604D;
+  background-color: var(--main-color);
   align-items: center;
   box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
 
 }
 
 #header-title {
-  font-size: 40px;
+  font-size: var(--header-title);
   letter-spacing: 1px;
   padding: 15px;
-  color: white;
+  color: var(--text-color);
   font-family: GloomieSaturday;
   font-weight: bolder;
-  background-color: #FE604D;
+  background-color: var(--main-color);
   white-space: nowrap;
 }
 
@@ -60,6 +61,8 @@ html, body {
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  min-height: 80vh;
 
 }
 
@@ -72,8 +75,8 @@ footer {
   border-top-right-radius: 10px;
 
 
-  color: white;
+  color: var(--text-color);
   font-weight: bold;
-  background-color:#FE604D;
+  background-color: var(--main-color);
 }
 

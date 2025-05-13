@@ -5,7 +5,7 @@ import { useState } from "react";
 interface BasicQuestionsPageProp {
     setPage: (page: string) => void;
     answers: number[] | string[];
-    setAnswers: (answers: number[]) => void;
+    setAnswers: (answers: string[]) => void;
     setQuestions: (questions: string[]) => void;
 }
 
