@@ -11,14 +11,6 @@ import { AIQuestionsPage } from './components/create-your-own/AIQ';
 import { ThemeProvider } from './components/dark-mode/theme-context';
 import { TextSizeProvider } from './components/text-size/TextSizeContext';
 
-//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
-const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
-if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
-}
-
 /**
  * The main application component for the Career Helpi app.
  * 
@@ -153,7 +145,7 @@ function App() {
                 }}></img>
             <div id="header-title">Koalafi</div>
           </div>
-          <Header page={page} setPage={setPage}/>
+          <Header page={page} setPage={setPage} disabled={!hasValidKey}/>
         </div>
 
         <div className="Page" data-testid="page">
@@ -176,7 +168,7 @@ function App() {
                   </Form>
                 </div>
               </div>
-              <HomePage setPage={setPage} />
+              <HomePage setPage={setPage} hasValidKey={hasValidKey} />
               </div>)}
           {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
           {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
