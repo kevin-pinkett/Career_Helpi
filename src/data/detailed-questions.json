@@ -119,5 +119,27 @@
         "Agree",
         "Strongly Agree"
       ]
+    },
+    "QUESTION_12": {
+      "id": 12,
+      "body": "What were your favorite subjects in school?",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
+    },
+    "QUESTION_13": {
+      "id": 13,
+      "body": "Do you want to pursue higher education, or learn throughout your career?",
+      "options": [
+        "Strongly Disagree",
+        "Disagree",
+        "Neutral",
+        "Agree",
+        "Strongly Agree"
+      ]
     }
   }  

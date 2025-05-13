@@ -5,6 +5,7 @@ import { SettingsPopup } from "../settings/Settings";
 interface HeaderProps {
   page: string;
   setPage: (page: string) => void;
+  disabled: boolean;
 }
 
 /** Copilot Generated Doc
@@ -25,7 +26,7 @@ interface HeaderProps {
  *
  * Each button uses the `setPage` function to update the current page state when clicked.
  */
-export function Header({ page, setPage }: HeaderProps) {
+export function Header({ page, setPage, disabled}: HeaderProps) {
   const homeState = () => {
     setPage("homePage");
   };
@@ -57,7 +58,7 @@ export function Header({ page, setPage }: HeaderProps) {
           style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={basicButtonState}
-          disabled={page === "basicPage"}
+          disabled={page === "basicPage" || disabled}
         >
           Basic Quiz
         </Button>
@@ -65,7 +66,7 @@ export function Header({ page, setPage }: HeaderProps) {
           style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={detailedButtonState}
-          disabled={page === "detailedPage"}
+          disabled={page === "detailedPage" || disabled}
         >
           Detailed Quiz
         </Button>
@@ -73,7 +74,7 @@ export function Header({ page, setPage }: HeaderProps) {
           style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={aiState}
-          disabled={page === "aiPage"}
+          disabled={page === "aiPage" || disabled}
           >
           Custom Quiz
           </Button>
