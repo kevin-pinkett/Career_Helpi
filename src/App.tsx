@@ -170,37 +170,9 @@ function App() {
           {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
           {page === 'faqPage' && (<div><FAQPage /></div>)}
           {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
-          {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage}/></div>)}
+          {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
         </div>
-      <div className="Page" data-testid="page">
-        {page === 'homePage' && (
-          <div>
-            <div className="Greeting-Box">
-              <img src="/assets/Helpi Mascot (fullclear).png" alt="mascot" style={{
-                  width: "25%",
-                  height: "25%",
-                }}></img>
-              <div className="Greeting-Text">
-                <span>Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
-                <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>
-                
-                <Form>
-                  <Form.Label>API Key:</Form.Label>
-                  <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-                  <br></br>
-                  <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-                </Form>
-              </div>
-            </div>
-            <HomePage setPage={setPage} />
-            </div>)}
-        {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
-        {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
-        {page === 'faqPage' && (<div><FAQPage /></div>)}
-        {page === 'resultsPage' && (<div><ResultsPage answers={answers} questions={questions} /></div>)}
-        {page === 'aiPage' && (<div><AIQuestionsPage setPage={setPage} setQuestions={setQuestions} setAnswers={setAnswers} answers={answers}/></div>)}
-      </div>
-
+      
         <div className='footer-wrapper' data-testid="footer">
           <footer id="footer">
             
