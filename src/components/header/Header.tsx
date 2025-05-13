@@ -1,5 +1,6 @@
 import "./Header.css";
 import { Button } from "react-bootstrap";
+import { SettingsPopup } from "../settings/Settings";
 
 interface HeaderProps {
   page: string;
@@ -44,9 +45,9 @@ export function Header({ page, setPage, disabled}: HeaderProps) {
 
   return (
     <div className="Header">
-      <div style={{ display: "flex", width: "100%" }}>
+      <div style={{ display: "flex", width: "100%"}}>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)"}}
           className="Header-Button"
           onClick={homeState}
           disabled={page === "homePage"}
@@ -54,7 +55,7 @@ export function Header({ page, setPage, disabled}: HeaderProps) {
           Home Page
         </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={basicButtonState}
           disabled={page === "basicPage" || disabled}
@@ -62,7 +63,7 @@ export function Header({ page, setPage, disabled}: HeaderProps) {
           Basic Quiz
         </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={detailedButtonState}
           disabled={page === "detailedPage" || disabled}
@@ -70,7 +71,7 @@ export function Header({ page, setPage, disabled}: HeaderProps) {
           Detailed Quiz
         </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={aiState}
           disabled={page === "aiPage" || disabled}
@@ -78,13 +79,14 @@ export function Header({ page, setPage, disabled}: HeaderProps) {
           Custom Quiz
           </Button>
         <Button
-          style={{ flex: 1 }}
+          style={{ flex: 1, fontSize: "var(--small-text)" }}
           className="Header-Button"
           onClick={faqState}
           disabled={page === "faqPage"}
         >
           FAQ
         </Button>
+        <SettingsPopup></SettingsPopup>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ import OpenAI from "openai";
  *   .then(careers => console.log(careers))
  *   .catch(error => console.error(error));
  */
-export async function getGPTResponse(prompt: string) {
+export async function getGPTResponse(prompt: string, check: boolean = false, industry="") {
 
 
     const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""'); 

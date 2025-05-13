@@ -9,13 +9,13 @@
     align-items: center;
     flex-direction: column;
 
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color-2);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 
     padding: 25px;
-    background-color: white;
+    background-color: var(--bg-color);
 
 }
 
@@ -24,14 +24,18 @@
     justify-content: center;
     align-items: center;
 
-    color: white;
+    text-align: center;
+    text-wrap: balance;
+    font-size: var(--small-text);
+    color: var(--text-color);
 
-    width: 500px;
-    height: 100px;
+    width: 75%;
+    min-height: 100px;
+    margin-bottom: 20px;
 
     border-radius: 15px;
     background-image: url("/public/assets/questionbg.png");
-    background-color: #cc2c1a;
+    background-color: var(--text-box-color);
     background-blend-mode:soft-light;
     background-size: cover;
 }
@@ -46,22 +50,23 @@
 }
 
 .Answer-Button {
-    background-color: white;
-    border-color: black;
-    color: black;
+    background-color: var(--bg-color);
+    border-color: var(--border-color-1);
+    color: var(--border-color-1);
 
     width: 700px;
     border-radius: 100px;
     padding: 10px;
     margin: 5px;
+    font-size: var(--small-text);
 
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 .Answer-Button:hover {
-    background-color: #FE604D !important;
-    color: white !important;
+    background-color: var(--main-color) !important;
+    color: var(--text-color) !important;
 }
 
 .Outer-Button-Box {
@@ -83,19 +88,20 @@
 
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #FE604D;
+    background-color: var(--main-color);
 
 }
 
 .Submit-Button {
     width: 25%;
-    color: white;
-    background-color: #FE604D;
+    color: var(--text-color);
+    font-size: var(--small-text);
+    background-color: var(--main-color);
     border: none;
 }
 
 .Submit-Button:disabled {
-    background-color: #d34f40;
-    border-color: #d34f40;
-    color: white;
+    background-color: var(--focused-color);
+    border-color: var(--bg-color);
+    color: var(--text-color);
 }

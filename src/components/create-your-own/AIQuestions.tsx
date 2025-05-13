@@ -7,16 +7,20 @@ import { SpeechProvider } from "../accessibility/SpeechContext";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 interface AIQuestionProps {
+    //setQuestions: (questions: string[]) => void;
     openPopup: () => void;
     industry: string;
     setQuiz: boolean;
+    setQuestionBodies: (questions: string[]) => void;
+    setAnswers: (answers: string[] | number[]) => void;
+    answers: string[] | number[];
 }
-export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): React.JSX.Element {
+export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, setAnswers, answers}: AIQuestionProps): React.JSX.Element {
     const [questions, setQuestions] = useState<AIQuestion[]>([]);
+    const [stringAnswers, setStringAnswers] = useState<string[]>(new Array(questions.length).fill(""));
     const [hasFetched, setHasFetched] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState<AIQuestion>({id: 0, body: ""});
     const [currentQuestionId, setCurrentQuestionId] = useState<number>(0);
-    const [answers, setAnswers] = useState<string[]>([]);
     const [progress, setProgress] = useState<number>(0);
     //const [response, setResponse] = useState<string>("")
     useEffect(() => {
@@ -25,7 +29,7 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
             setCurrentQuestionId(questions[0].id);
             setAnswers(new Array(questions.length).fill(""));
         }
-    }, [questions])
+    }, [questions, setAnswers])
 
     const [loading, setLoading] = useState<boolean>(false);
     
@@ -35,6 +39,8 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
             try {
                 const response = await getGPTResponse(industry);
                 const new_questions = response.map((question: AIQuestion) => question);
+                const new_question_bodies = response.map((question: AIQuestion) => question.body);
+                setQuestionBodies(new_question_bodies);
                 setQuestions(new_questions);
                 setHasFetched(true);
             } catch (error) {
@@ -48,20 +54,23 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
         if (setQuiz && !hasFetched) {
             fetchQuestions();
         }
-    }, [industry, setQuiz, hasFetched]);
+    }, [industry, setQuiz, setQuestions, setQuestionBodies, hasFetched]);
 
     useEffect(() => {
         if (progress < 100 && questions.length > 0) {
-          const answeredQuestions = answers.filter(answer => answer !== "").length; 
+          const answeredQuestions = stringAnswers.filter(answer => answer !== "").length; 
           const newProgress = (answeredQuestions/questions.length) * 100;
           setProgress(newProgress);
           }
-          }, [answers, questions.length, progress]);
+          }, [answers, questions.length, progress, stringAnswers]);
 
     const handleAnswerChange = (q_index: number, response: string) => {
-        const newAnswers = [...answers];
-        newAnswers[q_index] = response;
-        setAnswers(newAnswers);
+        if (questions.length > 0) {
+            const newAnswers = [...stringAnswers];
+            newAnswers[q_index] = response;
+            setAnswers(newAnswers);
+            setStringAnswers(newAnswers);
+        }
     }
 
     function updateResponse(e: React.ChangeEvent<HTMLInputElement>) {
@@ -103,7 +112,7 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
                     height: "20%",
                     margin: "30px",
                 }}></img>
-                <span>Ozzie is deciding what questions to ask...</span>
+                <span style={{color: "var(--text-color-2)"}}>Ozzie is deciding what questions to ask...</span>
             </div>
             ) : ( <div>
                 {setQuiz && hasFetched ? (
@@ -123,6 +132,7 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
                           </div>
                           <div className="AIQ-Response-Input">
                             <Form.Control
+                            style={{fontSize: "var(--small-text)"}}
                             as="textarea"
                             className = "Response"
                             rows={5}
@@ -133,8 +143,8 @@ export function AIQuestions({openPopup, industry, setQuiz}: AIQuestionProps): Re
                           <ProgressBar progress={progress} setProgress={setProgress}></ProgressBar>
                         </div>
                         <div className="AIQ-Nav-Buttons">
-                          <Button style={{ width: "45%" }} onClick={regressQuestion}>Previous</Button>
-                          <Button style={{ width: "45%" }} onClick={advanceQuestion}>Next</Button>
+                          <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={regressQuestion}>Previous</Button>
+                          <Button style={{ width: "45%", fontSize: "var(--small-text)" }} onClick={advanceQuestion}>Next</Button>
                           <Button className="Submit-Button" disabled={progress !== 100} onClick={openPopup}>Submit</Button>
                         </div>
                       </div>

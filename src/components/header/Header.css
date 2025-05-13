@@ -4,26 +4,26 @@
     gap: 10px;
     padding: 10px;
     width: auto;
-    background-color: #FE604D;
+    background-color: var(--main-color);
 }
 
 .Header-Button {
-    background-color: #FE604D;
-    border-color: #FE604D;
-    color: rgb(255, 255, 255);
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: var(--text-color);
     width: 200px;
 
 }
 
 .Header-Button:hover {
-    background-color: #d34f40;
-    border-color: #d34f40;
+    background-color: var(--focused-color);
+    border-color: var(--focused-color);
 }
 
 .Header-Button:disabled {
-    background-color: #d34f40;
-    border-color: #d34f40;
-    color: rgb(255, 255, 255);
-    width: 200px;;
+    background-color: var(--focused-color);
+    border-color: var(--focused-color);
+    color: var(--text-color);
+    width: 25%;
 }
 

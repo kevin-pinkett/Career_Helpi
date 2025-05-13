@@ -12,10 +12,10 @@ interface NavOptionProps {
 export function NavOption({setPage, destination, text, buttonText, disabled}: NavOptionProps) {
     return (
     <div>
-      <div >
+      <div style={{color: "var(--text-color-2)", fontSize: "var(--small-text)"}} >
         <p>{text}</p>
         <div>
-        <Button className={"NavButton"} onClick={() => setPage(destination)}
+        <Button className={"NavButton"} style={{fontSize: "var(--small-text)"}} onClick={() => setPage(destination)}
           disabled={disabled}>
           {buttonText}
         </Button>

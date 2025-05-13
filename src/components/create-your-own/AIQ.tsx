@@ -8,9 +8,12 @@ import { CompletedQuiz } from "../popup/CompleteQuiz";
 
 interface AIQProps {
     setPage: (page: string) => void;
+    setQuestions: (questions: string[]) => void;
+    answers: string[] | number[];
+    setAnswers: (answers: string[] | number[]) => void;
 }
 
-export function AIQuestionsPage({setPage}: AIQProps) {
+export function AIQuestionsPage({setPage, setQuestions, setAnswers, answers}: AIQProps) {
     const [response, setResponse] = useState<string>("");
     const [quiz, setQuiz] = useState<boolean>(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -35,8 +38,9 @@ export function AIQuestionsPage({setPage}: AIQProps) {
                             </SpeechProvider>
                         </div> 
                     </div> 
-                    <div className="AIQ-Response-Input">
+                    <div style={{fontSize: "var(--small-text)"}} className="AIQ-Response-Input">
                         <Form.Control
+                        style={{fontSize: "var(--small-text)"}}
                         as="textarea"
                         className = "Response"
                         rows={5}
@@ -49,7 +53,7 @@ export function AIQuestionsPage({setPage}: AIQProps) {
                     <Button className="AIQ-Submit-Button" disabled={response === ""} onClick={handleSubmit}>Submit</Button> 
                 </div>
             </div>
-            <AIQuestions industry={response} setQuiz={quiz} openPopup={() => setIsPopupOpen(true)}></AIQuestions>
+            <AIQuestions industry={response} setQuiz={quiz} openPopup={() => setIsPopupOpen(true)} setQuestionBodies={setQuestions} setAnswers={setAnswers} answers={answers}></AIQuestions>
             <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage}></CompletedQuiz>
             </div>
 
