@@ -58,12 +58,11 @@ import { TextSizeProvider } from './components/text-size/TextSizeContext';
  * Contains a form for the user to input and submit their API key.
  */
 function App() {
-  const [answers, setAnswers] = useState<number[] | string[]>([]); //for the answers to the questions
+  const [answers, setAnswers] = useState<string[]>([]); //for the answers to the questions
   const [questions, setQuestions] = useState<string[]>([]); //for the questions to be asked
   const [key, setKey] = useState<string>(""); //for api key input
   const [hasValidKey, setHasValidKey] = useState<boolean>(false);
   const [page, setPage] = useState<string>('homePage');
-  // const [answers, setAnswers] = useState<string[]>([]); //for the answers to the questions
   
   useEffect(()=>{
     //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)

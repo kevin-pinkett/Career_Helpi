@@ -4,6 +4,4 @@ export interface Detailed_Question {
     id: number;
     //The question being asked
     body: string;
-    //The possible answers to the question
-    options: string[];
 }
