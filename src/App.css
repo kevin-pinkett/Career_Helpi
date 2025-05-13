@@ -36,14 +36,21 @@ html, body {
 
 }
 
+.Header-Placeholder{
+  /*background-color: var(--focused-color);*/
+  min-width: 100%;
+  height: var(--header);
+}
+
 .Header-Wrapper {
+  position: fixed;
   display: flex;
   min-width: 100%;
   justify-content: center;
   background-color: var(--main-color);
   align-items: center;
   box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.1);
-
+  z-index: 100000000;
 }
 
 #header-title {

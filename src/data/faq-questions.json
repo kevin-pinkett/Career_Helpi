@@ -13,8 +13,8 @@
 
     "QUESTION_3": {
       "id": 3,
-      "question": "Can you retake the assessment?",
-      "answer": "Yes. You can retake the assessment as many times as you like."
+      "question": "Can I retake the assessments?",
+      "answer": "Yes. You can retake the assessments as many times as you like."
     },
 
     "QUESTION_4": {
@@ -27,6 +27,18 @@
       "id": 5,
       "question": "What if I don't like the options I'm matched with?",
       "answer": "No worries! You're free to try taking the quiz again as many times as you like. Regardless of your result, this assessment will serve as a tool to help you along your journey but it will not lock you into any particular option."
+    },
+
+    "QUESTION_6": {
+      "id": 6,
+      "question": "Do I need to register to recieve my results?",
+      "answer": "Nope! This quiz is completely free, and requires no personal information from you. No need to create an account or input your email to recieve results!"
+    },
+
+    "QUESTION_7": {
+      "id": 7,
+      "question": "How do the assessments match me with career results?",
+      "answer": "Our assessments utilize the OpenAI API to generate a Career report personalized to you based on your answers to the quiz questions."
     }
 }
   

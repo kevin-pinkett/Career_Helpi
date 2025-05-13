@@ -132,16 +132,16 @@ function App() {
     <ThemeProvider>
       <TextSizeProvider>
       <div className="App">
-
+        <div className="Header-Placeholder"></div>
         <div className="Header-Wrapper">
           <div style={{
             display: "flex",
             alignItems: "center"
           }}>
             <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-                display: "flex",
+                //display: "flex",
                 width: "var(--ozzie)",
-                padding: "15px"
+                padding: "15px",
                 }}></img>
             <div id="header-title">Koalafi</div>
           </div>
