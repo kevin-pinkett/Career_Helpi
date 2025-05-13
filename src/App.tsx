@@ -142,7 +142,7 @@ function App() {
               }}></img>
           <div id="header-title">Koalafi</div>
         </div>
-        <Header page={page} setPage={setPage}/>
+        <Header page={page} setPage={setPage} disabled={!hasValidKey}/>
       </div>
 
       <div className="Page" data-testid="page">
