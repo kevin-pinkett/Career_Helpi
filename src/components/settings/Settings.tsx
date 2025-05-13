@@ -39,12 +39,8 @@ function Settings ({ isOpen, children }: SettingProps) {
     if (!isOpen) return null;
 
     return (
-      <div className="popup-overlay">
-        <div className="popup-box-settings">
-          <div className="popup-content">
-            {children}
-          </div>
-        </div>
+      <div className="popup-box-settings">
+        {children}
       </div>
     );
   };

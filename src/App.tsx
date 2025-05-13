@@ -132,7 +132,7 @@ function App() {
     <ThemeProvider>
       <TextSizeProvider>
       <div className="App">
-
+        <div className="Header-Placeholder"></div>
         <div className="Header-Wrapper">
           <div style={{
             display: "flex",
