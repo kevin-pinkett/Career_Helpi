@@ -1,29 +1,19 @@
-.Header{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    width: auto;
-    background-color: var(--main-color);
-}
-
-.Header-Button {
+.NavButton {
     background-color: var(--main-color);
     border-color: var(--main-color);
     color: var(--text-color);
-    width: 200px;
+
 
 }
 
-.Header-Button:hover {
+.NavButton:hover {
     background-color: var(--focused-color);
     border-color: var(--focused-color);
 }
 
-.Header-Button:disabled {
+.NavButton:disabled {
     background-color: var(--focused-color);
     border-color: var(--focused-color);
     color: var(--text-color);
-    width: 200px;
+ 
 }
-

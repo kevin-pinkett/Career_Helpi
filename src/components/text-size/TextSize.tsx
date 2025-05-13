@@ -9,21 +9,21 @@ export const ChooseTextSize = () => {
     <div>
         <ButtonGroup aria-label="Text size selector">
             <Button
-                style={{ fontSize: "15px", color: "white"}}
+                style={{ fontSize: "18px", color: "white"}}
                 variant={textSize === 'small' ? 'primary' : 'outline-primary'}
                 onClick={() => setSize('small')}
             >
                 Aa
             </Button>
             <Button
-                style={{ fontSize: "20px", color: "white"}}
+                style={{ fontSize: "22px", color: "white"}}
                 variant={textSize === 'medium' ? 'primary' : 'outline-primary'}
                 onClick={() => setSize('medium')}
             >
                 Aa
             </Button>
             <Button
-                style={{ fontSize: "30px", color: "white"}}
+                style={{ fontSize: "25px", color: "white"}}
                 variant={textSize === 'large' ? 'primary' : 'outline-primary'}
                 onClick={() => setSize('large')}
             >

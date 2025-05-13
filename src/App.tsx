@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { Header } from './components/header/Header';
@@ -10,14 +10,6 @@ import { ResultsPage } from './components/results/Results';
 import { AIQuestionsPage } from './components/create-your-own/AIQ';
 import { ThemeProvider } from './components/dark-mode/theme-context';
 import { TextSizeProvider } from './components/text-size/TextSizeContext';
-
-//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
-const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
-if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
-}
 
 /**
  * The main application component for the Career Helpi app.
@@ -68,22 +60,34 @@ if (prevKey !== null) {
 function App() {
   const [answers, setAnswers] = useState<number[] | string[]>([]); //for the answers to the questions
   const [questions, setQuestions] = useState<string[]>([]); //for the questions to be asked
-  const [key, setKey] = useState<string>(keyData); //for api key input
+  const [key, setKey] = useState<string>(""); //for api key input
+  const [hasValidKey, setHasValidKey] = useState<boolean>(false);
   const [page, setPage] = useState<string>('homePage');
   // const [answers, setAnswers] = useState<string[]>([]); //for the answers to the questions
   
-
+  useEffect(()=>{
+    //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
+    const saveKeyData = "MYKEY";
+    const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+    if (prevKey !== null) {
+      setKey(JSON.parse(prevKey));
+      setHasValidKey(true);
+    }
+  }, []);
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     validateApiKey(key).then((valid) => {
       if (valid){
-        localStorage.setItem(saveKeyData, JSON.stringify(key));
+        localStorage.setItem("MYKEY", JSON.stringify(key));
+        setHasValidKey(true);
         window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
       } else {
+        setHasValidKey(false);
         alert("Invalid ChatGPT API Key. Please try again.")
       }
     }).catch(()=> {
+      setHasValidKey(false);
       alert("Error validating ChatGPT API Key. Try again.")
     })
 
@@ -95,7 +99,7 @@ function App() {
   }
 
 
-  // validation response method was taken from chatgpt and openai docs
+  // validation response method was taken from chatgpt and openai docs, which described the correct response status codes
   async function validateApiKey(key: string): Promise<boolean> {
     try{
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -128,20 +132,20 @@ function App() {
     <ThemeProvider>
       <TextSizeProvider>
       <div className="App">
-
+        <div className="Header-Placeholder"></div>
         <div className="Header-Wrapper">
           <div style={{
             display: "flex",
             alignItems: "center"
           }}>
             <img src="assets/Helpi Mascot.png" alt="mascot" style={{
-                display: "flex",
+                //display: "flex",
                 width: "var(--ozzie)",
-                padding: "15px"
+                padding: "15px",
                 }}></img>
             <div id="header-title">Koalafi</div>
           </div>
-          <Header page={page} setPage={setPage}/>
+          <Header page={page} setPage={setPage} disabled={!hasValidKey}/>
         </div>
 
         <div className="Page" data-testid="page">
@@ -164,7 +168,7 @@ function App() {
                   </Form>
                 </div>
               </div>
-              <HomePage setPage={setPage} />
+              <HomePage setPage={setPage} hasValidKey={hasValidKey} />
               </div>)}
           {page === 'basicPage' && (<div><BasicQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}
           {page === 'detailedPage' && (<div><DetailQuestionsPage setPage={setPage} answers={answers} setAnswers={setAnswers} setQuestions={setQuestions}/></div>)}

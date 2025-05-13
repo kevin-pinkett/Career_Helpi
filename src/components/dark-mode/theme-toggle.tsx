@@ -11,7 +11,7 @@ export const ThemeToggle = () => {
       <Form.Check
         type="switch"
         id="theme-switch"
-        label={isDarkMode ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        label={isDarkMode ? 'Dark Mode' : 'Light Mode'}
         checked={isDarkMode}
         onChange={toggleTheme}
         className="theme-switch"

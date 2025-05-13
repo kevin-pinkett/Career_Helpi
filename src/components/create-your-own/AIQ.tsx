@@ -27,7 +27,7 @@ export function AIQuestionsPage({setPage, setQuestions, setAnswers, answers}: AI
     return (
         <div style={{margin: "0 auto", padding: "20px" }}>
             <div>      
-            <div className = "AIQ-Question-Page">
+            {!quiz && (<div className = "AIQ-Question-Page">
                 <div className="AIQ-Question-Box">
                     <div className="AIQ-subtitle">{"What industry would you want to work in?"}
                         <div style={{ margin: "10px" }}>
@@ -52,7 +52,7 @@ export function AIQuestionsPage({setPage, setQuestions, setAnswers, answers}: AI
                 <div className="AIQ-Nav-Buttons"> 
                     <Button className="AIQ-Submit-Button" disabled={response === ""} onClick={handleSubmit}>Submit</Button> 
                 </div>
-            </div>
+            </div>)}
             <AIQuestions industry={response} setQuiz={quiz} openPopup={() => setIsPopupOpen(true)} setQuestionBodies={setQuestions} setAnswers={setAnswers} answers={answers}></AIQuestions>
             <CompletedQuiz isPopupOpen={isPopupOpen} closePopup={() => setIsPopupOpen(false)} setPage={setPage}></CompletedQuiz>
             </div>
