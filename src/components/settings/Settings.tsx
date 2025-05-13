@@ -20,9 +20,10 @@ export function SettingsPopup() {
     <div>
         <Button style={{fontSize: "var(--gear)"}} onClick={isOpen ? handleClose : handleOpen}> ⚙︎ </Button>
         <Settings isOpen={isOpen}>
-          <div style={{ position: "absolute", top: "10px", right: "10px"}}><Button onClick={() => setIsOpen(false)}>X</Button></div>
-          <ThemeToggle/>
-          <ChooseTextSize/>
+          <div>
+            <div className='theme-selector'><ThemeToggle/></div>
+            <div className='text-selector'><ChooseTextSize/></div>
+          </div>
         </Settings>
     </div>
   )
@@ -39,8 +40,10 @@ function Settings ({ isOpen, children }: SettingProps) {
 
     return (
       <div className="popup-overlay">
-        <div className="popup-content">
-          {children}
+        <div className="popup-box-settings">
+          <div className="popup-content">
+            {children}
+          </div>
         </div>
       </div>
     );
