@@ -97,28 +97,28 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
 
   function fillTempAnswers(){
     const answers = [
-      "I prefer to work in a group setting.",
-      "Disagree",
-      "I prefer to not deal with technical problems.",
-      "Fully outdoor job in nature.",
+      "I enjoy a balance between collaboration and working alone.",
+      "Strongly Disagree",
+      "I deeply enjoy learning and solving technical problems.",
+      "Climate controlled workplace.",
       "I enjoy leading small projects or mentoring peers.",
       "Agree",
-      "Strongly Agree",
-      "Strongly Agree",
-      "History or cultural studies",
-      "Natural disasters and phenomena",
-      "Neutral",
-      "Strongly Agree",
       "Agree",
+      "Strongly Agree",
+      "Engineering or computer science",
+      "Technology and artificial intelligence",
       "Disagree",
+      "Strongly Disagree",
+      "Agree",
       "Strongly Agree",
       "Neutral",
-      "Disagree",
-      "I prefer structured and clear procedure in my work.",
-      "I want a job that improves individual lives.",
-      "High school diploma or trade certification",
+      "Neutral",
       "Strongly Agree",
-      "Reading or watching documentaries.",
+      "I need full creative freedom in my career.",
+      "I prefer to have my work help other indirectly.",
+      "Bachelor's degree",
+      "Disagree",
+      "Drawing, writing, or making music.",
       "Agree"
     ]
     localSetBasicAnswers(answers)
@@ -192,7 +192,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
           </div>
 
           <br></br>
-          <Button onClick={fillTempAnswers}>Sherpa Debug</Button>
+          <Button onClick={fillTempAnswers}>Kev's Answers</Button>
           
         </div>
       </Form.Group>
