@@ -85,7 +85,7 @@ export function CompletedQuiz({isPopupOpen, closePopup, setPage}: CompletedQuizP
                     width: "50%",
                     margin: "15px"
                     }}></img>
-                    <h3 style={{fontSize: "var(--large-text)"}}>You have answered all questions!</h3>
+                    <h3 style={{fontSize: "var(--large-text)", color: "var(--text-color-2)"}}>You have answered all questions!</h3>
                     <div className="popup-buttons">
                         <Button style = {{fontSize: "var(--small-text)"}} onClick={() => closePopup(false)}>Continue Working</Button>
                         <Button style = {{fontSize: "var(--small-text)"}} onClick={Submit}>Submit</Button>
