@@ -3,6 +3,7 @@
     padding: 2rem;
     position: relative;
     font-size: var(--small-text);
+    color: var(--text-color-2);
 }
 
 .Results-Card .card {
@@ -32,6 +33,5 @@
 
     display: block;
     font-size: var(--small-text);
-    color: #000000;
     margin-bottom: 0.5rem;
   }

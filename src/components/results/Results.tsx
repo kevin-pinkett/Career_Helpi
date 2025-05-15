@@ -78,7 +78,7 @@ export function ResultsPage({ answers, questions}: ResultsPageProps) {
                 height: "25%",
                 margin: "30px",
             }}></img>
-            <span>Ozzie is deciding what careers are right for you...</span>
+            <span style={{ fontSize: "var(--font-size)", color: "var(--text-color-2)"}}>Ozzie is deciding what careers are right for you...</span>
         </div>
             
     ) : (
