@@ -7,13 +7,12 @@ import { SpeechProvider } from "../accessibility/SpeechContext";
 import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 
 interface AIQuestionProps {
-    //setQuestions: (questions: string[]) => void;
     openPopup: () => void;
     industry: string;
     setQuiz: boolean;
     setQuestionBodies: (questions: string[]) => void;
     setAnswers: (answers: string[]) => void;
-    answers: string[];
+    answers: string[] | number[];
 }
 export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, setAnswers, answers}: AIQuestionProps): React.JSX.Element {
     const [questions, setQuestions] = useState<AIQuestion[]>([]);
@@ -22,7 +21,6 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
     const [currentQuestion, setCurrentQuestion] = useState<AIQuestion>({id: 0, body: ""});
     const [currentQuestionId, setCurrentQuestionId] = useState<number>(0);
     const [progress, setProgress] = useState<number>(0);
-    //const [response, setResponse] = useState<string>("")
     useEffect(() => {
         if (questions.length > 0) {
             setCurrentQuestion(questions[0]);
@@ -77,7 +75,6 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
         if (currentQuestionId !== null) {
             handleAnswerChange(currentQuestionId-1, e.target.value);
         }
-        //setResponse(response + e.target.value);
       }
     
     
