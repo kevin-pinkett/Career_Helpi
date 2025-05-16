@@ -67,10 +67,17 @@ export function TTS({ text }: ConvertToSpeechProps) {
     }
   };
 
+  const handleLoading = () => {
+    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""');
+    if (!apiKey || typeof apiKey !== "string" || apiKey.trim() === ""){
+      window.alert("Input your API Key!");
+    }
+  }
+
   return (
     <div>
       {isLoading ? (
-        <img className="play-button" src="assets/Load.png" alt="Loading"></img>
+        <img className="play-button" src="assets/Load.png" alt="Loading" onClick={handleLoading}></img>
       ) : (
         <img
           className="play-button"
