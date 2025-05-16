@@ -70,7 +70,7 @@ export function TTS({ text }: ConvertToSpeechProps) {
   return (
     <div>
       {isLoading ? (
-        <img className="play-button" src="assets/Load.png" alt="Loading"></img>
+        <img className="play-button" src="assets/Load.png" alt="Loading" onClick={() => window.alert("Input your API Key!")}></img>
       ) : (
         <img
           className="play-button"
