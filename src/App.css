@@ -33,11 +33,10 @@ html, body {
   border-radius: 8px;
   width: 50%;
   color: var(--text-color-2);
-
+  position: relative;
 }
 
 .Header-Placeholder{
-  /*background-color: var(--focused-color);*/
   min-width: 100%;
   height: var(--header);
 }

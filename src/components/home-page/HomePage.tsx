@@ -1,7 +1,8 @@
 import { NavOption } from "../nav-option/NavOption";
 import { OptionInfo } from "../../interfaces/nav-option";
-import { SpeechProvider } from "../accessibility/SpeechContext";
-import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+//import { SpeechProvider } from "../accessibility/SpeechContext";
+//import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import { TTS } from "../accessibility/TTS"
 
 
 import optionData from "../../data/nav-options.json"
@@ -48,10 +49,8 @@ export function HomePage({ setPage, hasValidKey }: HomePageProp) {
         {OPTIONS.map((option) => (
           <div className="Page-Box" style={{position: "relative"}}>
             <div style={{position: "absolute", top: "10px", right: "10px"}}>
-              <SpeechProvider>
-                <ConvertToSpeech text = {`${option.name}. ${option.optionText}`}></ConvertToSpeech>
-              </SpeechProvider>
-            </div>
+              <TTS text = {`${option.name}. ${option.optionText}`}></TTS>
+            </div> 
             <p className="subtitle" style={{ fontSize: "var(--large-text)", color: "var(--text-color-2)"}}>{option.name}</p>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center"}}>
               <NavOption setPage={setPage} destination={option.destination} text={option.optionText} buttonText={option.button} disabled={!hasValidKey}></NavOption>
