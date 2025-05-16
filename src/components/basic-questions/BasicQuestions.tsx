@@ -147,7 +147,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   }, [progress, popupTriggered, openPopup]);
 
   return (
-    <div>
+    <div data-testid="basic-page">
       <Form.Group controlId="basicQuestions">
         
         <div className="Basic-Page">
