@@ -1,10 +1,9 @@
 import {useState} from "react";
 import {Form, Button} from "react-bootstrap";
-import { SpeechProvider } from "../accessibility/SpeechContext";
-import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import "./AIQ.css"
 import { AIQuestions} from "./AIQuestions";
 import { CompletedQuiz } from "../popup/CompleteQuiz";
+import { TTS } from "../accessibility/TTS";
 
 interface AIQProps {
     setPage: (page: string) => void;
@@ -29,14 +28,12 @@ export function AIQuestionsPage({setPage, setQuestions, setAnswers, answers}: AI
             <div>      
             {!quiz && (<div className = "AIQ-Question-Page">
                 <div className="AIQ-Question-Box">
-                    <div className="AIQ-subtitle">{"What industry would you want to work in?"}
-                        <div style={{ margin: "10px" }}>
-                            <SpeechProvider>
-                                <ConvertToSpeech
-                                text="What industry would you want to work in?"
-                                />
-                            </SpeechProvider>
-                        </div> 
+                    <div className="AIQ-subtitle">{"What industry would you want to work in?"}                      
+                        < div style={{ margin: "10px" }} >
+                            <TTS
+                            text="What industry would you want to work in?"
+                            ></TTS>
+                        </div > 
                     </div> 
                     <div style={{fontSize: "var(--small-text)"}} className="AIQ-Response-Input">
                         <Form.Control

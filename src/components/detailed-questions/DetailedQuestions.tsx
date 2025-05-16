@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Detailed_Question } from "../../interfaces/detailed-question"
 import { ProgressBar } from "../progress-bar/progressBar";
-import { ConvertToSpeech } from "../accessibility/TextToSpeech";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
-import { SpeechProvider } from "../accessibility/SpeechContext";
+import { TTS } from "../accessibility/TTS";
 
 interface Detailed_Question_Props{
   openPopup:() => void;
@@ -120,9 +119,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
             <div className="Detailed-Question-Question">
               {currentQuestion.body}
               <div style={{margin: "10px"}}>
-                <SpeechProvider>
-                  <ConvertToSpeech text = {currentQuestion.body}></ConvertToSpeech>
-                </SpeechProvider>
+                <TTS text = {currentQuestion.body}></TTS>
               </div>
             </div>
             <Form.Control

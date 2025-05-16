@@ -3,8 +3,7 @@ import { getGPTResponse } from "../../AIQIntegration";
 import { AIQuestion } from "../../interfaces/ai-question";
 import { Form, Button } from "react-bootstrap";
 import { ProgressBar } from "../progress-bar/progressBar";
-import { SpeechProvider } from "../accessibility/SpeechContext";
-import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import { TTS } from "../accessibility/TTS";
 
 interface AIQuestionProps {
     openPopup: () => void;
@@ -120,11 +119,9 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
                         <div className="AIQ-Question-Box">
                           <div className="AIQ-Question-Question">{currentQuestion?.body}
                             <div style={{ margin: "10px" }}>
-                                <SpeechProvider>
-                                    <ConvertToSpeech
-                                        text = {currentQuestion?.body}
-                                    />
-                                </SpeechProvider>
+                                <TTS
+                                    text = {currentQuestion?.body}
+                                />
                             </div> 
                           </div>
                           <div className="AIQ-Response-Input">

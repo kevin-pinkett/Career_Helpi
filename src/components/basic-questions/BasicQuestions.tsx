@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
 import { ProgressBar } from "../progress-bar/progressBar";
-import { ConvertToSpeech } from "../accessibility/TextToSpeech";
+import { TTS } from "../accessibility/TTS";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
-import { SpeechProvider } from "../accessibility/SpeechContext";
 
 interface Basic_Question_Props{
   openPopup:() => void;
@@ -157,14 +156,12 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <div className="Basic-Question-Question">
               {currentQuestion.body}
               <div style={{margin: "10px"}}>
-                <SpeechProvider>
-                  <ConvertToSpeech text = {currentQuestion.body + "..." +
+                <TTS text = {currentQuestion.body + "..." +
                   currentQuestion.options.reduce((acc: string, option: string, index: number) => {
                     return `${acc} ${index+1} ${option}... `;
                     }, "")
-                  }></ConvertToSpeech>
-                </SpeechProvider>
-              </div>
+                }></TTS>
+              </div> 
             </div> 
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
