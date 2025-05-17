@@ -1,3 +1,9 @@
+/**
+ * 
+ * Co-pilot generated tests, reviewed kevin-pinkett
+ * 
+ */
+
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { DetailedQuestions } from "./DetailedQuestions";
