@@ -98,9 +98,7 @@ describe("DetailedQuestions", () => {
             />
         );
         const textarea = screen.getByPlaceholderText("Type your response here");
-        act(() => {
-            fireEvent.change(textarea, { target: { value: "My answer" } });
-        });
+        fireEvent.change(textarea, { target: { value: "My answer" } });
         expect(setAnswers).toHaveBeenCalledWith(expect.arrayContaining(["My answer"]));
         expect(screen.getByTestId("progress-bar")).toHaveTextContent("33.33333333333333");
     });
