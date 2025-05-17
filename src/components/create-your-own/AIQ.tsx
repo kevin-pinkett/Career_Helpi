@@ -3,7 +3,7 @@ import {Form, Button} from "react-bootstrap";
 import "./AIQ.css"
 import { AIQuestions} from "./AIQuestions";
 import { CompletedQuiz } from "../popup/CompleteQuiz";
-import { TTS } from "../accessibility/TTS";
+//import { TTS } from "../accessibility/TTS";
 
 interface AIQProps {
     setPage: (page: string) => void;
@@ -30,9 +30,9 @@ export function AIQuestionsPage({setPage, setQuestions, setAnswers, answers}: AI
                 <div className="AIQ-Question-Box">
                     <div className="AIQ-subtitle">{"What industry would you want to work in?"}                      
                         < div style={{ margin: "10px" }} >
-                            <TTS
+                            {/* <TTS
                             text="What industry would you want to work in?"
-                            ></TTS>
+                            ></TTS> */}
                         </div > 
                     </div> 
                     <div style={{fontSize: "var(--small-text)"}} className="AIQ-Response-Input">

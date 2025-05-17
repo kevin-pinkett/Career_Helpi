@@ -10,7 +10,7 @@ import { ResultsPage } from './components/results/Results';
 import { AIQuestionsPage } from './components/create-your-own/AIQ';
 import { ThemeProvider } from './components/dark-mode/theme-context';
 import { TextSizeProvider } from './components/text-size/TextSizeContext';
-import { TTS } from './components/accessibility/TTS';
+//import { TTS } from './components/accessibility/TTS';
 
 /**
  * The main application component for the Career Helpi app.
@@ -158,7 +158,7 @@ function App() {
                   }}></img>
                 <div style = {{fontSize: "var(--small-text)"}} className="Greeting-Text">
                   <div style={{position: "absolute", top: "10px", right: "10px"}}>
-                    <TTS text = "Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? Enter your ChatGPT API Key below to get started!"></TTS>
+                    {/* <TTS text = "Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? Enter your ChatGPT API Key below to get started!"></TTS> */}
                   </div> 
                   <span> Hello! My name's Ozzie, and I'm a career matching wizard! Ready to see what you're koalafied for? </span>
                   <span style={{ fontWeight: "bold" }}>Enter your ChatGPT API Key below to get started! </span>

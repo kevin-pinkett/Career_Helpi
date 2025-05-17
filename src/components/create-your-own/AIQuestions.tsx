@@ -3,7 +3,7 @@ import { getGPTResponse } from "../../AIQIntegration";
 import { AIQuestion } from "../../interfaces/ai-question";
 import { Form, Button } from "react-bootstrap";
 import { ProgressBar } from "../progress-bar/progressBar";
-import { TTS } from "../accessibility/TTS";
+//import { TTS } from "../accessibility/TTS";
 
 interface AIQuestionProps {
     openPopup: () => void;
@@ -119,9 +119,9 @@ export function AIQuestions({openPopup, industry, setQuiz, setQuestionBodies, se
                         <div className="AIQ-Question-Box">
                           <div className="AIQ-Question-Question">{currentQuestion?.body}
                             <div style={{ margin: "10px" }}>
-                                <TTS
+                                {/* <TTS
                                     text = {currentQuestion?.body}
-                                />
+                                /> */}
                             </div> 
                           </div>
                           <div className="AIQ-Response-Input">

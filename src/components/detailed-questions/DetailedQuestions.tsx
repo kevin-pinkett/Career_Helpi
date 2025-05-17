@@ -4,7 +4,7 @@ import { Detailed_Question } from "../../interfaces/detailed-question"
 import { ProgressBar } from "../progress-bar/progressBar";
 import detailedData from "../../data/detailed-questions.json"
 import "./DetailedQuestions.css"
-import { TTS } from "../accessibility/TTS";
+//import { TTS } from "../accessibility/TTS";
 
 interface Detailed_Question_Props{
   openPopup:() => void;
@@ -119,7 +119,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
             <div className="Detailed-Question-Question">
               {currentQuestion.body}
               <div style={{margin: "10px"}}>
-                <TTS text = {currentQuestion.body}></TTS>
+                {/* <TTS text = {currentQuestion.body}></TTS> */}
               </div>
             </div>
             <Form.Control

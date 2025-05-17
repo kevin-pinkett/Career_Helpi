@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Collapse, Card } from "react-bootstrap";
-import { TTS } from "../accessibility/TTS";
+//import { TTS } from "../accessibility/TTS";
 
 interface FAQQuestionProps{
     question: string;
@@ -28,7 +28,7 @@ export function FAQQuestion({question, answer}: FAQQuestionProps){
                 <Card body className="answer" data-testid="collapsed-answer">
                     {answer}
                     <div style={{ position: "absolute", bottom: "10px", right: "10px" }}>
-                        <TTS text = {question + " " + answer}></TTS>
+                        {/* <TTS text = {question + " " + answer}></TTS> */}
                     </div>
                 </Card>
             </div>
