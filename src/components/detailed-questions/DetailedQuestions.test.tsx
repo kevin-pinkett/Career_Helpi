@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, act } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { DetailedQuestions } from "./DetailedQuestions";
 
 // Mock dependencies
@@ -8,13 +8,6 @@ jest.mock("../progress-bar/progressBar", () => ({
         <div data-testid="progress-bar">{progress}</div>
     ),
 }));
-
-// Mock data
-const mockQuestions = [
-    { id: 1, body: "First question?" },
-    { id: 2, body: "Second question?" },
-    { id: 3, body: "Third question?" },
-];
 
 // Mock the imported JSON data
 jest.mock("../../data/detailed-questions.json", () => ({
