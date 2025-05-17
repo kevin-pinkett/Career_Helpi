@@ -1,3 +1,9 @@
+/**
+ * 
+ * Co-pilot generated tests, reviewed kevin-pinkett
+ * 
+ */
+
 import { fireEvent, render, screen } from "@testing-library/react"
 import { HomePage } from "./HomePage"
 
