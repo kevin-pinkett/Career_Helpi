@@ -116,7 +116,7 @@ export function DetailedQuestions({openPopup, setPage, setAnswers, setQuestions}
         <div className="Detailed-Page">
 
           <div className="Detailed-Question-Box">
-            <div className="Detailed-Question-Question">
+            <div className="Detailed-Question-Question" data-testid="question">
               {currentQuestion.body}
               <div style={{margin: "10px"}}>
                 <TTS text = {currentQuestion.body}></TTS>
