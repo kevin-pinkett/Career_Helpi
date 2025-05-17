@@ -25,7 +25,6 @@ import OpenAI from "openai";
  */
 export async function getGPTResponse(prompt: string, check: boolean = false, industry="") {
 
-
     const apiKey = JSON.parse(localStorage.getItem("MYKEY") || '""'); 
     if (!apiKey) {
         throw new Error("Missing API key");

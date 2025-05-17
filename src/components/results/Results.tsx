@@ -1,5 +1,4 @@
 import ResultsCard from "./ResultCard";
-
 import { useEffect, useState } from "react";
 import { getGPTResponse } from "../../GPTIntegration";
 import "./Results.css"

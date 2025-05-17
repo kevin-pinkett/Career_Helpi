@@ -1,3 +1,4 @@
+/*
 import { useEffect, useState } from "react";
 import "./TextToSpeech.css";
 
@@ -5,7 +6,7 @@ interface ConvertToSpeechProps {
   text: string;
 }
 
-/** Copilot Generated
+** Copilot Generated
  * Code influenced by ChatGPT
  * Text-to-Speech (TTS) component that converts a given text into speech
  * and provides play/pause functionality for the generated audio.
@@ -26,7 +27,7 @@ interface ConvertToSpeechProps {
  * ```tsx
  * <TTS text="Hello, world!" />
  * ```
- */
+ *
 export function TTS({ text }: ConvertToSpeechProps) {
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -110,3 +111,5 @@ async function getSpeech(text: string, apiKey: string): Promise<Blob> {
 
   return await response.blob();
 }
+*/ 
+//Commented out for using OpenAI allocation
