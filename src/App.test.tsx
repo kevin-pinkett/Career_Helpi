@@ -1,11 +1,17 @@
+/**
+ * 
+ * Co-pilot generated tests, reviewed kevin-pinkett
+ * 
+ */
+
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App Component tests', () => {
   test('Header exists.', () => {
     render(<App />);
-    const headerElement = screen.getByText(/The Career Helpi/);
+    const headerElement = screen.getByText(/Koalafi/);
     expect(headerElement).toBeInTheDocument();
   });
 

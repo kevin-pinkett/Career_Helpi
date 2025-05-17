@@ -1,3 +1,9 @@
+/**
+ * 
+ * Co-pilot generated tests, reviewed kevin-pinkett
+ * 
+ */
+
 import { render, screen, fireEvent } from "@testing-library/react";
 import { FAQQuestion } from "./FAQQuestion";
 import "@testing-library/jest-dom";

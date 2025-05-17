@@ -1,132 +1,150 @@
+/**
+ * 
+ * Co-pilot generated tests, reviewed kevin-pinkett
+ * 
+ */
+
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { DetailedQuestions } from "./DetailedQuestions";
 
-jest.mock("../../data/detailed-questions.json", () => [
-    { id: 0, body: "Question 1?", options: ["Option 1", "Option 2"] },
-    { id: 1, body: "Question 2?", options: ["Option A", "Option B"] },
-]);
+// Mock dependencies
+jest.mock("../progress-bar/progressBar", () => ({
+    ProgressBar: ({ progress }: { progress: number }) => (
+        <div data-testid="progress-bar">{progress}</div>
+    ),
+}));
 
-describe("BasicQuestions Component", () => {
-    const mockOpenPopup = jest.fn();
-    const mockSetPage = jest.fn();
-    const mockSetAnswers = jest.fn();
-    const mockSetQuestions = jest.fn();
+// Mock the imported JSON data
+jest.mock("../../data/detailed-questions.json", () => ({
+    1: { id: 1, body: "First question?" },
+    2: { id: 2, body: "Second question?" },
+    3: { id: 3, body: "Third question?" },
+}), { virtual: true });
+
+describe("DetailedQuestions", () => {
+    let openPopup: jest.Mock;
+    let setPage: jest.Mock;
+    let setAnswers: jest.Mock;
+    let setQuestions: jest.Mock;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        openPopup = jest.fn();
+        setPage = jest.fn();
+        setAnswers = jest.fn();
+        setQuestions = jest.fn();
     });
 
-    test("Renders the first question and its options", () => {
+    it("renders the first question and progress bar", () => {
         render(
             <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
+                openPopup={openPopup}
+                setPage={setPage}
+                setAnswers={setAnswers}
+                setQuestions={setQuestions}
             />
         );
-
-        expect(screen.getByText("Question 1?")).toBeInTheDocument();
-        expect(screen.getByLabelText("Option 1")).toBeInTheDocument();
-        expect(screen.getByLabelText("Option 2")).toBeInTheDocument();
+        expect(screen.getByTestId("question")).toHaveTextContent(/first/i);
+        expect(screen.getByTestId("progress-bar")).toBeInTheDocument();
+        expect(setQuestions).toHaveBeenCalledWith([
+            "First question?",
+            "Second question?",
+            "Third question?",
+        ]);
     });
 
-    test("Advances to the next question when 'Next' button is clicked", () => {
+    test("navigates to next and previous questions", () => {
         render(
             <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
+                openPopup={openPopup}
+                setPage={setPage}
+                setAnswers={setAnswers}
+                setQuestions={setQuestions}
             />
         );
-
+        // Next
         fireEvent.click(screen.getByText("Next"));
+        expect(screen.getByTestId("question")).toHaveTextContent(/second/i);
 
-        expect(screen.getByText("Question 2?")).toBeInTheDocument();
-        expect(screen.getByLabelText("Option A")).toBeInTheDocument();
-        expect(screen.getByLabelText("Option B")).toBeInTheDocument();
-    });
-
-    test("Regresses to the previous question when 'Previous' button is clicked", () => {
-        render(
-            <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
-            />
-        );
-
+        // Next again
         fireEvent.click(screen.getByText("Next"));
+        expect(screen.getByTestId("question")).toHaveTextContent(/third/i);
+
+        // Next at last question should stay at last
+        fireEvent.click(screen.getByText("Next"));
+        expect(screen.getByTestId("question")).toHaveTextContent(/third/i);
+
+        // Previous
         fireEvent.click(screen.getByText("Previous"));
+        expect(screen.getByTestId("question")).toHaveTextContent(/second/i);
 
-        expect(screen.getByText("Question 1?")).toBeInTheDocument();
+        // Previous again
+        fireEvent.click(screen.getByText("Previous"));
+        expect(screen.getByTestId("question")).toHaveTextContent(/first/i);
+
+        // Previous at first question should stay at first
+        fireEvent.click(screen.getByText("Previous"));
+        expect(screen.getByTestId("question")).toHaveTextContent(/first/i);
     });
 
-    test("Updates progress when an answer is selected", () => {
+    it("updates answer and progress", () => {
         render(
             <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
+                openPopup={openPopup}
+                setPage={setPage}
+                setAnswers={setAnswers}
+                setQuestions={setQuestions}
             />
         );
-
-        fireEvent.click(screen.getByLabelText("Option 1"));
-
-        expect(mockSetAnswers).toHaveBeenCalledWith([0, -1]);
+        const textarea = screen.getByPlaceholderText("Type your response here");
+        fireEvent.change(textarea, { target: { value: "My answer" } });
+        expect(setAnswers).toHaveBeenCalledWith(expect.arrayContaining(["My answer"]));
+        expect(screen.getByTestId("progress-bar")).toHaveTextContent("33.33333333333333");
     });
 
-    test("Triggers popup when all questions are answered", () => {
+    it("enables submit button only when all questions are answered", () => {
         render(
             <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
+                openPopup={openPopup}
+                setPage={setPage}
+                setAnswers={setAnswers}
+                setQuestions={setQuestions}
             />
         );
+        const submitButton = screen.getByText("Submit") as HTMLButtonElement;
+        expect(submitButton.disabled).toBe(true);
 
-        fireEvent.click(screen.getByLabelText("Option 1"));
+        // Answer all questions
+        const textarea = screen.getByPlaceholderText("Type your response here");
+        fireEvent.change(textarea, { target: { value: "A1" } });
         fireEvent.click(screen.getByText("Next"));
-        fireEvent.click(screen.getByLabelText("Option A"));
-
-        expect(mockOpenPopup).toHaveBeenCalled();
-    });
-
-    test("Disables 'Submit' button until all questions are answered", () => {
-        render(
-            <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
-            />
-        );
-
-        const submitButton = screen.getByText("Submit");
-        expect(submitButton).toBeDisabled();
-
-        fireEvent.click(screen.getByLabelText("Option 1"));
+        fireEvent.change(screen.getByPlaceholderText("Type your response here"), { target: { value: "A2" } });
         fireEvent.click(screen.getByText("Next"));
-        fireEvent.click(screen.getByLabelText("Option A"));
+        fireEvent.change(screen.getByPlaceholderText("Type your response here"), { target: { value: "A3" } });
 
-        expect(submitButton).not.toBeDisabled();
+        // All answered, progress should be 100
+        expect(screen.getByTestId("progress-bar")).toHaveTextContent("100");
+        expect(screen.getByText("Submit")).not.toBeDisabled();
     });
 
-    test("Calls setQuestions with the correct question bodies on mount", () => {
+    it("calls openPopup when submit is clicked", () => {
         render(
             <DetailedQuestions
-                openPopup={mockOpenPopup}
-                setPage={mockSetPage}
-                setAnswers={mockSetAnswers}
-                setQuestions={mockSetQuestions}
+                openPopup={openPopup}
+                setPage={setPage}
+                setAnswers={setAnswers}
+                setQuestions={setQuestions}
             />
         );
+        // Answer all questions
+        fireEvent.change(screen.getByPlaceholderText("Type your response here"), { target: { value: "A1" } });
+        fireEvent.click(screen.getByText("Next"));
+        fireEvent.change(screen.getByPlaceholderText("Type your response here"), { target: { value: "A2" } });
+        fireEvent.click(screen.getByText("Next"));
+        fireEvent.change(screen.getByPlaceholderText("Type your response here"), { target: { value: "A3" } });
 
-        expect(mockSetQuestions).toHaveBeenCalledWith(["Question 1?", "Question 2?"]);
+        // Submit
+        fireEvent.click(screen.getByText("Submit"));
+        expect(openPopup).toHaveBeenCalled();
     });
 });

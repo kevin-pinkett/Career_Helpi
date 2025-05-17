@@ -147,13 +147,13 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
   }, [progress, popupTriggered, openPopup]);
 
   return (
-    <div>
+    <div data-testid="basic-page">
       <Form.Group controlId="basicQuestions">
         
         <div className="Basic-Page">
           
           <div className="Basic-Question-Box">
-            <div className="Basic-Question-Question">
+            <div className="Basic-Question-Question" data-testid="question">
               {currentQuestion.body}
               <div style={{margin: "10px"}}>
                 {/* <TTS text = {currentQuestion.body + "..." +
@@ -167,7 +167,7 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <div className="Response-Box">
               {currentQuestion.options.map((option: string, r_index: number) => (
                 <div>
-                  <Button className="Answer-Button" onClick={() => handleAnswerChange(currentQuestion.id, option)}
+                  <Button className="Answer-Button" data-testid={`Option ${r_index + 1}`}onClick={() => handleAnswerChange(currentQuestion.id, option)}
                     style={{ backgroundColor: basicAnswers[currentQuestionId] === option ? "#FE604D" : "white",
                              color: basicAnswers[currentQuestionId] === option ? "white" : "black"
                     }}>
