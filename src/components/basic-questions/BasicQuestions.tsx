@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Basic_Question } from "../../interfaces/basic-question";
 import { ProgressBar } from "../progress-bar/progressBar";
-import { TTS } from "../accessibility/TTS";
+//import { TTS } from "../accessibility/TTS";
 
 import basicData from "../../data/basic-questions.json"
 import "./BasicQuestions.css"
@@ -156,11 +156,12 @@ export function BasicQuestions({openPopup, setPage, setAnswers, setQuestions}: B
             <div className="Basic-Question-Question" data-testid="question">
               {currentQuestion.body}
               <div style={{margin: "10px"}}>
-                <TTS text = {currentQuestion.body + "..." +
+                {/* <TTS text = {currentQuestion.body + "..." +
                   currentQuestion.options.reduce((acc: string, option: string, index: number) => {
                     return `${acc} ${index+1} ${option}... `;
                     }, "")
                 }></TTS>
+                 */}
               </div> 
             </div> 
             <div className="Response-Box">

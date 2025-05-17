@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import "./ResultCard.css";
-import { TTS } from "../accessibility/TTS";
+//import { TTS } from "../accessibility/TTS";
 
 
 
@@ -37,14 +37,14 @@ function ResultsCard({ title, description, traits, jobRoles, skills, link}: Resu
         <Card>
             <div style={{ position: "absolute", top: "10px", right: "10px" }}>
 
-                <TTS
+                {/* <TTS
                     text = {`${title}. 
                     ${description}
                     Traits: ${traits.join(", ")}.
                     Potential Job Roles: ${jobRoles.join(", ")}.
                     Skills: ${skills.join(", ")}.
                     `}
-                />
+                /> */}
             </div>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

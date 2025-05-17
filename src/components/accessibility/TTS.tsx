@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import "./TextToSpeech.css";
 
@@ -110,3 +111,4 @@ async function getSpeech(text: string, apiKey: string): Promise<Blob> {
 
   return await response.blob();
 }
+//Commented out for using OpenAI allocation
