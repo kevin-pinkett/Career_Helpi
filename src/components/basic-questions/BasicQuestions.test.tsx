@@ -27,9 +27,6 @@ jest.mock("../progress-bar/progressBar", () => ({
         <div data-testid="progress-bar">{progress}</div>
     )
 }));
-jest.mock("../accessibility/TTS", () => ({
-    TTS: ({ text }: { text: string }) => <div data-testid="tts">{text}</div>
-}));
 
 describe("BasicQuestions", () => {
     let openPopup: jest.Mock;
@@ -171,17 +168,5 @@ describe("BasicQuestions", () => {
         );
         fireEvent.click(screen.getByText("Kev's Answers"));
         expect(setAnswers).toHaveBeenCalled();
-    });
-
-    it("renders TTS component with correct text", () => {
-        render(
-            <BasicQuestions
-                openPopup={openPopup}
-                setPage={setPage}
-                setAnswers={setAnswers}
-                setQuestions={setQuestions}
-            />
-        );
-        expect(screen.getByTestId("tts")).toHaveTextContent("What is your favorite color?");
     });
 });

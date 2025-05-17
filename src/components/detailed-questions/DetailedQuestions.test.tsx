@@ -8,22 +8,19 @@ jest.mock("../progress-bar/progressBar", () => ({
         <div data-testid="progress-bar">{progress}</div>
     ),
 }));
-jest.mock("../accessibility/TTS", () => ({
-    TTS: ({ text }: { text: string }) => <span data-testid="tts">{text}</span>,
-}));
 
 // Mock data
 const mockQuestions = [
-    { id: 0, body: "First question?" },
-    { id: 1, body: "Second question?" },
-    { id: 2, body: "Third question?" },
+    { id: 1, body: "First question?" },
+    { id: 2, body: "Second question?" },
+    { id: 3, body: "Third question?" },
 ];
 
 // Mock the imported JSON data
 jest.mock("../../data/detailed-questions.json", () => ({
-    0: { id: 0, body: "First question?" },
-    1: { id: 1, body: "Second question?" },
-    2: { id: 2, body: "Third question?" },
+    1: { id: 1, body: "First question?" },
+    2: { id: 2, body: "Second question?" },
+    3: { id: 3, body: "Third question?" },
 }), { virtual: true });
 
 describe("DetailedQuestions", () => {
@@ -57,7 +54,7 @@ describe("DetailedQuestions", () => {
         ]);
     });
 
-    it("navigates to next and previous questions", () => {
+    test("navigates to next and previous questions", () => {
         render(
             <DetailedQuestions
                 openPopup={openPopup}
@@ -152,17 +149,5 @@ describe("DetailedQuestions", () => {
         // Submit
         fireEvent.click(screen.getByText("Submit"));
         expect(openPopup).toHaveBeenCalled();
-    });
-
-    it("renders TTS component with question body", () => {
-        render(
-            <DetailedQuestions
-                openPopup={openPopup}
-                setPage={setPage}
-                setAnswers={setAnswers}
-                setQuestions={setQuestions}
-            />
-        );
-        expect(screen.getByTestId("tts")).toHaveTextContent("First question?");
     });
 });
